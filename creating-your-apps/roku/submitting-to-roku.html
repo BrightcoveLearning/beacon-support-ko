@@ -1,0 +1,1285 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="이 항목에서는 디바이스 앱을 Roku 스토어에 제출하는 방법을 배우게 됩니다." />
+
+    <title>로쿠 스토어에 앱 제출</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">기타 브라이트코브 문서</option>
+      
+        
+          <option value="https://support.brightcove.com">설명서 홈</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/creating-your-apps/roku/">로쿠</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">로쿠 스토어에 앱 제출</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">홈</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">학습 가이드</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">구현 단계</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">응용 프로그램 설계 고려 사항</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">앱 디자인 - 정보 아키텍처</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">앱 디자인 - 레이아웃 옵션</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">설계 모범 사례</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html">비디오 클라우드와 동기화<strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">비디오 클라우드 사용자 정의 필드 만들기</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">강제 동기화</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">브라이트코브 비콘 사용<strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">페이지에 회전 목마 추가</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">채널 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">EPG (전자 프로그램 안내서) 작성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">새 페이지 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">재생 목록 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">가입 패키지 작성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">프로모션 코드 생성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">시리즈/시즌/에피소드 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">서버 측 광고 설정 구성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">AuthVoD 구현</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">라이브 SSAI의 구현</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">VOD SSAI를 구현하기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">구성할 수 없는 페이지 포함</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">소개 페이지</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">라이브 이벤트 스트리밍</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">채널로 VOD 스트리밍</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">수익 창출 옵션 이해</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">가입 패키지 사용</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">도구 사용</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">분석 데이터 보기</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">앱 만들기<strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">안드로이드<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">안드로이드 스토어에 새로운 앱 제출</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">브라이트코브 비콘으로 안드로이드 앱 업데이트</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">안드로이드에 구독 추가</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">안드로이드 Play 스토어에서 검색 관련성 향상</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">안드로이드 테스트 빌드 설치</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html"><strong>파이어 TV</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">화재 TV 테스트 빌드 설치</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">아마존 스토어에 제출</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html"><strong>iOS/TVOS</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">iOS/TVOS 테스트 빌드 설치</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">애플 스토어에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">파나소닉<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">파나소닉 스토어에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">로쿠<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">Roku에서 채널 내 제품 구성</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">Roku 테스트 빌드 설치</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">로쿠 스토어에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">삼성<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">삼성 파트너 되기</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">삼성 상점에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">일반적인 필수 정보</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">디바이스 앱 검증 가이드</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">참고 문헌 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">일반 구성 설정</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">스트라이프 계정 생성</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">용어집</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">이미지 및 사양</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">알려진 문제</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">제품 업데이트</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">비디오 클라우드 비디오/사용자 정의 필드 사용</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">응용 프로그램 레이아웃 디자인</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">재생 목록 만들기 및 사용</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">시리즈, 계절 및 에피소드 만들기</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">VOD 서버 측 광고 구현</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">Play 스토어에 안드로이드 앱 게시</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">분석 데이터 보기</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">브라이트코브 답변</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<h1>로쿠 스토어에 앱 제출</h1>
+<article class="bcls-article">
+  <summary>이 항목에서는 디바이스 앱을 Roku 스토어에 제출하는 방법을 배우게 됩니다.</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">서문</h2>
+    <p>
+      브라이트코브 비콘을 사용하면 생성된 디바이스 앱을 Roku 채널 스토어에 추가할 수 있습니다.
+    </p>
+    <ul>
+      <li>
+        매장 상세 정보: <a href="https://developer.roku.com/overview"> https://developer.roku.com/overview </a>
+      </li>
+      <li>
+        개발자 계정 설정: <a href="https://my.roku.com/signup">https://my.roku.com/signup</a>
+      </li>
+      <li>
+        로쿠 검색 구현: <a href="https://developer.roku.com/en-gb/docs/developer-program/discovery/search/implementing-search.md">https://developer.roku.com/en-gb/docs/developer-program/discovery/search/implementing-search.md</a>
+      </li>
+      <li>승인을 위한 제안된 리드 타임: 쓰리 주</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--warning language-editable">
+      모든 기기에서 채널을 검색할 수 있도록 게시한 후 최대 48시간이 걸릴 수 있습니다. 로쿠 사이트에서: <a href="https://partnersuccess.roku.com/hc/en-us/articles/360007222714" target="_blank">내 채널이 방금 게시되었습니다. 검색에서 찾을 수 없는 이유는 무엇인가요?</a>
+    </aside>
+    <h3>Roku 에 필요한 정보:</h3>
+    <ul>
+      <li>
+        포스터 및 스크린샷 요구 사항
+        <ul>
+          <li>채널 포스터 (540x405)</li>
+          <li>스크린 샷 최대 1920x1080</li>
+        </ul>
+      </li>
+      <li>개발자 이메일</li>
+      <li>자세한 내용은 기본 URL</li>
+      <li>관리 담당자 (이름/전화/이메일)</li>
+      <li>기술 담당자 (이름/전화/이메일)</li>
+      <li>스토어에서 QA에 대한 앱 로그인을 설정하는 클라이언트</li>
+    </ul>
+    <!-- <figure class="bcls-figure">
+        <img class="bcls-image--no-border" width="350" src="//beacon.support.brightcove.com/assets/images/pages/home-example.png" alt="Home with carousels">
+        <figcaption class="bcls-caption--image">Home with carousels</figcaption>
+      </figure> -->
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Getting_started">시작하기</h2>
+    <p>Roku 개발자 페이지에 액세스하려면 다음 단계를 따르십시오.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          브라우저에서<a href="https://my.roku.com/index">Roku 로그인</a>페이지로 이동합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/roku-login.png" alt="로쿠 로그인"/>
+          <figcaption class="bcls-caption--image">로쿠 로그인</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          계정으로 로그인하거나 새 계정을 만듭니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Adding_a_channel">채널 추가</h2>
+    <p>채널을 추가하는 방법에 대해 알아봅니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>상단 탐색에서 프로파일 아이콘을 클릭합니다.</li>
+      <li> <p>드롭 다운 메뉴에서<strong>개발자</strong>옵션을 클릭하십시오.  </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/profile-developer-option.png" alt="개발자 옵션" width="400" height="600"/>
+          <figcaption class="bcls-caption--image">개발자 옵션</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          위쪽 탐색에서<strong>대시보드</strong>링크를 선택합니다.
+        </p>
+      </li>
+      <li>
+        <p>
+          대시보드에서 채널을 관리할 수 있습니다. <strong>채널 추가</strong>버튼을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/add-channel-button.png" alt="채널 관리"/>
+          <figcaption class="bcls-caption--image">채널 관리</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          <strong>개발자 SDK</strong>옵션을 선택하면 공개 또는 인증되지 않은 채널에 대한 옵션이 표시됩니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/developer-sdk-channel.png" alt="개발자 SDK 채널"/>
+          <figcaption class="bcls-caption--image">
+            개발자 SDK 채널
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널을 스토어로 이동하려면 [ <strong>공개</strong> ] 을 선택합니다. 테스트 채널을 만들려면<strong>비인증</strong>을 선택합니다.
+        </p>
+        <aside class="bcls-aside bcls-aside--warning">
+          채널 이름은<strong>공개</strong>채널과<strong>비인증</strong>채널 모두에서 고유해야 합니다.
+        </aside>
+        <p>
+          다음을 권장합니다.
+        </p>
+        <ul>
+          <li>
+            <strong>공개</strong>채널 이름 (예: <strong>목적지</strong> ) 을 만듭니다.
+          </li>
+          <li>
+            <p>
+              <strong>QA</strong>접미사를 사용하여<strong>인증되지 않은</strong>테스트 채널을 만듭니다. 따라서, 이 경우<strong>목적지 QA로</strong>이름이 지정됩니다.
+            </p>
+          </li>
+        </ul>
+        <p>
+          첫째, 우리는 공개 채널을 만들고 있습니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/channel-public.png" alt="공용 채널"/>
+          <figcaption class="bcls-caption--image">공용 채널</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          다음으로, 우리는 테스트 채널을 생성한다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/channel-qa.png" alt="테스트 채널"/>
+          <figcaption class="bcls-caption--image">테스트 채널</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Channel_properties">채널 속성</h2>
+    <p>속성은 각 채널과 연관됩니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          개발자 대시보드로 돌아가서<strong>내 채널 관리</strong>링크를 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/manage-properties.png" alt="등록 정보 관리"/>
+          <figcaption class="bcls-caption--image">등록 정보 관리</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널의 경우<strong>미리보기 및 업데이트</strong>버튼을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/update-properties.png" alt="등록 정보 업데이트"/>
+          <figcaption class="bcls-caption--image">등록 정보 업데이트</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          [ <strong>미리 보기] 및 [게시</strong> ] 드롭다운 메뉴를 확장하고 [ <strong>속성</strong> ] 을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/properties-dropdown.png" alt="등록 정보 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            등록 정보 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널 속성 목록이 표시됩니다. 왼쪽에 채널이 표시될 채널 스토어 국가 목록이 표시됩니다. 테스트를 위해 모든 국가를 선택할 수 있습니다. 라이브 채널의 경우 채널을 표시할 국가를 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/countries.png" alt="채널 스토어 국가"/>
+          <figcaption class="bcls-caption--image">
+            채널 스토어 국가
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          내게 필요한 옵션 기능 및 규정 준수를 보려면<strong>예를</strong>선택합니다. 모든 브라이트코브 비콘 앱은 이러한 요구 사항을 충족합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/accessibility.png" alt="접근성"/>
+          <figcaption class="bcls-caption--image">접근성</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          콘텐츠에 따라 적절한 콘텐츠 등급을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/content-rating.png" alt="콘텐츠 등급"/>
+          <figcaption class="bcls-caption--image">콘텐츠 등급</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널 기능에 액세스하는 데 고객 계정이 필요한지 여부를 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/customer-account.png" alt="고객 계정"/>
+          <figcaption class="bcls-caption--image">고객 계정</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          전체 앱과 연결된 개인 정보 보호 정책의 URL을 입력합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/privacy-policy.png" alt="개인 정보 보호 정책"/>
+          <figcaption class="bcls-caption--image">개인 정보 보호 정책</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          허영 액세스 코드는 Roku에 의해 자동으로 생성됩니다. 이 값은 그대로 둘 수 있습니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/vanity-code.png" alt="허니티 코드"/>
+          <figcaption class="bcls-caption--image">허니티 코드</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          지원하려는 언어를 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/langugages.png" alt="언어:"/>
+          <figcaption class="bcls-caption--image">언어:</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          <strong>필수 기능의 경우</strong>먼저 채널을 가장 잘 설명하는<strong>분류를</strong>선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/classification.png" alt="분류:"/>
+          <figcaption class="bcls-caption--image">분류:</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          그런 다음 앱에 인터넷 연결이 필요한지 여부를 지정합니다. 채널의 속성 업데이트를 완료했으면<strong>저장</strong>버튼을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/internet.png" alt="인터넷 연결"/>
+          <figcaption class="bcls-caption--image">
+            인터넷 연결
+          </figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Channel_store_info">채널 스토어 정보</h2>
+    <p>여기에 채널에 대한 설명과 아이콘을 추가합니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          [미리 보기] 및 [게시] 페이지로 돌아가서 [ <strong>미리 보기] 및 [게시</strong> ] 드롭다운 메뉴를 확장한 다음 [ <strong>채널 저장소 정보</strong> ] 를 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/store-info/dropdown-menu.png" alt="채널 스토어 정보 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            채널 스토어 정보 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널 저장소 정보에 대해 다음 필드 값을 입력합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/store-info/store-info-screen.png" alt="채널 스토어 정보"/>
+          <figcaption class="bcls-caption--image">
+            채널 스토어 정보
+          </figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>채널 이름</strong> - 이미 채널 이름으로 채워져 있어야 합니다.
+          </li>
+          <li>
+            <strong>설명</strong> - 채널에 대한 자세한 설명을 추가, 채널 저장소 설명에 나타납니다. (300자)
+          </li>
+          <li>
+            <strong>웹 설명</strong> - 채널의 미국 웹 기반 마케팅에 대한 채널 설명을 입력합니다. 이 옵션은 장치에 표시되지 않습니다. (1500자)
+          </li>
+          <li>
+            <strong>채널 포스터</strong> - Roku 채널 스토어에 표시할 포스터 이미지를 추가합니다. (540 x 405 제이펙트 또는 PNG)
+          </li>
+          <li>
+            <strong>설명 범주</strong> - 표시할 채널을 선택합니다. (예: 스포츠, 드라마, 코미디 등)
+          </li>
+          <li>
+            <strong>국내 지역</strong> - 채널이 네이티브 및/또는 국내 국가로 간주되는 국가를 선택합니다. 채널은 내 채널을 포함하는 모든 지역 채널 스토어의 “해외” 카테고리에 표시됩니다. 단, 국내 지역과 연결된 채널 스토어는 예외입니다.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          채널 저장소 정보 추가를 완료했으면<strong>저장</strong>버튼을 선택합니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Monetization">수익 창출</h2>
+    <p>여기에 채널에 대한 수익 창출 정보를 추가합니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          [미리 보기] 및 [게시] 페이지로 돌아가서 [ <strong>미리 보기] 및 [게시</strong> ] 드롭다운 메뉴를 확장한 다음 [ <strong>수익 창출</strong> ] 을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/monetization/monetization-option.png" alt="수익 창출 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            수익 창출 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널에 구독 모델을 추가할지 아니면 지원할지를 지정합니다.</p>
+          <aside class="bcls-aside bcls-aside--information">브라이트코브 SSAI를 사용하는 경우에도 Roku의<strong>파트너 지불금 프로그램에</strong>등록해야 합니다. 광고 재생 중에 광고 콜백을 만드는 것은 Roku 매장 요구 사항입니다.</aside>
+        
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/monetization/monetization-page.png" alt="수익 창출"/>
+          <figcaption class="bcls-caption--image">수익 창출</figcaption>
+        </figure>
+        <p>
+          구독 채널의 경우 다음 정보가 포함됩니다.
+        </p>
+        <ul>
+          <li>
+            <strong>구매 유형</strong> - 사용자가 채널에 대해 청구하는 방법입니다. (1회, 월간, 연간 등)
+          </li>
+          <li>
+            <strong>가격 계층</strong> - 드롭다운 메뉴에서 값을 선택합니다. EU 채널 스토어 국가의 구매 가격에는 VAT가 포함되어 있습니다. 수익금은 세전 (순) 가격을 기준으로 합니다.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          수익 창출 정보 추가를 완료했으면<strong>저장</strong>버튼을 선택합니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Screenshots">스크린샷</h2>
+    <p>여기에서 채널에 스크린 샷을 추가 할 수 있습니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          미리 보기 및 게시 페이지로 돌아가서<strong>미리 보기 및 게시</strong>드롭다운 메뉴를 확장하고<strong>스크린샷을</strong>선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/screenshots/screenshots-menu.png" alt="스크린샷 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            스크린샷 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          채널 스토어에 표시될 스크린샷을 추가합니다.
+        </p>
+        <p>
+          스크린샷을 최대 6개까지 추가할 수 있습니다. 각 파일은 1920 x 1080 JPEG 또는 PNG 파일이어야 합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/screenshots/screenshots-page.png" alt="스크린샷"/>
+          <figcaption class="bcls-caption--image">스크린샷</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          스크린샷을 추가했으면<strong>저장</strong>버튼을 선택합니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Support_information">지원 정보</h2>
+    <p>채널 지원에 도움이 되는 연락처 정보를 제공하십시오.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          미리 보기 및 게시 페이지로 돌아가서<strong>미리 보기 및 게시</strong>드롭다운 메뉴를 확장하고<strong>지원 정보를</strong>선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/support-info/support-menu.png" alt="지원 정보 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            지원 정보 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          지원 정보에 다음 필드 값을 입력합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/support-info/support-page.png" alt="지원 정보"/>
+          <figcaption class="bcls-caption--image">
+            지원 정보
+          </figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>개발자 이메일</strong> - 개발자 이메일 주소를 입력합니다. 올바르지 않은 경우 연락처 정보를 업데이트하십시오.
+          </li>
+          <li>
+            <strong>기본 URL</strong> - 채널의 URL을 지정합니다. 이 정보는 Roku 웹사이트 또는 뉴스레터에서 귀하의 채널로 연결되는 링크에 사용될 수 있습니다.
+          </li>
+          <li>
+            <strong>최종 사용자 지원 연락처</strong> - 웹 페이지, 이메일 주소 또는 전화 번호 또는 이들 중 여러 개를 제공합니다. Roku는 채널 관련 고객 서비스에 문의할 때 이를 사용합니다. (300자) 필수 항목입니다.
+          </li>
+          <li>
+            <p>
+              <strong>계정 및 딥 링크 매개 변수 테스트</strong> - 딥 링크로 열려는 자산을 브라이트코브에 알리면 딥 링크 매개 변수가 업데이트됩니다. 계정 공유를 설정하지 않으려는 경우 브라이트코브가 매개 변수를 제공합니다.
+            </p>
+            <p>
+              또한 3개의 테스트 계정에 대한 자격 증명을 제공합니다. 이러한 계정은 고객 지원, 데모 및 QA에 사용됩니다. (1500자) 구독이 서로 다른 계정이 있는 경우 채널 스토어에서 모든 계정에 액세스할 수 있도록 여기에 계정을 나열해야 합니다.
+            </p>
+          </li>
+          <li>
+            <strong>관리 연락처</strong> - 앱에 대한 관리자 연락처 정보를 제공합니다.
+          </li>
+          <li>
+            <strong>기술 연락처</strong> - 앱에 대한 기술 연락처 정보를 제공합니다.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          지원 정보를 모두 추가했으면<strong>저장</strong>단추를 선택합니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Package_upload">패키지 업로드</h2>
+    <p>채널에 패키지를 업로드합니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          미리 보기 및 게시 페이지로 돌아가서<strong>미리 보기 및 게시</strong>드롭다운 메뉴를 확장한 다음<strong>패키지 업로드를</strong>선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/package/package-menu.png" alt="패키지 업로드 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            패키지 업로드 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          먼저 이메일 주소를 확인해야 합니다. 그런 다음 업로드 할 수 있습니다.
+        </p>
+      </li>
+      <li>
+        <p>
+          패키지 업로드에 다음 필드 값을 입력합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/package/package-page.png" alt="패키지 업로드"/>
+          <figcaption class="bcls-caption--image">패키지 업로드</figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>채널 버전</strong> - 버전 1.0부터 앱 버전을 지정합니다.
+          </li>
+          <li>
+            <strong>최소 펌웨어</strong> - Roku 펌웨어 버전을 선택합니다. 이 패키지는 최소 펌웨어 버전 이상을 지원하는 장치에서만 실행됩니다. 우리가 추천하는 최신 안정 빌드 버전은 Roku v9.2 BL입니다.
+          </li>
+          <li>
+            <strong>패키지 파일</strong> - 패키지 파일은 사용자 또는 브라이트코브에서 업로드할 수 있습니다. 이 파일의 이름은 다음과 같습니다. 비콘_1.0.6138.포크입니다.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          패키지 업로드 정보 추가를 완료했으면<strong>저장</strong>버튼을 선택합니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Static_analysis">정적 분석</h2>
+    <p>채널에 대한 분석 보고서를 작성합니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          [미리 보기 및 게시] 페이지로 돌아가서 [ <strong>미리 보기] 및 [게시</strong> ] 드롭다운 메뉴를 확장한 다음 [ <strong>정적 분석</strong> ] 을 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/static-analysis/static-analysis-menu.png" alt="정적 분석 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            정적 분석 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          이전 섹션에서 패키지를 업로드하면 패키지가 구조 또는 구문의 오류를 분석합니다. 테이블은 오류 및 경고와 함께 표시 될 수 있습니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/static-analysis/static-analysis-page.png" alt="정적 분석"/>
+          <figcaption class="bcls-caption--image">정적 분석</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Preview_and_publish">미리 보기 및 게시</h2>
+    <p>
+      채널과 관련된 모든 양식을 작성했으면<strong>미리 보기 및 게시</strong>화면이 표시됩니다.
+    </p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          [미리 보기 및 게시] 페이지로 돌아가서 [ <strong>미리 보기] 및 [게시</strong> ] 드롭다운 메뉴를 확장하고 [ <strong>미리 보기] 및 [게시</strong> ] 를 선택합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/publish/publish-menu.png" alt="미리 보기 및 게시 드롭다운 메뉴"/>
+          <figcaption class="bcls-caption--image">
+            미리 보기 및 게시 드롭다운 메뉴
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          이 페이지에서는 채널의 요약 미리보기를 제공합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/publish/publish-page.png" alt="미리 보기 및 게시"/>
+          <figcaption class="bcls-caption--image">
+            미리 보기 및 게시
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          준비가 되면 [ <strong>제출</strong> ] 버튼을 선택하여 채널을 게시합니다.
+        </p>
+      </li>
+      <li>
+        <p>
+          Roku 스토어에서 앱을 확인하여 문제가 있는지 확인합니다. 어떤 이유로든 채널이 거부되면<strong>지원 정보</strong>화면에서 설정한<strong>개발자 이메일로 이메일이</strong>전송됩니다. 거절 이유를 검토하고 브라이트코브 지원 티켓을 만들어 문제를 해결하십시오.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Updating_your_channel">채널 업데이트</h2>
+    <p>기존 앱을 업데이트하려면 다음 단계를 따르세요.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          새 Roku 패키지를 만듭니다.
+        </p>
+        <p>
+          새 패키지에 고유 ID와 암호를 지정하십시오. 브라이트코브에 이 패키지의 키와 함께 새 패키지를 제공합니다. 새 패키지를 상점에 제출하려면 새 정보가 필요합니다.
+        </p>
+        <p>
+          채널 이름을 변경하려면 채널 저장소 내에서 고유해야 합니다.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/updating-channel/manage-channels.png" alt="채널 관리"/>
+          <figcaption class="bcls-caption--image">채널 관리</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">페이지 내용</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  20207월 9일에 마지막으로 업데이트한 페이지
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>브라이트코브 지원</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">시스템 상태</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">문서화</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>교육</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">궁금한 사항이 있으십니까? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

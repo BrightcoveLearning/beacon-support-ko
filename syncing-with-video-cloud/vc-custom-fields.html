@@ -1,0 +1,1297 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+
+    <title>비디오 클라우드 사용자 정의 필드 만들기</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">기타 브라이트코브 문서</option>
+      
+        
+          <option value="https://support.brightcove.com">설명서 홈</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/syncing-with-video-cloud/">비디오 클라우드와 동기화</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">비디오 클라우드 사용자 정의 필드 만들기</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">홈</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">학습 가이드</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">구현 단계</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">응용 프로그램 설계 고려 사항</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">앱 디자인 - 정보 아키텍처</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">앱 디자인 - 레이아웃 옵션</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">설계 모범 사례</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html">비디오 클라우드와 동기화<strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">비디오 클라우드 사용자 정의 필드 만들기</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">강제 동기화</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">브라이트코브 비콘 사용<strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">페이지에 회전 목마 추가</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">채널 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">EPG (전자 프로그램 안내서) 작성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">새 페이지 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">재생 목록 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">가입 패키지 작성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">프로모션 코드 생성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">시리즈/시즌/에피소드 만들기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">서버 측 광고 설정 구성</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">AuthVoD 구현</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">라이브 SSAI의 구현</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">VOD SSAI를 구현하기</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">구성할 수 없는 페이지 포함</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">소개 페이지</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">라이브 이벤트 스트리밍</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">채널로 VOD 스트리밍</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">수익 창출 옵션 이해</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">가입 패키지 사용</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">도구 사용</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">분석 데이터 보기</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">앱 만들기<strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">안드로이드<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">안드로이드 스토어에 새로운 앱 제출</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">브라이트코브 비콘으로 안드로이드 앱 업데이트</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">안드로이드에 구독 추가</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">안드로이드 Play 스토어에서 검색 관련성 향상</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">안드로이드 테스트 빌드 설치</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html"><strong>파이어 TV</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">화재 TV 테스트 빌드 설치</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">아마존 스토어에 제출</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html"><strong>iOS/TVOS</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">iOS/TVOS 테스트 빌드 설치</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">애플 스토어에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">파나소닉<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">파나소닉 스토어에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">로쿠<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">Roku에서 채널 내 제품 구성</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">Roku 테스트 빌드 설치</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">로쿠 스토어에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">삼성<strong>+</strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">삼성 파트너 되기</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">삼성 상점에 제출하기</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">일반적인 필수 정보</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">디바이스 앱 검증 가이드</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">참고 문헌 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">일반 구성 설정</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">스트라이프 계정 생성</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">용어집</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">이미지 및 사양</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">알려진 문제</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">제품 업데이트</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">비디오 클라우드 비디오/사용자 정의 필드 사용</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">응용 프로그램 레이아웃 디자인</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">재생 목록 만들기 및 사용</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">시리즈, 계절 및 에피소드 만들기</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">VOD 서버 측 광고 구현</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">Play 스토어에 안드로이드 앱 게시</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">분석 데이터 보기</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">브라이트코브 답변</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<article class="bcls-article">
+    <h1>비디오 클라우드 사용자 정의 필드 만들기</h1>
+    <summary>
+        이 항목에서는 브라이트코브 비콘과의 동기화에 필요한 Video Cloud 사용자 정의 필드를 볼 수 있습니다.
+    </summary>
+    <section class="bcls-section">
+        <h2 id="Introduction">서문</h2>
+        <p>
+            Video Cloud에서 브라이트코브 비콘으로 가져올 동영상은 브라이트코브 비콘에서 적절하게 사용할 수 있도록 정의된 풍부한 메타데이터 세트가 있어야 합니다. 이 문서에서는 Studio에서 새 사용자 정의 필드를 만드는 방법을 볼 수 있습니다. 또한 브라이트코브 비콘에 필요한 필드가 정의됩니다.
+    </section>
+    <section class="bcls-section">
+        <h2 id="Creating_custom_fields">사용자 정의 필드 만들기</h2>
+        <p>사용자 지정 필드를 만들려면 다음과 같이 하십시오.</p>
+        <ol class="bcls-tasklist">
+            <li>비디오 클라우드 스튜디오에 로그인합니다.</li>
+            <li>
+                탐색 헤더에서<strong>ADMIN을</strong>클릭한 다음<strong>비디오 필드를</strong>클릭합니다. ADMIN 메뉴에 액세스하려면 계정 관리자여야 합니다.
+            </li>
+            <li>
+                다음 스크린샷과 같이 비디오 필드 페이지에는 사용자 정의 필드와 모든 표준 비디오 메타데이터 필드가 표시됩니다. <figure class="bcls-figure"> <img class="bcls-image" src="https://img.brightcove.com/node1050-custom-fields-overview1.png" alt=""/> </figure>
+            </li>
+            <li>
+                <strong>사용자 정의 필드 추가를</strong>클릭합니다.
+                <figure class="bcls-figure"> <img class="bcls-image" src="https://img.brightcove.com/node1050-new-custom-field1.png" alt=""/> </figure>
+            </li>
+            <li>
+                <p>
+                    <strong>표시 이름을</strong>입력합니다. 업로드 및 미디어 모듈의 필드에 대한 레이블로 나타납니다. 표시<strong>이름을 기반으로 필드에 대한 내부</strong>이름이 자동으로 생성됩니다.
+                </p>
+                <aside class="bcls-aside bcls-aside--information language-editable"> 참고: 브라이트코브 비콘으로 성공적으로 가져오기 위해 사용할 표시 이름은 모두 이 문서의 뒷부분에 명시되어 있습니다.
+                </aside>
+            </li>
+            <li>
+                필드에 대해<strong>유형을</strong>선택합니다.
+                <ul>
+                    <li>
+                        <strong>텍스트</strong> - 사용자는 최대 1024개의 싱글바이트 문자 (또는 512개의 더블바이트 문자) 까지 필드에 아무 것도 입력할 수 있습니다.
+                    </li>
+                    <li>
+                        <strong>목록</strong> - 사용자가 값 목록에서 선택합니다. 목록에 값으로 150개 이하를 입력할 수 있으며, 목록의 각 값은 100자 길이 이내로 입력할 수 있습니다.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>설명을</strong>입력합니다. 설명 필드는 Studio 인터페이스에 힌트로 나타납니다.
+            </li>
+            <li>
+                사용자 정의 필드가 필요한 경우<strong>이 필드를 필수로 만들기를</strong>선택합니다.
+            </li>
+            <li>
+                <p>
+                    필드 유형이<strong>목록</strong>인 경우, 값의 쉼표로 구분 된 목록을 입력 한 다음 다음 다음 스크린 샷과 같이<strong>목록에 추가를</strong>클릭합니다.
+                </p>
+                <aside class="bcls-aside bcls-aside--information"> 참고:
+                    <ol>
+                        <li>
+                            값에는 따옴표가 포함되지 않아야 합니다 (예: 동물, 새, 물고기).
+                        </li>
+                        <li>
+                            값은 쉼표를 포함 할 수 없습니다. 모든 쉼표는 서로 다른 값의 구분 기호로 처리됩니다.
+                        </li>
+                    </ol>
+                </aside>
+                <figure class="bcls-figure"> <img class="bcls-image" src="https://img.brightcove.com/node1050-new-custom-field-added1.png" alt=""/> </figure>
+            </li>
+            <li>
+                <strong>필드 저장을</strong>클릭하여 변경 사항을 저장합니다. <strong>저장 및 다른 항목 추가를</strong>클릭하여 필드를 저장하고 다른 필드 만들기를 시작합니다.
+            </li>
+        </ol>
+        <p>
+            작성한 사용자 정의 필드는 즉시 사용할 수&nbsp;있으며 미디어 모듈에 표시됩니다&nbsp; .
+        </p>
+        <p>
+            최대 10개의 사용자 정의 필드를 만들 수 있습니다. 10개 이상의 필드가 필요한 경우<strong>추가 필드를 클릭합니다.</strong>링크를 클릭하여 브라이트코브 고객 지원 센터에 문의하여 자세한 내용을 요청하십시오. 게시자는 50개의 사용자 지정 필드로 제한됩니다.
+        </p>
+        <h3 id="edit">목록 값 편집</h3>
+        <p>
+            목록 유형 사용자 정의 필드에 값을 추가할 수 있습니다. 사용자 정의 필드 이름 링크를 클릭하고 값을 추가한 다음<strong>목록에 추가를</strong>클릭합니다. 완료되면<strong>필드 저장을</strong>클릭합니다.
+        </p>
+        <h3 id="delete">목록 값 삭제</h3>
+        <p>
+            목록 유형 사용자 정의 필드에서 기존 값을 제거할 수 있습니다. 사용자 정의 필드 이름 링크를 클릭하고 값과 연관된 삭제 아이콘 ( <img alt="" src="https://img.brightcove.com/node1050-delete-icon.png"/> ) 을 클릭한 다음<strong>필드 저장을</strong>클릭합니다.
+        </p>
+        <p>
+            정가 제거되면 이전에 해당 값이 할당되었던 모든 동영상은 값을 유지합니다. 그러나 삭제 된 값이있는 비디오를 편집하면 값이 지워지고 새 값을 선택해야합니다.
+        </p>
+        <h3 id="remove">계정에서 사용자 정의 필드 제거</h3>
+        <p>
+            계정에서 사용자 지정 필드를 제거하려면<a href="https://supportportal.brightcove.com/s/login/">브라이트코브 지원에 문의해야</a>합니다. 브라이트코브 지원에서 맞춤 필드를 삭제한 경우 값이 있는 동영상의 수정 날짜가 변경됩니다.
+        </p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Using_list_values_for_Brightcove_Beacon_metadata"> 브라이트코브 비콘 메타데이터에 대한 목록 값 사용 </h2>
+        <p>
+            아래 표에서 생성해야 하는 여러 사용자 정의 필드를 찾을 수 있습니다. 위에 표시된 것처럼 사용자 정의 필드를 만들 때 데이터 유형을<strong>텍스트</strong>또는<strong>목록으로</strong>선택합니다. 모든<strong>유형은</strong><strong>텍스트입니다</strong> . 텍스트를 입력할 필요 없이 목록에서 선택할 수 있다면 동영상 콘텐츠 큐레이터의 부담을 덜어줄 수 있습니다. 또한 값을 입력하지 않고 목록에서 선택할 수 있으면 데이터 입력을보다 일관되게 유지하는 데 도움이됩니다. 따라서<strong>List가</strong>일부 비즈니스 사례에서 작동하는 경우 목록을 사용할 수 있습니다.
+        </p>
+        <p>
+            물론 선택은 귀하의 것이지만 일부 사용자 정의 필드의 경우<strong>List가</strong>데이터 유형에 적합한 선택이라는 것을 알 수 있습니다. 예를 들어, 목록에 대해 다음을 고려할 수 있습니다. </p>
+        <ul>
+            <li>비콘 장르</li>
+            <li>비콘. 응축하는</li>
+            <li>비콘. 뷰어스코어</li>
+            <li>비콘. 권리. 유형</li>
+        </ul>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Standard_fields">표준 필드</h2>
+        <p>
+            다음 표에는 표준 Video Cloud 필드가 표시되어 있습니다. 즉, 이 필드는 기본적으로 존재하며, 브라이트코브 비콘에서 메타데이터가 연결된 비디오를 올바르게 가져오는 데 사용됩니다.
+        </p>
+        <p>문자 제한에 대한 위의 6 단계에서 간단한 알림:</p>
+        <ul>
+            <li>
+                텍스트 - 최대 1024개의 싱글바이트 문자 (또는 512개의 더블바이트 문자) 를 포함할 수 있습니다.
+            </li>
+            <li>
+                목록 - 150 개 이하의 가능한 값을 가질 수 있으며 목록의 각 값은 100 자 이하일 수 없습니다.
+            </li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--warning language-editable"> 참고: 스튜디오 UI에서 요청한 이미지와 다른 이미지를 제공하므로<strong>이미지.poster.src </strong><strong>및 images.thumbnail.src의</strong>정의에 주의하십시오. 여기에 표시된 UI를 사용하여 이미지를 추가하지만 UI가 아닌 표의 지침에 따라 이미지를 추가합니다. <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/editing-images.png" alt=""/> </figure>
+        </aside>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>비디오 클라우드 필드</th>
+                    <th>설명</th>
+                    <th>
+                        <br/>위치/방법
+                    </th>
+                    <th>필수</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>지속</td>
+                    <td>
+                        브라이트코브 비콘에서 세부 정보 화면에 시청 비율과 지속 시간을 표시하는 데 사용합니다.
+                    </td>
+                    <td>비디오 클라우드로 자동 채워짐</td>
+                    <td>예</td>
+                </tr>
+                <tr>
+                    <td>이미지.포스터.src</td>
+                    <td>
+                        가로 이미지 (16:9):
+                        <table>
+                            <tr>
+                                <td>최소</td>
+                                <td>너비: 1000픽셀</td>
+                                <td>높이: 563픽셀</td>
+                            </tr>
+                            <tr>
+                                <td>최대</td>
+                                <td>너비: 4000픽셀</td>
+                                <td>높이: 2250픽셀</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        비디오 속성의<strong>이미지 &gt; 포스터</strong>섹션을 편집하고 로컬로 저장된 이미지의 위치를 찾습니다.
+                    </td>
+                    <td>예</td>
+                </tr>
+                <tr>
+                    <td>이미지.썸네일.src</td>
+                    <td>
+                        포스터 이미지 (2:3)
+                        <table>
+                            <tr>
+                                <td>최소</td>
+                                <td>너비: 1000픽셀</td>
+                                <td>높이: 1500픽셀</td>
+                            </tr>
+                            <tr>
+                                <td>최대</td>
+                                <td>너비: 2000px</td>
+                                <td>높이: 3000픽셀</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        비디오 속성의<strong>이미지 &gt; 축소판</strong>섹션을 편집하고 로컬로 저장된 이미지의 위치를 찾습니다.
+                    </td>
+                    <td>예</td>
+                </tr>
+                <tr>
+                    <td>이미지. 넓은 배너.src</td>
+                    <td>
+                        <strong>곧 출시 예정</strong> - 그 동안 기본값은<code translate="No">images.poster.src</code> </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>이미지. 초상화 포스터.</td>
+                    <td>
+                        <strong>곧 출시 예정</strong> - 그 동안 기본값은<code translate="No">images.poster.src</code> </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td>브라이트코브 비콘에서 저작물의 제목으로 사용</td>
+                    <td>
+                        <strong>비디오 속성의 비디오 정보</strong>섹션을 편집하고<em>이름을</em>입력합니다. </td>
+                    <td>예</td>
+                </tr>
+                <tr>
+                    <td>태그</td>
+                    <td>
+                        애플리케이션에 표시되지 않고 브라이트코브 비콘에서 재생 목록을 만드는 데 사용됩니다.
+                    </td>
+                    <td>
+                        <strong>비디오 속성의 비디오 정보</strong>섹션을 편집하고<em>태그를</em>입력하십시오. </td>
+                    <td>아니요</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Custom_field_names">사용자 정의 필드 이름</h2>
+        <p>
+            이 문서의 다음 세 섹션에서는 특정 구현 사용 사례를 기반으로 만들어야 할 수 있는 사용자 정의 필드를 다룹니다. 각 사용자 지정 필드에는<strong>표시 이름과</strong><strong>내부 이름이</strong>모두 있습니다. <strong>표시 이름 옵션에 대해 더 의미 있는 이름이 있다고 생각되면 해당 이름을</strong>사용할 수 있지만<strong>내부 이름은</strong>정확히<code translate="No">MUST</code>일치합니다.
+        </p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="General_custom_fields">일반 사항, 사용자 정의 필드</h2>
+        <p>
+            다음 표에는 구현에 따라 만들어야 할 수 있는 사용자 정의 Video Cloud 필드가 나와 있습니다. 작성하는 필드는<strong>이 필드를 필수로 만들기</strong>확인란을 선택할 필요가 없습니다.
+        </p>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>표시 이름</th>
+                    <th>
+                        내부 이름
+                    </th>
+                    <th>유형</th>
+                    <th>참고 사항/예</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>비콘 장르</td>
+                    <td>비콘 장르</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 저작물에 대한<br/>장르* 세부 정보 페이지에 나타나고 다른 화면에서 자산을 구성하는 데 사용됩니다. 이 값이 설정되지 않은 경우<strong>장르 없음</strong>사용자 인터페이스에 표시됩니다. <br/> *이 값을 설정하지 않으면<strong>관련된 컨텐츠</strong>기능성<br/> * 예: 브라이트코브 비콘에 정의된 장르 중 하나, 예. 영화<em>액션</em>또는<em>어드벤처</em> </td>
+                </tr>
+                <tr>
+                    <td>비콘. <br/>프로덕션 연도</td>
+                    <td>
+                        비콘<br/>생산 연도
+                    </td>
+                    <td>
+                        텍스트
+                    </td>
+                    <td>
+                        * 자산의 생산 연도 - 세부 정보 페이지에<br/>표시됩니다* 네 자리 정수
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        비컨 캐스트<br/>디렉터
+                    </td>
+                    <td>
+                        비콘 캐스트<br/>디렉터
+                    </td>
+                    <td>텍스트</td>
+                    <td>* 디렉터 이름의 쉼표로 구분된 목록<br/> * 예: 감독 이름 (들) (예: <em>제인 스미스, 산티아고 알마다</em> ) </td>
+                </tr>
+                <tr>
+                    <td>비콘 캐스트가수</td>
+                    <td>비콘 캐스트가수</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 가수의 이름의 쉼표로 구분 된<br/>목록* 예: 가수 이름 (들), 예: <em>제인 스미스, 산티아고 알마다</em> </td>
+                </tr>
+                <tr>
+                    <td>비콘 캐스터</td>
+                    <td>비콘 캐스트_액터</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 배우의 이름의 쉼표로 구분 된<br/>목록* 예: 배우 이름 (들), 예: <em>제인 스미스, 산티아고 알마다</em> </td>
+                </tr>
+                <tr>
+                    <td>
+                        비컨 캐스트<br/>작곡가
+                    </td>
+                    <td>
+                        비콘 캐스트_ <br/>작곡가
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 작곡가의 이름의 쉼표로 구분 된<br/>목록* 예: 작곡가 이름 (들), 예: <em>제인 스미스, 산티아고 알마다</em> </td>
+                </tr>
+                <tr>
+                    <td>
+                        비컨 캐스트<br/>송라이터
+                    </td>
+                    <td>
+                        비콘 캐스트_ <br/>작곡가
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 작곡가의 이름의 쉼표로 구분 된 목록<br/> * 예: 작곡가 이름 (들), 예: <em>제인 스미스, 산티아고 알마다</em> </td>
+                </tr>
+                <tr>
+                    <td>비콘 캐스트라이터</td>
+                    <td>비콘 캐스트_라이터</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 작가의 이름의 쉼표로 구분 된<br/>목록* 예: 작가 이름 (들), 예: <em>제인 스미스, 산티아고 알마다</em> </td>
+                </tr>
+                <tr>
+                    <td>비콘. 응축하는</td>
+                    <td>비콘 응고</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 자산에 대한 연령 등급을<br/>제공합니다* 이 필드의 값은 쉼표로 구분된<strong>키 = 값</strong>쌍의 형식이어야합니다. 여기서 키는 국가 코드 ( <strong>우리와</strong>같은) 이며 값은 그에 적합한 연령 등급입니다브라이트코브 비콘에서 지원하는 국가<br/>코드* 이 값을 설정하지 않으면 브라이트코브 비콘에 설정된 기본 국가 연령 등급 시스템에 대해 가장 허용 가능한 등급이<br/>사용됩니다* 예: 키=값, 키=값 (예: <em>US=TV-y, US=TV-m</em> ) </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. <br/>간략한 설명
+                    </td>
+                    <td>
+                        비콘_ <br/>간단한 설명
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 브라이트코브 비콘에 맞게 조정된 간단한 설명을 제공할 수<br/>있습니다* 이 값이 설정되지 않은 경우 비디오 간략한 설명 필드에 설정된 텍스트를<br/>사용합니다.* 이 필드를 비워 두고 비디오에 대한<strong>간단한 설명을</strong>비디오 클라우드 스튜디오의<strong>비디오 정보</strong> , 스튜디오 값이 수집됩니다. 스튜디오<strong>간략한 설명은</strong> 250자로 제한되며 이 사용자 정의 필드는 1024자일 수 있습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. <br/>긴 설명
+                    </td>
+                    <td>
+                        <br/>표지_긴 설명
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 브라이트코브 비콘에 맞게 맞춤화된 긴 설명을 제공할 수<br/>있습니다* 이 값이 설정되지 않은 경우 비디오 상세 설명 필드에 설정된 텍스트를<br/>사용합니다.* 이 필드를 비워 두고 비디오의 비디오에 대한<strong>자세한 설명을</strong>입력한 경우클라우드 스튜디오의<strong>비디오 정보</strong> , 스튜디오 값이 수집됩니다. 스튜디오<strong>상세 설명은</strong> 5000자이며 이 사용자 정의 필드는 1024자만 사용할 수 있습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. <br/>시청자 점수
+                    </td>
+                    <td>
+                        <br/>비콘 시청자 점수
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 시청자 평점에 대한 초기 점수를 설정할 수 있습니다 (다른 시스템에서 제공되거나 초기 값 설정) <br/> * 비디오 자산이 브라이트코브 비콘에 새로 추가되고 브라이트코브 비콘에서 이 저작물의 후속 업데이트에 대해서는 무시될 경우에만 사용됩니다.브라이트코브 비콘에서 사용자가 설정한 값은 무시되지 않습니다. <br/> * 가능한 값은 0에서 100 사이의 정수입니다. </td>
+                </tr>
+                <tr>
+                    <td>비콘 트레일러.id</td>
+                    <td>비콘 트레일러 ID</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 이 필드가 설정된 에셋의 예고편으로 사용될 비디오 클라우드의 다른 비디오 에셋을 가리킵니다. <br/> * 가리키는 에셋은 영화 또는 에피소드로 폐기됩니다. <br/> * 예: 비디오 클라우드 비디오 ID (예: <em>6140603191001)</em> </td>
+                </tr>
+                <tr>
+                    <td>비콘 인제스트</td>
+                    <td>비콘 인제스트</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 이 필드가 없으면 기본적으로 인제스트로<br/>설정됩니다.* 일부 특정 자산이 브라이트코브 비콘과 동기화되지 않도록 하려면 [ <strong>아니요</strong> ] 로 설정해야 합니다. </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Rights_Management_fields">권한 관리 필드</h2>
+        <p>
+            자산에 대한 수익 창출 및 액세스 제한을 지원하려면 일련의 사용자 지정 필드를 사용해야 합니다. 권한 관리 구성의 인스턴스를 여러 개 가질 수 있으므로 여러 개의 사용자 지정 필드 집합을 만드는 것이 좋습니다. 각 인스턴스의 이름에서 카운터는 그것들을 구별하는 데 사용됩니다. 첫 번째 인스턴스는 카운터를 0으로 사용해야합니다. 다음은 실제로 카운터 값을 사용하는 그룹화 된 필드의 예입니다. <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/rights-management.png" alt=""/> </figure>
+            예를 들어 동영상에 사용되는 광고를 정의하기 위한 집합이 필요하고 새해 같은 휴일에 대한 특별 광고를 정의하는 집합이 필요할 수 있습니다.
+        </p>
+        <p>
+            구체적인 예는 이러한 필드의 사용을 명확히하는 데 도움이됩니다. 다음 스크린샷은 Video Cloud의 비디오에 사용되는 서버 측 광고 삽입 (SSAI를) 설정을 보여줍니다.
+            <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/rights-mamagement-example-avod.png" alt=""/> </figure>
+            이 예제에서 다음을 배울 수 있습니다. </p>
+        <ul>
+            <li>그룹의 모든 권한 관리 필드에 값을 할당해야 하는 것은 아닙니다. 이 경우, 단지<em>비콘. 권리.&lt;카운터 &gt;.</em><em>AdConfiguration 및 신호.권한.&lt; &gt;카운터. type이</em>사용됩니다.</li>
+            <li>브라이트코브 비콘 사용자 정의 필드에서 Studio에서 만든 SSAI구성 ID를 사용할 수 있습니다.</li>
+            <li>권한 관리 필드 집합에 대한 카운터 값은 0 (노란색으로 강조 표시됨) 에서 시작할 수 있습니다.</li>
+            <li>이 스크린샷에서 직접 볼 수는 없지만 사실, Video Cloud SSAI의 구성이 브라이트코브 비콘으로 수집된다는 것입니다.</li>
+        </ul>
+        <p>작성하는 필드는<strong>이 필드를 필수로 만들기</strong>확인란을 선택할 필요가 없습니다.</p>
+        <p>
+            다음 표에는 구현에 따라 만들어야 할 수 있는 사용자 정의 Video Cloud 필드가 나와 있습니다.
+        </p>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>표시 이름</th>
+                    <th>내부 이름</th>
+                    <th>유형</th>
+                    <th>참고 사항/예</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>비콘. 권리. 유형</td>
+                    <td>신호 오른쪽<br/> &lt; 카운터 &gt; 유형</td>
+                    <td>텍스트</td>
+                    <td>
+                        * 자산에 대한 수익 창출 유형 여부를 식별합니다. <br/> * 값에 대해 다음 중 하나를 사용하십시오. <ul>
+                            <li>무료</li>
+                            <li>AVOD</li>
+                            <li>SVOD</li>
+                            <li>상속</li>
+                        </ul>
+                        * 기본값: <strong>비어 있는</strong><br/> * <strong>상속</strong>값은<em>삽화</em>자산 </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. 권리<br/> &lt;카운터를 &gt; 사용하십시오. <br/>시작 날짜
+                    </td>
+                    <td>
+                        신호 오른쪽<br/> &lt; 카운터<br/>시작 &gt; 날짜
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 자산이 특정 세트의 액세스 제한 및 수익 창출 옵션에 따라 노출되어야하는<br/>날짜* 형식: 날짜 yyyy-mm-dd <br/> * 기본값: 설정되지 않은 경우 기본값은 비디오 가용성 시작 날짜입니다. </td>
+                </tr>
+                <tr>
+                    <td>비콘. 권리. 종료 날짜</td>
+                    <td>
+                        신호 오른쪽<br/> &lt; 카운터 &gt; 종료 날짜
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 특정 세트의 액세스 제한 및 수익 창출 옵션에 따라 자산이 더 이상 노출되지 않아야 할<br/>날짜* 형식: 날짜 yyyy-mm-dd <br/> * 기본값: 설정되지 않은 경우 기본값은 비디오 가용성 종료 날짜입니다. </td>
+                </tr>
+                <tr>
+                    <td>비콘. 권리.장치</td>
+                    <td>
+                        신호 오른쪽<br/> &lt; 카운터 &gt; 장치
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 이 특정 세트의 액세스 제한 및 수익 창출 옵션에 따라 자산을 노출해야 하는 브라이트코브 비콘에서 지원되는 장치의 쉼표로 구분된<br/>목록* 쉼표로 구분된 목록: <ul>
+                            <li>iOS</li>
+                            <li>Android</li>
+                            <li>웹</li>
+                            <li>Roku</li>
+                            <li>STV</li>
+                            <li>파이어TV</li>
+                            <li>LGTV</li>
+                            <li>Samsung</li>
+                            <li>애플TV</li>
+                            <li>안드로이드 텔레비전</li>
+                            <li>파나소닉</li>
+                        </ul>
+                        * 기본값: 설정되지 않은 경우 기본적으로 브라이트코브 비콘에서 지원되는 모든 디바이스가 사용됩니다. </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. 권리<br/> &lt;카운터를 &gt; 사용하십시오. <br/>위치스퍼밋
+                    </td>
+                    <td>
+                        신호 오른쪽<br/> &lt; 카운터 &gt; _ <br/>위치스퍼밋
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 이 특정 세트의 액세스 제한 및 수익 창출 옵션에 따라 자산이 노출되어야 하는 브라이트코브 비콘에 정의된 위치의 쉼표로 구분된<br/>목록* 기본값: 설정하지 않은 경우 기본적으로 브라이트코브 비콘에서 지원되는 모든 위치가 사용됩니다. </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. 권리&lt;카운터를 &gt; 사용하십시오. <br/>위치거부
+                    </td>
+                    <td>
+                        신호 오른쪽<br/> &lt; 카운터 &gt; <br/> _ 위치거부
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 이 특정 세트의 액세스 제한 및 수익 창출 옵션에 따라 자산이 노출되지 않아야 하는 브라이트코브 비콘에 정의된 위치의 쉼표로 구분된 목록<br/> * 기본값 없음
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. 권리<br/> &lt;카운터를 &gt; 사용하십시오. <br/>패키지 이름
+                    </td>
+                    <td>
+                        비콘 오른쪽<br/> &lt; &gt; 카운터<br/>패키지 이름
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * <strong>beacon.ighs인 경우 이 필드의 값을 입력해야 합니다.<counter>.유형</strong>필드 값이<strong> SVOD</strong><br/> * Brightcove Beacon에 정의 된 쉼표로 구분 된 패키지 이름 목록<br/> * 예 : <em>프리미엄 스포츠, 액션 영화, 지구의 날</em><br/>영화*기본값 없음
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘. 권리<br/> &lt;카운터를 &gt; 사용하십시오. <br/>애드 구성
+                    </td>
+                    <td>
+                        신호 오른쪽<br/> &lt; 카운터 &gt; <br/>추가 구성
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * <strong>beacon.ighs인 경우 이 필드의 값을 입력해야 합니다.<counter>.type</strong>필드 값이<strong>AVOD로</strong>설정됨<br/> * 브라이트코브 비콘에서 광고 구성<br/>식별자* 기본값 없음
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Episode_fields">에피소드 필드</h2>
+        <p>
+            시리즈의 에피소드인 동영상의 경우 다음을 완료해야 합니다. 다음 다이어그램은 시리즈와 시즌 및 에피소드 간의 관계를 보여줍니다.
+        </p>
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/beacon-series-season-episode.png" alt=""/> </figure>
+        <p>
+            다이어그램에 따라 다음은 시리즈의 6개 비디오에 대한 필수 필드입니다.
+        </p>
+        <ul>
+            <li>
+                비디오 1
+                <ul>
+                    <li>비콘. 에피소드. 시리즈 이름: 오리건 해안의 모험</li>
+                    <li>비콘 에피소드. 시즌 번호: 1</li>
+                    <li>비콘.에피소드 번호: 1</li>
+                </ul>
+            </li>
+            <li>
+                비디오 2
+                <ul>
+                    <li>비콘. 에피소드. 시리즈 이름: 오리건 해안의 모험</li>
+                    <li>비콘 에피소드. 시즌 번호: 1</li>
+                    <li>비콘.에피소드 번호: 2</li>
+                </ul>
+            </li>
+            <li>
+                비디오 3
+                <ul>
+                    <li>비콘. 에피소드. 시리즈 이름: 오리건 해안의 모험</li>
+                    <li>비콘 에피소드. 시즌 번호: 1</li>
+                    <li>비콘.에피소드 번호: 3</li>
+                </ul>
+            </li>
+            <li>
+                비디오 4
+                <ul>
+                    <li>비콘. 에피소드. 시리즈 이름: 오리건 해안의 모험</li>
+                    <li>비콘 에피소드. 시즌 번호: 2</li>
+                    <li>비콘.에피소드 번호: 1</li>
+                </ul>
+            </li>
+            <li>
+                비디오 5
+                <ul>
+                    <li>비콘. 에피소드. 시리즈 이름: 오리건 해안의 모험</li>
+                    <li>비콘 에피소드. 시즌 번호: 2</li>
+                    <li>비콘.에피소드 번호: 2</li>
+                </ul>
+            </li>
+            <li>
+                비디오 6
+                <ul>
+                    <li>비콘. 에피소드. 시리즈 이름: 오리건 해안의 모험</li>
+                    <li>비콘 에피소드. 시즌 번호: 2</li>
+                    <li>비콘.에피소드 번호: 3</li>
+                </ul>
+            </li>
+        </ul>
+        <p>다음은 에피소드 필드 사용의 실제 구현입니다. 이 경우 사용자 정의 필드는 연관된 값 (옐로 로 로 강조 표시된 값) 과 함께 표시됩니다.</p>
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/episode-example.png" alt=""/> </figure>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>표시 이름</th>
+                    <th>
+                        내부 이름
+                    </th>
+                    <td>유형</td>
+                    <th>참고 사항/예</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>
+                        비콘 에피소드<br/>일련 이름
+                    </td>
+                    <td>
+                        비콘 에피소드<br/>시리즈 이름
+                    </td>
+                    <td>텍스트</td>
+                    <td>
+                        * 에피소드 자산인 경우 이 필드의 값을 입력해야 합니다. 그렇지 않으면 값이 필요하지<br/>않습니다.* 값은 에피소드가 속한 브라이트코브 비콘의 시리즈 식별자를 가리킵니다 (시리즈는 브라이트코브 비콘에서 직접 생성해야 함) <br/> * 예: 시리즈 이름, <em>오리건 해안의 모험</em> </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘 에피소드<br/>시즌 번호
+                    </td>
+                    <td>
+                        비콘 에피소드<br/>시즌 번호
+                    </td>
+                    <td>테스트</td>
+                    <td>
+                        * 에피소드 자산인 경우 이 필드의 값을 입력해야 합니다. 그렇지 않으면 값이 필요하지<br/>않습니다.* 에피소드가 속한 브라이트코브 비콘에서 시리즈 번호를 식별합니다 (계절은 브라이트코브 비콘에서 직접 생성해야 함) <br/> * 형식: 비디오가 속한 시즌 번호를 나타내는 정수 </td>
+                </tr>
+                <tr>
+                    <td>
+                        비콘 에피소드<br/>숫자
+                    </td>
+                    <td>
+                        비콘 에피소드<br/>번호
+                    </td>
+                    <td>텍스트</td>
+                    <td>* 에피소드 자산인 경우 이 필드의 값을 입력해야 합니다. 그렇지 않으면 값이 필요하지<br/>않습니다.* 시즌 내의 에피소드 번호를<br/>식별합니다* 형식: 동영상의 에피소드 번호를 나타내는 정수 </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">페이지 내용</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  마지막 업데이트 페이지 202020년 10월 29일
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>브라이트코브 지원</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">시스템 상태</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">문서화</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>교육</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">궁금한 사항이 있으십니까? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
