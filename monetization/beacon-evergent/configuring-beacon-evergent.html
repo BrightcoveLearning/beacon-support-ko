@@ -1,0 +1,109 @@
+
+---
+title: Evergent 설명으로 비콘 구성: 이 항목에서는 Beacon과 Evergent가 서로 작동하도록 구성하기 위한 단계별 가이드를 제공합니다.
+parent: Beacon Advanced Monetization
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+	<section class="bcls-section">
+		<h2 id="Introduction">소개</h2>
+		<p>Beacon과 Evergent가 함께 작동하도록 구성하려면 두 시스템 모두에서 몇 가지 설정이 필요합니다. 여러 경우에 한 시스템에서 다른 시스템으로 정보를 복사하거나 한 시스템에서 다른 시스템으로 정확히 정보를 복제해야 합니다. 두 시스템을 별도의 브라우저 창에서 나란히 열 수 있다면 아래 단계를 더 쉽게 성공적으로 수행할 수 있습니다.</p>
+	</section>
+  <section class="bcls-section">
+    <h2 id="Beacon_part_1">비콘 파트 1</h2>
+		<p>이 부분의 경우 구성된 Beacon CMS(고객 관리 시스템) 인스턴스가 필요합니다.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>Beacon CMS에서 Evergent를 다음으로 구성합니다. <strong>가게</strong> .</li>
+			<li>에<strong>설정 &gt; 위치</strong>스토어 페이지에서 서비스를 사용할 수 있는 국가를 정의합니다.</li>
+			<li>에<strong>설정 &gt; 통화</strong>상점 페이지에서 각 국가의 통화를 정의하십시오.</li>
+	</ol>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Evergent_part_1">에버그트 파트 1</h2>
+		<p>이 부분의 경우 Evergent Go Portal에서 BU(사업부)를 설정해야 합니다. 각 Evergent BU는 세계의 특정 국가 또는 지역에 매핑되며 이들 및 이와 관련된 통화는 Beacon CMS에 입력한 것과 일치해야 합니다.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>BU의 통화를 구성합니다.</li>
+			<li>BU가 위치한 국가 구성</li>
+			<li>
+				BU에 대한 지불 게이트웨이 및 지불 방법을 구성하십시오.
+				<ul>
+					<li>신용카드, 체크카드</li>
+					<li>전자 지갑</li>
+					<li>인앱 구매(iOS, Google Play, Amazon Billing, Roku Pay)</li>
+				</ul>
+			</li>
+	</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_2">비콘 파트 2</h2>
+		<p>Evergent BUs ID 및 국가 매핑은 Beacon 고객별로 구성해야 합니다. 이는 Playback 팀이 소유한 백엔드 서비스인 Monetization Payment Service에서 수행됩니다. (계획은 이 구성이 21년 1분기 말까지 Jackie Pages로 이동하는 것입니다). 이러한 구성은 Beacon에 사용되는 특정 Video Cloud 고객 계정에 연결되어야 합니다.</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_3">비콘 파트 4</h2>
+		<p>에버젠트<a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">소금</a>해당 특정 비콘 고객의 경우 수익화 결제 서비스에서 구성해야 합니다. </p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_5">비콘 파트 5</h2>
+		<p>수익화 결제 서비스는 고객의 Beacon CMS 인스턴스에 입력해야 하는 "Beacon_Monetization_Api" 엔드포인트(beacon.monetization.api.brightcove.com)를 생성합니다. 이것은 Evergent에 대한 "결제 게이트웨이 구성" 아래의 설정 페이지에 입력해야 합니다.</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_6">비콘 파트 6</h2>
+		<ol class="bcls-tasklist-restart">
+			<li>
+				Beacon CMS Commerce 탭에서 SVOD 계획을 생성합니다. 수익 창출 정책을 정의합니다.
+				<ol style="list-style-type: lower-alpha;">
+					<li>청구 빈도</li>
+					<li>체험 기간</li>
+					<li>갱신 정책</li>
+					<li>
+						계획이 표시될 매장 선택:
+						<ul>
+							<li>에버그트</li>
+							<li>앱 스토어(iOS, Google Play, Amazon, Roku)</li>
+						</ul>
+					</li>
+					<li>장치 및 위치를 설정합니다.</li>
+					<li>사용 가능 날짜를 설정합니다.</li>
+					<li>
+						App Store 구성:
+						<ol style="list-style-type: lower-roman;">
+							<li>사용 가능 날짜를 구성합니다. </li>
+							<li>장치를 구성합니다.</li>
+							<li>가격과 통화를 입력합니다.</li>
+							<li>상점 ID를 작성하십시오. 이 ID를 복사하여 앱 스토어의 제품 sku에 붙여넣어야 합니다. 또한 일치하는 SVOD 계획을 위해 Evergent Go에 입력해야 합니다.</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+	</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Evergent_part_2">에버그트 파트 2</h2>
+		<p>Evergent Go에서 일치하는 SVOD 계획을 만듭니다. 수익 창출 정책이 Beacon의 CMS에 입력된 것과 동일하게 일치하는 것이 중요합니다. 또한 SVOD 플랜을 다른 통화로 판매하려면 여러 Evergent BU를 사용해야 합니다. 각 BU의 계획은 Beacon CMS의 "Evergent Store"에 입력된 SKU를 사용하여 Beacon에 매핑됩니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/svod-plans.png" alt="Evergent SVOD Setup">
+			<figcaption class="bcls-caption--image">에버그트 SVOD 설정</figcaption>
+		</figure>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_7">비콘 7부</h2>
+		<p>SVOD 계획에 대해 Beacon Evergent Store 구성:</p>
+		<ol class="bcls-tasklist-restart">
+			<li>가용성을 구성합니다.</li>
+			<li>장치를 구성합니다(지금은 웹만).</li>
+			<li>가격 및 통화를 구성합니다. 통화는 해당 통화를 사용하는 특정 BU의 계획에 매핑되어야 합니다. 예를 들어, 유로를 사용하여 EU에서 판매하는 플랜이 있는 경우 Evergent ID는 EU Evergent BU에서 가져와야 합니다. Evergent ID 필드는 Evergent SKU를 입력하는 곳입니다.</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">관련 주제</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/overview-beacon-evergent.html">개요: 비콘 고급 수익 창출</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-finding-accounts.html">Evergent CRM에서 계정 찾기</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">에버그트: 계정 세부 정보 관리</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-billing-finance.html">에버그트: 청구 및 금융</a></li>
+			<li><a href="/monetization/beacon-evergent/emailer-coupons.html">에버그트: 이메일 및 쿠폰</a></li>
+		</ul>
+	</section>
+</article>

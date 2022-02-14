@@ -1,0 +1,245 @@
+
+---
+title: '에버그트: 청구 및 금융'
+description: 이 항목에서는 사용자의 청구 및 재무 기록 관리에 대한 지침을 제공합니다.
+parent: Beacon Advanced Monetization
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">소개</h2>
+		<p>사용자의 재정 및 청구 내역을 보려면 Evergent CRM 시스템에 로그인하고 작업하려는 계정을 찾아야 합니다. 보다<a href="/monetization/beacon-evergent/evergent-finding-accounts.html"> Evergent CRM에서 계정 찾기</a>자세한 내용은.</p>
+		<p>NS <strong>청구 및 금융</strong>사용자 계정 정보의 탭은 시청자의 청구 및 재무 내역을 보는 데 사용됩니다. 청구 및 재무 탭에서 고객에게 지불, 조정 및 환불을 발행할 수 있습니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/billing-finance-tab.png" alt="Billing and Finance Tab">
+			<figcaption class="bcls-caption--image">청구 및 재무 탭</figcaption>
+		</figure>
+		<p>프로비저닝할 수 있는 기능은 다음과 같습니다.</p>
+		<ul>
+			<li>러닝 밸런스</li>
+			<li>송장</li>
+			<li>지불</li>
+			<li>조정</li>
+			<li>환불</li>
+		</ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Running_Balance">러닝 밸런스</h2>
+		<p>실행 잔액은 최신 레코드가 있는 선택한 범위를 기반으로 해당 사용자 계정의 모든 대변 및 차변 거래를 표시하는 동적 원장 잔액입니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/running-balance.png" alt="Running Balance">
+			<figcaption class="bcls-caption--image">러닝 밸런스</figcaption>
+		</figure>
+		<!-- <h3>Make a payment</h3>
+		<p>This module is used to make payment for a user account by an existing payment method and a new  payment method. To make a payment, do the following:</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/make-payment.png" alt="Make a Payment">
+			<figcaption class="bcls-caption--image">Make a Payment</figcaption>
+		</figure>
+		<ol class="bcls-tasklist-restart">
+			<li>Click the <strong>Running Balance</strong> hyperlink under the Billing and Finance tab.</li>
+			<li>Click the <strong>Make a Payment</strong> button.</li>
+			<li>Select the payment mode that you want to make a payment.</li>
+			<li>Enter the card number in the <strong>Card Number</strong> field.</li>
+			<li>Enter the type of card in the <strong>Card Type</strong> field.</li>
+			<li>Enter the name of a cardholder in the <strong>Name on Card</strong> field.</li>
+			<li>Enter the card expiry date in the <strong>Expiry (MM/YYYY)</strong> field.</li>
+			<li>Enter the security code in the <strong>Security Code</strong> field.</li>
+			<li>Enter the required amount in the <strong>Amount</strong> field.</li>
+			<li>Click the <strong>Make Payment</strong> button. The payment line-item will be added to Payment History.</li>
+		</ol> -->
+
+		<h3>조정</h3>
+		<p>이 모듈은 고객 계정 지불 항목의 지불 수정을 제공하는 트랜잭션입니다. 계정에 대한 지불 조정을 수행하려면 다음을 수행하십시오.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/make-adjustment.png" alt="Make an Adjustment">
+			<figcaption class="bcls-caption--image">조정</figcaption>
+		</figure>
+		<ol class="bcls-tasklist-restart">
+			<li>클릭<strong>러닝 밸런스</strong>청구 및 재무 탭 아래의 하이퍼링크.</li>
+			<li>클릭<strong>조정</strong>단추.</li>
+			<li>선택<strong>조정 유형</strong>드롭다운 목록에서.</li>
+			<li>조정하려는 금액을 입력하십시오. <strong>양</strong>들.</li>
+			<li>에서 지불 조정 사유를 선택하십시오. <strong>이유 선택</strong>드롭 다운 목록.</li>
+			<li>에서 송장을 선택하십시오. <strong>양도된 송장</strong>조정하려는 드롭다운 목록.</li>
+			<li>선택<strong>정전 시작 날짜</strong>그리고<strong>중단 종료 날짜</strong>달력에서.</li>
+			<li>에 댓글을 입력하세요. <strong>논평</strong>들.</li>
+			<li>클릭<strong>완료</strong>단추. 조정은 조정 목록 섹션에 추가됩니다.</li>
+		</ol>
+		<h3>상각</h3>
+		<p>각 계정의 잔액에 있는 상각 버튼은 해당 계정의 미지불 잔액이 양수인 경우, 즉 고객이 금액을 지불해야 하는 경우에만 표시됩니다. 상각 버튼을 클릭하면 고객이 금액을 지불하고<strong>마이너스 조정 금액을 추가하여 잔액을 0으로 만듭니다.</strong> .</p>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Invoices">송장</h2>
+		<p>송장 섹션에는 계정에 대해 생성된 모든 일반 송장이 표시됩니다. 각 인보이스에 대해 자세히 표시됩니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/invoices.png" alt="Invoices">
+			<figcaption class="bcls-caption--image">송장</figcaption>
+		</figure>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Payments">지불</h2>
+		<p>신용카드 내역, 주문한 상품 ID, 결제일, 금액, 상태 등의 기록을 제공하는 기존 고객 결제 내역을 확인하고 고객에게 결제 금액을 환불할 수 있는 옵션을 제공합니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/payments.png" alt="Payments">
+			<figcaption class="bcls-caption--image">지불</figcaption>
+		</figure>
+		<h3>금액 환불 </h3>
+		<p>금액을 환불하려면 다음을 수행하십시오.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>클릭<strong>지불</strong>아래의 하이퍼링크<strong>청구 및 금융</strong>탭.</li>
+			<li>결제 내역 화면에서<strong>환불하다</strong>버튼<strong>행위</strong>계정에 대해 환불하려는 열 머리글.</li>
+			<li>
+				대화 상자, <strong> "확실해?"</strong>아래와 같이 나타납니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/confirm-refund.png" alt="Confirm Refund">
+					<figcaption class="bcls-caption--image">환불 확인</figcaption>
+				</figure>
+			</li>
+			<li>환불 사유를 선택하세요. <strong>이유 선택</strong>드롭 다운 목록.</li>
+			<li>지불 환불에 대한 설명을 입력하십시오. <strong>코멘트</strong>상자.</li>
+			<li>클릭<strong>예, 환불</strong>버튼을 클릭하여 환불을 제공하거나<strong>돌아가기</strong>변경 사항을 취소합니다.</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Adjustments">조정</h2>
+		<p>이 모듈은 고객 계정 지불 항목의 지불 수정을 제공하는 트랜잭션입니다.</p>
+		<h3>결제 조정</h3>
+		<p>지불을 조정하려면 다음을 수행하십시오.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>클릭<strong>조정</strong>아래의 하이퍼링크<strong>청구 및 금융</strong>탭.</li>
+			<li>클릭<strong>조정</strong>버튼을 눌러 지불을 조정합니다.</li>
+			<li>
+				NS <strong>조정</strong>화면이 아래와 같이 표시됩니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/adjustments.png" alt="Adjustments">
+					<figcaption class="bcls-caption--image">조정</figcaption>
+				</figure>
+			</li>
+			<li>선택<strong>조정 유형</strong>사용 가능한 드롭다운 목록에서</li>
+			<li>조정하려는 금액을 입력하십시오. <strong>양</strong>들.</li>
+			<li>선택하다<strong>이유</strong>그리고<strong>송장에 제공</strong>사용 가능한 드롭다운 목록에서</li>
+			<li>선택하다<strong>정전 시작 날짜</strong>그리고<strong>중단 종료 날짜</strong> .</li>
+			<li>조정에 대한 설명을 입력하십시오. <strong>논평</strong>상자.</li>
+			<li>딸깍 하는 소리<strong>완료</strong>조정 또는 클릭을 제공하기 위해<strong>돌아가기</strong> .</li>
+	</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Refunds">환불</h2>
+		<p>환불은 서비스가 제거되거나 연결이 끊길 때마다 계산됩니다. 연결이 끊긴/제거된 날짜부터 청구된 기간 동안 금액을 환불합니다.</p>
+		<h3>환불 추가</h3>
+		<p>사용자 계정에 환불을 추가하려면 다음을 수행하십시오.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>클릭<strong>환불</strong>아래의 하이퍼링크<strong>청구 및 금융</strong>탭.</li>
+			<li>
+				환불 추가 아이콘(<i data-feather="plus"></i>) 고객에게 환불을 제공합니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/refunds-screen.png" alt="Refunds">
+					<figcaption class="bcls-caption--image">환불</figcaption>
+				</figure>
+			</li>
+			<li>
+				다음은 거래 유형 목록의 환불 유형입니다.
+				<ul>
+					<li>청구됨</li>
+					<li>미청구</li>
+					<li>모든 지불</li>
+					<li>지불 거절</li>
+				</ul>
+			</li>
+		</ol>
+		<h4>청구된 거래에 대한 환불</h4>
+		<p>선택 시<strong>청구 거래 유형</strong> ~로부터<strong>거래 유형</strong>드롭다운 목록 상자:</p>
+		<ol class="bcls-tasklist-restart">
+			<li>에서 송장 중 하나를 선택하십시오. <strong>송장 선택</strong>드롭 다운 목록.</li>
+			<li>에서 제품 중 하나를 선택하십시오. <strong>주문 상품 선택</strong>드롭다운 목록 상자.</li>
+			<li>청구할 가격을 입력하십시오. <strong>청구된 가격</strong>들.</li>
+			<li>세액을 입력하세요. <strong>부과된 세금</strong>들.</li>
+			<li>환불금액 입력란에<strong>환불 금액</strong>들.</li>
+			<li>금액 환불 사유를 선택하세요. <strong>이유 코드</strong>쓰러지 다.</li>
+			<li>에 댓글을 입력하세요. <strong>코멘트</strong>상자.</li>
+			<li>클릭<strong>추가하다</strong>버튼을 클릭하여 고객에게 환불을 적용하거나<strong>돌아가기</strong>버튼을 취소합니다.</li>
+		</ol>
+		<h4>청구되지 않은 거래에 대한 환불</h4>
+		<p>선택 시<strong>미청구 거래 유형</strong> ~로부터<strong>거래 유형</strong>드롭다운 목록 상자:</p>
+		<ol class="bcls-tasklist-restart">
+			<li>다음 중 하나를 선택하십시오. <strong>제품/패키지</strong> ~로부터<strong>주문 상품 선택</strong>드롭다운 목록 상자.</li>
+			<li>청구할 가격을 입력하십시오. <strong>청구된 가격</strong>들.</li>
+			<li>세액을 입력하세요. <strong>부과된 세금</strong>들.</li>
+			<li>환불금액 입력란에<strong>환불 금액</strong>들.</li>
+			<li>기본적으로 조정 체크박스가 선택되어 있는데, 이는 신용 조정이 발행될 환불 금액에 추가되고 실행 잔액 표시가 0으로 지워짐을 나타냅니다.</li>
+			<li>금액 환불 사유를 선택하세요. <strong>이유 코드</strong>쓰러지 다.</li>
+			<li>에 댓글을 입력하세요. <strong>코멘트</strong>상자.</li>
+			<li>클릭<strong>추가하다</strong>버튼을 클릭하여 고객에게 환불을 적용하거나<strong>돌아가기</strong>버튼을 취소합니다.</li>
+		</ol>
+		<h4>모든 결제 거래에 대한 환불</h4>
+		<p>선택 시<strong>모든 결제 거래 유형</strong> ~로부터<strong>거래 유형</strong>드롭다운 목록 상자:</p>
+		<ol class="bcls-tasklist-restart">
+			<li>세액을 입력하세요. <strong>부과된 세금</strong>들.</li>
+			<li>환불금액 입력란에<strong>환불 금액</strong>들.</li>
+			<li>에 아이디를 입력하세요. <strong>조정 ID</strong>들.</li>
+			<li>금액 환불 사유를 선택하세요. <strong>이유 코드</strong>쓰러지 다.</li>
+			<li>에 댓글을 입력하세요. <strong>코멘트</strong>상자.</li>
+			<li>클릭<strong>추가하다</strong>버튼을 클릭하여 고객에게 환불을 적용하거나<strong>돌아가기</strong>버튼을 취소합니다.</li>
+		</ol>
+		<h4>지불 거절 거래에 대한 환불</h4>
+		<p>선택 시<strong>지불 거절 거래 유형</strong> ~로부터<strong>거래 유형</strong>드롭다운 목록 상자:</p>
+		<ol class="bcls-tasklist-restart">
+			<li>세액을 입력하세요. <strong>부과된 세금</strong>들.</li>
+			<li>환불금액 입력란에<strong>환불 금액</strong>들.</li>
+			<li>에 아이디를 입력하세요. <strong>조정 ID</strong>들.</li>
+			<li>에 아이디를 입력하세요. <strong>거래 ID</strong>들.</li>
+			<li>금액 환불 사유를 선택하세요. <strong>이유 코드</strong>쓰러지 다.</li>
+			<li>에 댓글을 입력하세요. <strong>코멘트</strong>상자.</li>
+			<li>클릭<strong>추가하다</strong>버튼을 클릭하여 고객에게 환불을 적용하거나<strong>돌아가기</strong>버튼을 취소합니다.</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Credits">크레딧</h2>
+		<p>신용은 청구서 또는 구매 금액에 이의가 있거나 부정확할 때 기업이 일반적으로 고객에게 제공하는 것입니다. 이는 관리자 오류 때문이거나 고객이 전체 또는 부분 환불을 요구하기 때문일 수 있습니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/credits-module.png" alt="Credits Module">
+			<figcaption class="bcls-caption--image">크레딧 모듈</figcaption>
+		</figure>
+		<h3>광고 항목 크레딧 추가</h3>
+		<p>사용자 계정에 항목 크레딧을 추가하려면 다음을 수행하십시오.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>에<strong>크레딧</strong>화면에서 추가(<i data-feather="plus"></i>) 아이콘을 클릭하여 새 항목 크레딧을 추가합니다.</li>
+			<li>NS <strong>크레딧 추가</strong>화면이 나타납니다.</li>
+			<li>클릭<strong>신용 유형 선택</strong>드롭다운 목록을 선택하고<strong>품목 크레딧</strong> .</li>
+			<li>
+				에서 유형을 선택하십시오. <strong>거래 유형</strong>드롭 다운 목록.
+				<ul>
+					<li>청구됨</li>
+					<li>미청구</li>
+					<li>지불 거절</li>
+				</ul>
+			</li>
+		</ol>
+		<p>비콘에는 차지백 크레딧만 적용됩니다.</p>
+		<h4>지불 거절</h4>
+		<p>지불 거절 개별 항목 크레딧의 경우 다음을 수행합니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/chargeback-line-item-credit.png" alt="Chargeback Line-Item Credit">
+			<figcaption class="bcls-caption--image">지불 거절 개별 항목 크레딧</figcaption>
+		</figure>
+		<ol class="bcls-tasklist-restart">
+			<li>에 금액을 입력하세요. <strong>환불 금액</strong>들.</li>
+			<li>에 금액을 입력하세요. <strong>크레딧 금액</strong>들.</li>
+			<li>에서 이유를 선택하십시오. <strong>이유 코드</strong>드롭 다운 목록.</li>
+			<li>에 댓글을 입력하세요. <strong>코멘트</strong>상자.</li>
+			<li>클릭<strong>추가하다</strong>버튼을 클릭하여 서비스 크레딧을 추가하거나<strong>돌아가기</strong>버튼을 취소합니다.</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">관련 주제</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/overview-beacon-evergent.html">개요: 비콘 고급 수익 창출</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-finding-accounts.html">Evergent CRM에서 계정 찾기</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">에버그트: 계정 세부 정보 관리</a></li>
+			<li><a href="/monetization/beacon-evergent/emailer-coupons.html">에버그트: 이메일 및 쿠폰</a></li>
+		</ul>
+	</section>
+</article>

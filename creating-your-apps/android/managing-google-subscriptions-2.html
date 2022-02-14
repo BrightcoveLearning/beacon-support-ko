@@ -1,0 +1,175 @@
+
+---
+title: "Google 구독 관리 2부"
+description: "이 주제에서는 Google 구독을 구성하는 방법을 배웁니다.' 게시자/가입자 데이터 교환. 이것은 Brightcove Beacon 앱과 Google 스토어 간의 통신을 설정하는 더 큰 프로세스의 두 번째 부분입니다."
+parent: "android"
+layout: "staging"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <aside class="bcls-aside bcls-aside--warning">이 문서의 단계를 완료하려면 에서 수행한 이전 작업에 의존합니다. <a href="/creating-your-apps/android/managing-google-subscriptions-1.html"> Google 구독 관리 1부</a> .</aside>
+    <h2 id="Introduction">소개</h2>
+    <p>이 문서에서는 Google Cloud Platform을 사용하여<strong>게시/구독 주제</strong> Pub/Sub 주제에 이전에 생성된 서비스 계정을 추가합니다.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Create_a_Pub/Sub_topic">Pub/Sub 주제 만들기</h2>
+    <p>Pub/Sub 주제를 생성하려면 다음 단계를 수행하십시오.</p>
+    <ol class="bcls-tasklist">
+      <li>Google Cloud 플랫폼의 색인 페이지로 이동합니다( <a href="https://cloud.google.com/"> https://cloud.google.com</a> ).</li>
+      <li>클릭<strong>콘솔</strong>화면 오른쪽 상단의 링크.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/first-page-click-console.png" alt="click console">
+        </figure>
+      </li>
+      <li>올바른 프로젝트를 선택하십시오. 다음과 같이 앱을 중심으로 프로젝트 이름을 지정했을 가능성이 큽니다. <strong>봉홧불</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/choose-project.png" alt="choose project">
+        </figure>
+      </li>
+      <li>에서<strong>찾다</strong> , 시작하다 <samp>선술집</samp>, 표시되면<strong>게시/구독</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/search-4-pub.png" alt="search for pub/sub">
+        </figure>
+      </li>
+      <li>로부터<strong>게시/구독</strong>페이지, 클릭<strong>주제 만들기</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/click-create-topic.png" alt="click create topic">
+        </figure>
+      </li>
+      <li>에서<strong>주제 만들기</strong>대화 상자에서<strong>주제 ID</strong>되려고 <samp>잠수정</samp>을 클릭한 다음<strong>주제 만들기</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/create-topic-dialog.png" alt="sub for topic ID">
+        </figure>
+      </li>
+      <li>표시되는 페이지에서 ←를 클릭하여<strong>주제</strong>페이지.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/back-to-topics-left-arrow.png" alt="back to topics">
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add_a_member_to_the_topic">주제에 구성원 추가</h2>
+    <p>Pub/Sub 주제의 구성원으로 서비스 계정을 추가하려면 다음 단계를 수행하십시오.</p>
+    <ol class="bcls-tasklist">
+      <li>로부터<strong>주제</strong>페이지, <strong>잠수정</strong>주제, 클릭<strong>더 많은 행동</strong> (세로 점 3개) 그런 다음 드롭다운에서<strong>권한 보기</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/more-actions-permissions.png" alt="view permissions">
+        </figure>
+      </li>
+      <li>권한 패널에서<strong>회원 추가</strong> .<figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/add-member.png" alt="click add member">
+        </figure>
+      </li>
+      <li>다음 양식이 표시되는지 확인합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/empty-subs-member-form.png" alt="add member form">
+        </figure>
+      </li>
+      <li>필요한 이메일 주소를 얻으려면<a href="https://console.cloud.google.com/iam-admin/serviceaccounts?project=pc-api-8769861187782665707-545"> Google Cloud Console - 서비스 계정</a>페이지. 에서 생성한 서비스 계정을 찾을 수 있습니다. <a href="/creating-your-apps/android/managing-google-subscriptions-1.html"> Google 구독 관리 1부</a>문서. 이메일 주소 복사<strong>안드로이드 구독</strong> (또는 선택한 이름) 서비스 계정.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/copy-email.png" alt="">
+        </figure>
+      </li>
+      <li>로 돌아가기<strong>회원 추가</strong>형식<strong>구글 클라우드 플랫폼</strong> .</li>
+      <li>검색한 이메일 주소를<strong>신규 회원</strong>텍스트 필드.</li>
+      <li>역할에 대해 다음을 선택합니다. <strong> Pub/Sub → Pub/Sub 게시자</strong> .</li>
+      <li>클릭<strong>알림 이메일 보내기</strong>확인란을 선택하고 메시지를 추가합니다.</li>
+      <li>양식이 다음과 유사하게 작성되었는지 확인합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/new-member-completed-form.png" alt="filled in form">
+        </figure>
+      </li>
+      <li>딸깍 하는 소리<strong>구하다</strong> .</li>
+      <li>
+        <p>다음으로 다른 회원 이메일을 추가합니다. 이렇게 하면 Google Play 알림이 수신되는지 확인하는 데 도움이 됩니다.</p>
+        권한 패널에서<strong>회원 추가</strong> .<figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/add-member.png" alt="click add member">
+      </figure>
+    </li>
+    <li>다음 양식이 표시되는지 확인합니다.
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/empty-subs-member-form.png" alt="add member form">
+      </figure>
+    </li>
+    <li>다음 회원 이메일을 추가합니다.
+      <pre>
+<code class="language-html" translate="No">google-play-developer-notifications@system.gserviceaccount.com</code></pre>
+    </li>
+    <li>
+      역할을 다음으로 설정<strong>게시/구독 편집자</strong> .
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/member-email2.png" alt="add member2 form">
+      </figure>
+    </li>
+    <li>
+      다음으로 선택<strong>구독</strong> .
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/select-subscriptions.png" alt="Select Subscriptions">
+      </figure>
+    </li>
+    <li>
+      선택하다<strong>구독 만들기</strong> .
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-subscription.png" alt="Create Subscription">
+      </figure>
+    </li>
+    <li>
+      입력<strong>구독 ID</strong>가치 <samp>잠수정</samp>. 로부터<strong> Cloud Pub/Sub 주제 선택</strong>드롭다운에서 주제를 선택합니다.
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/subscription-topic.png" alt="Subscription ID and topic">
+      </figure>
+    </li>
+    <li>딸깍 하는 소리<strong>창조하다</strong> .</li>
+
+      <li>로부터<strong>주제</strong>페이지에서<strong>잠수정</strong>주제.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/click-on-subs.png" alt="click subs">
+        </figure>
+      </li>
+      <li>로부터<strong>주제 세부정보</strong> , 복사<strong>주제 이름</strong> (빨간색 윤곽선으로 표시된 복사 버튼이 내장되어 있습니다.)
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/copy-topic-name.png" alt="copy topic name">
+        </figure>
+      </li>
+      <li>이 이름을 온보딩 관리자에게 보냅니다.
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Verify_your_setup">설정 확인</h2>
+    <aside class="bcls-aside bcls-aside--information">이 섹션은 일반적으로 Brightcove 온보딩 또는 cms 팀에서 완료합니다.</aside>
+    <p>게시자/구독자 데이터 교환에 대한 알림을 확인하려면 다음 단계를 따르세요.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>브라우저에서 Google Play 콘솔( <a href="https://play.google.com/console/"> https://play.google.com/console/</a> ).</li>
+      <li>검색<strong>술집</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/search-pubs.png" alt="Search for pubs">
+        </figure>
+      </li>
+      <li>선택하다<strong>수익 창출</strong> .</li>
+      <li>앱을 선택합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/choose-app.png" alt="Choose your app">
+        </figure>
+      </li>
+      <li>주제를 입력합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/monetization-topic.png" alt="Enter the topic">
+        </figure>
+      </li>
+      <li>선택하다<strong>테스트 알림 보내기</strong> .</li>
+      <li>설정이 올바르면 다음이 표시되어야 합니다. Google 클라우드에서 구성을 전파하는 데 시간이 걸립니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/test-notification-msg.png" alt="Test notification msg">
+        </figure>
+      </li>
+    </ol>
+
+  </section>
+</article>

@@ -1,0 +1,213 @@
+
+---
+title: 구독 패키지 사용
+parent: Monetization 
+---
+
+
+<article class="bcls-article">
+  <h1>구독 패키지 사용</h1>
+  <summary>이 항목에서는 다음을 사용하여 만든 비디오 구독 패키지를 사용하는 방법을 배웁니다. <strong>상업</strong> Brightcove Beacon 탭. 구독 패키지는 SVOD(주문형 구독 비디오) 수익 창출을 구현합니다. 구독 생성에 대한 자세한 내용은<a href="/monetization/creating-subscription-package.html">구독 패키지 만들기</a>문서.
+  </summary>
+  <section class="bcls-section">
+    <h2 id="Overview">개요</h2>
+    <p>
+      구독 패키지는 앱에서 특정 비디오 세트를 구매할 수 있는 방법을 정의합니다.' 고객. 구독 패키지는 Brightcove Beacon에서 생성해야 하며 자세한 내용은<a href="/monetization/creating-subscription-package.html">구독 패키지 만들기</a>문서. 또한 구독 패키지 사용에서 중요한 것은 Video Cloud 계정의 비디오에 대해 생성된 Video Cloud 사용자 정의 필드입니다. <a href="/syncing-with-video-cloud/vc-custom-fields.html"> Video Cloud 사용자 정의 필드 생성</a>문서. 구체적으로, <a href="/syncing-with-video-cloud/vc-custom-fields.html#Rights_Management_fields">권한 관리 필드</a>으로 사용될 것.
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Understanding_the_rights_management_custom_fields"> 권한 관리 사용자 정의 필드 이해 </h2>
+    <p>권한 관리 사용자 정의 필드는 다음으로 구성됩니다.</p>
+    <ul>
+      <li>beacon.rights.&lt;카운터&gt;.type</li>
+      <li>beacon.rights.&lt;카운터&gt;.startDate</li>
+      <li>beacon.rights.&lt;카운터&gt;.endDate</li>
+      <li>beacon.rights.&lt;카운터&gt;.devices</li>
+      <li>beacon.rights.&lt;카운터&gt;.locationsPermit</li>
+      <li>beacon.rights.&lt;카운터&gt;.locationsDeny</li>
+      <li>beacon.rights.&lt;카운터&gt;.패키지 이름</li>
+      <li>beacon.rights.&lt;카운터&gt;.adConfiguration</li>
+    </ul>
+    <p>
+      먼저 고려<strong> &lt;카운터&gt;</strong>각 이름의 일부. 이는 여러 권한 관리 필드 세트를 생성하려는 경우 포함되며, <strong> &lt;카운터&gt;</strong>배열 유형 구문을 사용하여 관련 필드를 그룹화할 수 있도록 활용됩니다.
+    </p>
+    <p>
+      예를 들어, 휴일에 구독 패키지를 만들고 다음을 위한 패키지가 있다고 가정해 보겠습니다.
+    </p>
+    <ul>
+      <li>지구의 날</li>
+      <li>식목일</li>
+      <li>새로운 년</li>
+    </ul>
+    <p>
+      Video Cloud로 이동하여 다음과 같이 표시되는 0-2(또는 원하는 경우 1-3)의 카운터 값을 사용하여 세 가지 권한 관리 필드 세트를 생성해야 합니다.
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/index-of-rights-fields.png" alt="index of rights fields" />
+    </figure>
+    <p>
+      요약하면 사용하려는 각 패키지에 대해 권한 관리 필드의 "카운터" 세트를 만들어야 합니다.
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Package_and_custom_field_similar_rights"> 패키지 및 사용자 정의 필드 유사 권한 </h2>
+    <p>
+      데이터를 할당할 수 있고 수집 시 비디오에 적용된 일부 사용자 정의 필드는 Brightcove Beacon에서 패키지를 생성할 때 양식 필드와 동일하게 보일 수 있습니다. 예를 들어 사용자 정의 필드 <em>beacon.rights.&lt;카운터&gt;.locationsDeny</em> 그리고 패키지의<strong>거부된 위치</strong>양식 필드가 충돌하는 것처럼 보일 수 있습니다. 이러한 "충돌"을 고려할 때 다음과 같은 두 가지 다른 질문이 제기된다는 것을 기억하십시오. </p>
+    <ul>
+      <li>비디오에 대한 권리가 재생을 허용합니까?</li>
+      <li>사용자가 패키지에 가입할 수 있습니까?</li>
+    </ul>
+    <p>
+      다음 시나리오를 고려하십시오.
+    </p>
+    <ul>
+      <li>
+        종료 날짜 <em>beacon.rights.&lt;카운터&gt;.endDate</em> 사용자 정의 필드가 패키지 자체의 종료 날짜보다 나중입니다. 이는 비디오의 권한으로 인해 사용자 정의 필드 종료 날짜까지 볼 수 있지만 사용자는 예를 들어 비디오 보기 비용을 낮출 수 있는 패키지를 구독할 수 없음을 의미합니다.
+      </li>
+      <li>
+        미국, 캐나다 및 멕시코의 위치가 허용된 패키지가 생성되고 해당 패키지가 사용자 정의 필드의 비디오에 할당됩니다. <em>beacon.rights.&lt;카운터&gt;.패키지 이름</em>. 또한 비디오의 사용자 정의 필드에서 UK는
+        <em>beacon.rights.&lt;카운터&gt;.locationsPermit</em> 사용자 정의 필드. 패키지는 비디오에 할당되지만 패키지는 영국에서 구입할 수 없습니다. 비디오는 영국에서 재생할 수 있지만 영국 고객을 위한 패키지의 일부가 될 수 없습니다.
+      </li>
+      <li>
+        미국, 캐나다 및 멕시코의 위치가 허용된 패키지가 생성됩니다. 사용자 정의 필드에서 미국과 캐나다는 비디오의 <em>beacon.rights.&lt;카운터&gt;.locationsDeny</em> 사용자 정의 필드. 여기에서 미국, 캐나다 및 멕시코의 고객은 패키지를 구독할 수 있지만 미국 및 캐나다가 위치가 거부된 특정 비디오는 비디오가 패키지에 있더라도 해당 위치의 고객이 비디오를 볼 수 없음을 의미합니다.
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Subscription_interval_support"> 구독 간격 지원
+    </h2>
+    <p>
+      다음 표는 각 상점의 반복 구독에 지원되는 시간 간격을 보여줍니다. </p>
+    <table class="bcls-table">
+      <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
+      <thead class="bcls-table__head">
+        <tr>
+          <th>시간 간격</th>
+          <th>애플 스토어</th>
+          <th>구글 플레이 스토어</th>
+          <th>로쿠 스토어</th>
+          <th>아마존 스토어</th>
+          <th>줄무늬</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>일주</td>
+          <td>예</td>
+          <td>예</td>
+          <td></td>
+          <td>예</td>
+          <td>예</td>
+        </tr>
+        <tr>
+          <td>1 개월</td>
+          <td>예</td>
+          <td>예</td>
+          <td>예</td>
+          <td>예</td>
+          <td>예</td>
+        </tr>
+        <tr>
+          <td>3 개월</td>
+          <td>예</td>
+          <td>예</td>
+          <td></td>
+          <td>예</td>
+          <td>예</td>
+        </tr>
+        <tr>
+          <td>6 개월</td>
+          <td>예</td>
+          <td>예</td>
+          <td></td>
+          <td>예</td>
+          <td>예</td>
+        </tr>
+        <tr>
+          <td>일년</td>
+          <td>예</td>
+          <td>예</td>
+          <td>예</td>
+          <td>예</td>
+          <td>예</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Assigning_a_single_video_to_a_package"> 패키지에 단일 비디오 할당
+    </h2>
+    <p>
+      단일 비디오를 패키지에 할당하려면 Video Cloud Studio를 사용해야 합니다. 다음 단계를 수행하십시오.
+    </p>
+    <ol class="bcls-tasklist">
+      <li>Studio에서<strong>미디어</strong>기준 치수.</li>
+      <li>
+        패키지에 추가하려는 비디오의 제목을 클릭하면 해당 비디오의 속성을 볼 수 있습니다.
+      </li>
+      <li>
+        보일 때까지 아래로 스크롤하십시오<strong>사용자 정의 필드</strong>섹션을 클릭하고<strong>편집하다</strong>단추.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/single-video-edit-fields.png" alt="index of rights fields" />
+        </figure>
+      </li>
+      <li>
+        Brightcove Beacon에서 생성된 구독 패키지의 이름을<code translate="No">beacon.rights.&lt;counter&gt;.packageName</code>들.
+      </li>
+      <li>
+        패키지를 사용하고 있으므로 반드시 다음을 설정해야 합니다. <code translate="No">beacon.rights.&lt;counter&gt;.type</code>에게<strong> SVOD</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/custom-fields.png" alt="index of rights fields" />
+        </figure>
+      </li>
+      <li>
+        사용자 정의 필드 목록의 맨 아래로 스크롤하고<strong>구하다</strong>단추.
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Assigning_a_single_video_to_a_package"> 패키지에 여러 비디오 할당 </h2>
+    <p>
+      패키지에 여러 비디오를 할당하려면 Video Cloud Studio를 사용해야 합니다. 다음 스크린샷은 단계를 수행할 때 유용합니다.
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/multiple-video-edit.png" alt="index of rights fields" />
+    </figure>
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        Studio에서<strong>미디어</strong>모듈을 선택하고 패키지에 추가하려는 각 비디오 앞의 확인란을 선택합니다.
+      </li>
+      <li>클릭<strong>빠른 편집</strong>단추.</li>
+      <li>
+        NS <strong>빠른 편집</strong>섹션이 화면 오른쪽에 나타나고 거기에서 Brightcove Beacon에서 만든 구독 패키지의 이름을<code translate="No">beacon.rights.&lt;counter&gt;.packageName</code>들.
+      </li>
+      <li>
+        패키지를 사용하고 있으므로 반드시 다음을 설정해야 합니다. <code translate="No">beacon.rights.&lt;counter&gt;.type</code>에게<strong> SVOD</strong> .
+      </li>
+      <li>
+        맨 아래에<strong>빠른 편집</strong>섹션에서<strong>구하다</strong>단추.
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Ingesting_the_videos_into_Brightcove_Beacon"> Brightcove Beacon으로 비디오 수집 </h2>
+    <p>
+      이제 하나 이상의 동영상을 구독 패키지와 연결했습니다. 이제 해당 연결을 Brightcove Beacon으로 수집해야 합니다. 이렇게 하려면 다음 단계를 따르세요.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>Brightcove Beacon에 로그인합니다.</li>
+      <li>렌치 아이콘(도구)을 클릭합니다.</li>
+      <li>왼쪽 탐색에서<strong>음식물 섭취</strong> .</li>
+      <li>클릭<strong> Brightcove 비디오 업데이트</strong>단추.</li>
+      <li>
+        보고된 오류가 있으면 구독 패키지와 관련된 오류가 없는지 확인하십시오.
+      </li>
+      <li>
+        Brightcove Beacon에서 새 연결을 즉시 활성화하려면 현재 캐시를 지워야 합니다. 이렇게 하려면 왼쪽 탐색에서<strong>은닉처</strong>을 클릭한 다음<strong>캐시 제거</strong> .
+      </li>
+    </ol>
+    <p>
+      이 섹션에서 취한 조치에 대한 자세한 내용은 다음을 참조하십시오. <a href="/using-brightcove-beacon/tools.html">도구 사용</a>문서.
+    </p>
+  </section>
+</article>

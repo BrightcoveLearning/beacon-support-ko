@@ -1,0 +1,89 @@
+
+---
+title: 스트라이프 계정 생성
+description: 이 주제에서는 결제를 위한 Stripe 계정을 만들고 이를 Brightcove Beacon Experience와 연결하는 방법을 배웁니다.
+parent: Monetization
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">개요</h2>
+    <p>
+      다음 플랫폼에 대한 고객의 결제를 허용하려면 Stripe 계정이 필요합니다.
+    </p>
+    <ul>
+      <li>편물</li>
+      <!-- <li>LG Smart TV</li>
+      <li>Panasonic Smart TV</li> -->
+      <li>삼성 스마트 TV</li>
+      <li>소니 스마트 TV</li>
+      <li>도시바 스마트 TV</li>
+    </ul>
+    <p>
+      이는 웹 앱과 모든 스마트 TV 앱에 Stripe가 필요함을 의미합니다. <em>이것 말고도</em> 안드로이드 TV와 파이어 TV.
+    </p>
+    <p>
+      다음 단계는 Brightcove Beacon과 함께 Stripe를 사용하는 프로세스에 대한 개요를 제공합니다.
+    </p>
+    <ol>
+      <li>
+        기본 정보(이메일, 이름, 비밀번호)를 제공하여 계정을 만듭니다.
+      </li>
+      <li>
+        귀하의 비즈니스에 대한 정보를 제공하여 계정을 활성화하십시오.
+      </li>
+      <li>Stripe API 키를 검색합니다.</li>
+      <li>
+        Brightcove 직원에게 API 키를 제공하여 그들이 Brightcove Beacon Experience에 추가할 수 있도록 합니다.
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Creating_the_Stripe_account"> Stripe 계정 생성 및 활성화 </h2>
+    <p></p>
+    <ol class="bcls-tasklist">
+      <li>찾아보기<a href="https://stripe.com/">스트라이프 홈페이지</a> .</li>
+      <li>클릭<strong>지금 시작</strong>단추.</li>
+      <li>
+        기본 정보를 입력하여 계정을 만듭니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/references/creating-stripe-account/info-create-account.png" alt="basic info to create account" />
+        </figure>
+      </li>
+      <li>
+        Stripe 대시보드가 표시되었는지 확인하십시오.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/references/creating-stripe-account/stripe-dashboard.png" alt="stipe dashboard" />
+        </figure>
+      </li>
+      <li>클릭<strong> Stripe 계정 활성화</strong>옵션.</li>
+      <li>클릭<strong>지금 시작</strong>버튼을 눌러 프로세스를 시작합니다.</li>
+      <li>이메일 주소를 확인해야 합니다.</li>
+      <li>
+        이메일 주소를 확인하면 계정 활성화를 위해 작성해야 하는 양식이 표시됩니다. 노란색으로 강조 표시된 부분은 양식의 주요 부분입니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/references/creating-stripe-account/activate-account-form.png" alt="form to activate account" />
+        </figure>
+      </li>
+      <li>
+        양식 작성 후<strong>지원서 제출</strong>단추.
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="section-name">Stripe API 키 가져오기</h2>
+    <p>
+      Stripe 계정과 Brightcove Beacon 간의 연결은 Stripe API 키를 통해 이루어집니다. 위에 표시된 대시보드의 스크린샷에서 다음 링크를 볼 수 있습니다. <strong>라이브 API 키 가져오기</strong> . 계정이 활성화될 때까지는 테스트 API 키만 받을 수 있습니다.
+    </p>
+    <p>
+      대시보드에서<strong>라이브 API 키 가져오기</strong>지침에 따라 다운로드하십시오.
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Connecting_Stripe_to_Brightcove_Beacon"> Brightcove Beacon에 Stripe 연결하기 </h2>
+    <p>
+      Stripe API 키가 있으면 Brightcove Beacon Experience를 구성하는 Brightcove 직원에게 제공합니다. Stripe API 키를 Brightcove Beacon Experience와 연결하여 앱에서 사용하도록 Stripe를 구성할 때 계정과 연결되도록 합니다.
+    </p>
+  </section>
+</article>

@@ -1,0 +1,106 @@
+
+---
+title: "AuthVOD 구현"
+description: "이 주제에서는 AuthVOD 수익 창출 패키지를 만드는 방법을 배웁니다."
+parent: "Monetization"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="section-name">AuthVOD 이해하기</h2>
+    <p>AuthVOD(AUTHenticated Video On Demand)는 시청자가 패키지에 포함된 비디오를 시청하기 위해 Brightcove Beacon 앱에 인증, 즉 사용자 이름과 비밀번호를 입력해야 하는 수익 창출 패키지입니다. 해당 패키지를 구성하는 방법에 따라 비디오에 광고가 표시되거나 표시되지 않을 수 있습니다.</p>
+    <p>참조<a href="/monetization/monetization-options.html">수익 창출 옵션 이해</a> AuthVOD 및 Brightcove Beacon과 함께 사용할 수 있는 모든 수익 창출 패키지에 대한 자세한 내용은 문서를 참조하십시오.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">AuthVOD 패키지 개요 구성</h2>
+    <p>다음은 AuthVOD 패키지를 구성하는 대략적인 단계입니다.</p>
+    <ol>
+      <li>Brightcove Beacon에서 생성<strong>널리 알려지지 않은</strong> , 비용 무료 패키지.</li>
+      <li>광고가 필요한 경우 패키지를 생성할 때 광고 제공자를 제공하십시오.</li>
+      <li>Video Cloud Studio에서 비디오에 데이터 추가' 사용자 정의 필드를 사용하여 AuthVOD 패키지에 할당합니다.</li>
+      <li>Brightcove Beacon에서 비디오를 수집하고 캐시를 지웁니다.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">Brightcove Beacon에서 패키지 만들기</h2>
+    <p>다음은 AuthVOD 패키지를 생성하기 위해 Brightcove Beacon에서 따라야 할 세부 단계입니다.</p>
+    <ol class="bcls-tasklist">
+      <li>클릭<strong>상업</strong> Brightcove Beacon 상단에 있는 탭.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/navigation-to-add.png" alt="get to add new package button">
+        </figure>
+      </li>
+      <li>선택하다<strong>패키지</strong>왼쪽 탐색에서.</li>
+      <li>클릭<strong>새 패키지 추가</strong>단추.</li>
+      <li>에<strong>패키지</strong>탭에서 내부 이름을 입력하고 그대로 두십시오. <strong>상태</strong>같이<strong>널리 알려지지 않은</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/package-tab.png" alt="package tab">
+        </figure>
+      </li>
+      <li>광고를 사용하려면 다음을 클릭하십시오. <strong>예</strong>라디오 버튼<strong>광고</strong>그런 다음 선택<strong>광고 제공자</strong>드롭다운에서.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/package-tab-ads.png" alt="package tab">
+        </figure>
+      </li>
+      <li>에<strong>텍스트 데이터</strong>탭에서 뷰어에게 표시되는 이름과 패키지에 대한 헤드라인을 입력합니다.</li>
+      <li>원하는 경우 패키지 정보와 함께 표시할 이미지를 제공하십시오.</li>
+      <li>에<strong>스트림</strong>탭에서 동시에 스트리밍할 수 있는 최대 장치 수와 활성 연결을 가질 수 있는 최대 장치 수에 대한 값을 입력합니다.</li>
+      <li>패키지 가용성을 더 세밀하게 제어하려면<strong>예</strong>라디오 버튼<strong>고급 스트림?</strong> , 세부 가용성 옵션이 포함된 양식을 작성합니다.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">Studio에서 패키지에 비디오 추가</h2>
+    <p>패키지에 콘텐츠를 추가하려면 Video Cloud Studio를 사용하여 사용자 정의 필드에 값을 할당해야 합니다. AuthVOD 패키지에 대해 값을 할당해야 하는 두 개의 사용자 정의 필드는 다음과 같습니다.</p>
+    <ul>
+      <li>beacon.rights.&lt;카운터&gt;.패키지 이름</li>
+      <li>beacon.rights.&lt;카운터&gt;.type</li>
+    </ul>
+    <p>아래 단계에서는 해당 사용자 정의 필드에 값을 할당하는 프로세스를 자세히 설명합니다.</p>
+    <aside class="bcls-aside bcls-aside--tip">Brightcove Beacon과 함께 Video Cloud의 사용자 정의 필드를 사용하는 방법에 대한 자세한 내용은 다음을 참조하십시오. <a href="/syncing-with-video-cloud/vc-custom-fields.html"> Video Cloud 사용자 정의 필드 생성</a>문서.</aside>
+    <p>패키지에 포함하려는 각 비디오에 대해 다음 단계를 완료하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>비디오 클라우드 스튜디오에 로그인합니다.</li>
+      <li>미디어 모듈에서 해당 비디오의 속성을 보려면 비디오 이름을 클릭하십시오.</li>
+      <li>클릭<strong>사용자 정의 필드</strong>' <strong>편집하다</strong>단추.</li>
+      <li>를 위해<strong> beacon.rights.&lt;카운터&gt;.패키지 이름</strong> , 이전에 생성한 AuthVOD 패키지의 이름을 입력합니다.</li>
+      <li>를 위해<strong> beacon.rights.&lt;카운터&gt;.type</strong> , 시작하다<strong> SVOD</strong> .</li>
+    </ol>
+    <p>다음 스크린샷은 사용자 정의 필드에 사용된 실제 값의 예를 보여줍니다. 이 경우, <strong>카운터</strong>는 0(빨간색으로 강조 표시됨)이고 패키지 이름은<strong> AuthVOD 테스트</strong> (노란색으로 밑줄을 쳤다). AuthVOD를 구현할 때 기억하십시오. <strong> beacon.rights.&lt;카운터&gt;.type</strong>항상 설정되어 있습니다<strong> SVOD</strong> .</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/values-in-custom-fields.png" alt="custom field values">
+    </figure>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">Brightcove Beacon으로 비디오 수집</h2>
+    <p>Video Cloud Studio에서 비디오에 대한 변경 사항은 Brightcove Beacon으로 수집되어야 합니다. 이것은 매시간 자동으로 수행되지만 요청 시 수동으로 수집할 수도 있습니다. 자세한 단계는 아래에서 자세히 설명합니다.</p>
+    <aside class="bcls-aside bcls-aside--tip">비디오 수집에 대한 자세한 내용은<a href="/syncing-with-video-cloud/forcing-a-sync.html">강제 동기화</a>문서.</aside>
+    <ol class="bcls-tasklist-restart">
+      <li>Brightcove Beacon의 상단 메뉴에서 도구(공구 모양 아이콘) 탭을 클릭합니다.</li>
+      <li>왼쪽 탐색 메뉴에서<strong>음식물 섭취</strong>옵션이 선택됩니다(기본 옵션).</li>
+      <li>클릭<strong> Brightcove 비디오 업데이트</strong>단추.</li>
+      <li>처리가 완료되면 먼저 상단 메뉴를 클릭하여 동영상이 AuthVOD 패키지에 할당되었는지 확인할 수 있습니다. <strong>상업</strong>탭.</li>
+      <li>왼쪽 탐색 메뉴에서<strong>패키지</strong>옵션이 선택됩니다(기본 옵션).</li>
+      <li>AuthVOD 패키지의 이름을 클릭합니다.</li>
+      <li>클릭<strong>콘텐츠</strong>탭을 클릭하여 이 AuthVOD 패키지에 할당된 자산을 확인하세요. 이 탭의 예는 다음과 같습니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/content.png" alt="content">
+        </figure>
+      </li>
+      <li>캐시 지우기를 시작하려면 상단 메뉴에서 도구(공구 모양 아이콘) 탭을 클릭합니다.</li>
+      <li>왼쪽 탐색 메뉴에서<strong>은닉처</strong>옵션.</li>
+      <li>클릭<strong>캐시 제거</strong>단추.</li>
+    </ol>
+    <p>이제 Brightcove Beacon 앱에 인증된 모든 뷰어는 AuthVOD 콘텐츠에 액세스할 수 있습니다. 시청자가 인증되지 않은 상태에서 동영상을 재생하려고 하면 다음과 같이 동영상 왼쪽 하단에 로그인하라는 메시지가 표시됩니다.
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/sign-in.png" alt="sign in prompt">
+    </figure>
+    </p>
+  </section>
+
+</article>

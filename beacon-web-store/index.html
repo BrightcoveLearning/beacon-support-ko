@@ -1,0 +1,18 @@
+
+---
+title: 비콘 웹 스토어
+description: Beacon 웹 스토어는 Beacon 라이선스 사용자가 BYO(Bring Your Own) 웹 스토어에서 구독을 구현할 수 있도록 하는 서비스입니다.
+parent: home
+---
+ <h1>{{ page.title }}</h1>
+<article class="landing-page-wrapper">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-topic-list">
+    <h2 id="Topics_in_this_section">주제{{ page.title }}</h2>
+    <ul>
+      {% for item in site.data.navigation %} {% if item.name == page.title %} {% for doc in item.docs %}
+      <li><a href="{{ doc.url }}">{{ doc.name }}</a></li>
+      {% endfor %} {% endif %} {% endfor %}
+    </ul>
+  </section>
+</article>

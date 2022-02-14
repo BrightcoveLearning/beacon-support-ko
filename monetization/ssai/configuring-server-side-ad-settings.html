@@ -1,0 +1,147 @@
+
+---
+title: 서버 측 광고 설정 구성
+description: '이 주제에서는 라이브 및 VOD 서버 측 광고 구성을 관리하고 생성하는 방법을 배웁니다.'
+parent: SSAI 
+grandparent: Monetization 
+---
+
+
+<!-- 
+  This content appears on:
+  
+  https://beacon.support.brightcove.com/using-brightcove-beacon/configuring-server-side-ad-settings.html
+
+  https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html
+
+  If you update in one place, you MUST update it in all!
+ -->
+
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <p>
+      광고 구성은 광고 호출, 타이밍, 비콘 및 기타 광고 구성 옵션을 포함하여 광고 재생의 다양한 측면을 정의합니다. 서버 측 광고 설정은 VOD(주문형 비디오) 비디오 및 라이브 이벤트 중에 요청할 수 있는 광고를 정의합니다. 서버 측 광고는 Brightcove의 SSAI(서버 측 광고 삽입) 기술을 활용하고 다음과 같은 주요 기능을 제공합니다. </p>
+    <ul>
+      <li>
+        광고는 서버 측의 주문형 또는 라이브 비디오 스트림에 연결되므로 광고 차단기의 영향을 받지 않습니다. </li>
+      <li>
+        라이브 이벤트의 경우 인코더에서 보낸 큐 포인트에 광고가 삽입되거나<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html#ad">라이브 모듈 제어실</a>
+      </li>
+      <li>사용하지 않은 광고 시간을 채우도록 채우기 슬레이트를 구성할 수 있습니다.</li>
+    </ul>
+    <p>
+      서버 측 광고에 대해 자세히 알아보려면<a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html"> Brightcove Player로 서버 측 광고 구현</a> .
+    </p>
+    <aside class="bcls-aside bcls-aside--information">메모:
+      <ul>
+        <li>
+          SSAI를 사용하기 전에 Video Cloud 계정이 Dynamic Delivery에 대해 구성되고 SSAI에 대해 활성화되어야 합니다. 자세한 내용은 계정 관리자에게 문의하세요. </li>
+        <li>Brightcove Live SSAI용 VMAP은 현재 지원되지 않습니다.</li>
+        <li>SSAI 광고에 대한 프리페치 기능은 없지만 광고 위치 로직을 광고 제공자에게 위임합니다. Dynamic Delivery는 모든 추가 호출을 미리 만듭니다. 광고 제공자로부터 광고를 받고 시스템에서 코드 변환되면 스트림에 삽입합니다.</li> 
+      </ul>
+    </aside>
+    <p>
+      서버 측 광고 설정 페이지는 라이브 및 VOD 광고 구성을 관리하는 데 사용됩니다. 서버 측 광고 설정 페이지에 액세스하려면 관리자 역할을 가진 사용자여야 합니다. </p>
+    <p>서버 측 광고 설정 페이지에 액세스하려면:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>스튜디오에 로그인합니다.</li>
+      <li>
+        탐색 헤더에서<strong>관리자</strong>그리고<strong>서버 측 광고 설정</strong> .모든 광고 구성 목록이 표시됩니다.
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt=""
+            src="https://general.support.brightcove.com/assets/images/admin/node18748-list-of-ad-configs.png"
+          />
+        </figure>
+      </li>
+    </ol>
+    <p>
+      새 광고 구성을 만들려면<strong>광고 구성 만들기</strong>생성할 특정 유형의 광고를 클릭합니다. </p>
+    <ul>
+      <li><a href="#vod">주문형 비디오(VOD)</a></li>
+      <li><a href="#live">살다</a></li>
+    </ul>
+    <figure class="bcls-figure">
+      <img
+        class="bcls-image--no-border"
+        alt=""
+        src="https://general.support.brightcove.com/assets/images/admin/node18748-create-ad.png"
+      />
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="vod">주문형 비디오 광고 구성 만들기</h2>
+    <aside class="bcls-aside bcls-aside--information">메모: 서버 측 광고 구성은 서버 측 광고 삽입 API를 사용하여 관리할 수도 있습니다. 자세한 내용은<a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html">비디오 클라우드 SSAI 광고 구성 API</a>주제.</aside>
+    <p>주문형 비디오(VOD) 광고 구성을 추가하려면 다음 단계를 따르세요.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        서버 측 광고 설정 페이지에서<strong>광고 구성 만들기 &gt; VOD</strong> .
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt=""
+            src="https://general.support.brightcove.com/assets/images/admin/node18748-create-vod-ad.png"
+          />
+        </figure>
+      </li>
+      <li>입력<strong>이름</strong> .</li>
+      <li>
+        선택<strong>광고 서버 응답</strong> :
+        <ul>
+          <li>DFP 광고 규칙</li>
+          <li>DFP VMAP</li>
+          <li>스마트 XML</li>
+          <li>VAST 3.0</li>
+        </ul>
+      </li>
+      <li>들어가다<strong>광고 태그</strong> .</li>
+      <li>
+        확인하다<strong>서버 측 비콘 비활성화</strong>서버 측 비콘을 비활성화합니다. 비활성화되면 SSAI는 서버 측 비콘을 실행하지 않고 VMAP 출력에 모든 비콘을 포함합니다.
+      </li>
+      <li>딸깍 하는 소리<strong>구하다</strong> .</li>
+    </ol>
+    <p>
+      광고 구성을 수정하려면 광고 이름을 클릭하고 변경한 다음<strong>구하다</strong> . 광고 구성을 삭제하려면 광고 옆의 확인란을 선택한 다음<strong>삭제</strong> . 광고 구성을 복제하려면 광고 옆의 확인란을 선택한 다음<strong>복제하다</strong> .
+    </p>
+    <p>
+      VOD 광고 구성이 생성되면 플레이어 모듈을 열고 플레이어를 클릭하여 속성을 봅니다. 때<strong>서버 측 활성화(SSAI)</strong>광고 속성이 활성화되면 광고 구성을 선택할 수 있습니다. 플레이어 광고 구성에 대한 자세한 내용은 다음을 참조하십시오. <a href="https://studio.support.brightcove.com/players/configuring-player-advertising-using-players-module.html">플레이어 모듈을 사용하여 플레이어 광고 구성(외부 링크)</a> .
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="live">라이브 광고 구성 만들기</h2>
+    <aside class="bcls-aside bcls-aside--information">메모: 서버 측 라이브 광고 구성은 Live API를 사용하여 관리할 수도 있습니다. 자세한 내용은 다음을 참조하십시오. <a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration">브라이트코브 라이브 API: 서버 측 광고 삽입(SSAI)</a> .</aside>
+    <p>라이브 광고 구성을 추가하려면 다음 단계를 따르세요.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        서버 측 광고 설정 페이지에서<strong>광고 구성 만들기 &gt; 라이브</strong> .
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt=""
+            src="https://general.support.brightcove.com/assets/images/admin/node18748-create-live-ad.png"
+          />
+        </figure>
+      </li>
+      <li>입력<strong>이름</strong> .</li>
+      <li>
+        선택<strong>광고 서버 응답</strong> :
+        <ul>
+          <li>대단한</li>
+          <li>DFP(광고 규칙)</li>
+          <li>스마트 XML</li>
+        </ul>
+      </li>
+      <li>들어가다<strong>광고 태그</strong> .</li>
+      <li>딸깍 하는 소리<strong>구하다</strong> .</li>
+    </ol>
+    <p>
+      광고 구성을 수정하려면 광고 이름을 클릭하고 변경한 다음<strong>구하다</strong> . 광고 구성을 삭제하려면 광고 옆의 확인란을 선택한 다음<strong>삭제</strong> . 광고 구성을 복제하려면 광고 옆의 확인란을 선택한 다음<strong>복제하다</strong> .
+    </p>
+    <p>
+      라이브 광고 구성이 생성되면 이벤트가 생성될 때<strong> SSAI(서버 측 광고 삽입) 활성화</strong>속성이 활성화되면 제어실에서 광고 구성을 선택할 수 있습니다. 라이브 이벤트 생성에 대한 정보는 다음을 참조하십시오. <a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html">라이브 모듈을 사용하여 라이브 이벤트 생성 및 관리</a> .
+    </p>
+  </section>
+</article>

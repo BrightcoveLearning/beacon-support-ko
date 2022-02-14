@@ -1,849 +1,213 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="robots" content="noindex,nofollow"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="이 주제에서는 브라이트코브 비콘 앱에 사용할 수 있는 분석 데이터와 Google 애널리틱스에서 해당 데이터를 검사하는 방법에 대해 알아봅니다.">
-  
-  <title>분석 데이터 보기</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/using-brightcove-beacon/">브라이트코브 비콘 사용</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">분석 데이터 보기</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3 left-side-bar">
-      <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
-        
-        
-        <h5><a href="/index.html">홈</a></h5>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/getting-started/index.html">시작하기 <strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/getting-started/learning-guide-bc-beacon.html">학습 가이드</a></li>
-          
-          
-          
-          <li><a href="/getting-started/implementation-phases.html">구현 단계</a></li>
-          
-          
-          
-          <li><a href="/getting-started/app-design-considerations.html">응용 프로그램 설계 고려 사항</a></li>
-          
-          
-          
-          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">앱 디자인 - 정보 아키텍처</a></li>
-          
-          
-          
-          <li><a href="/getting-started/creating-your-app-design-layout-options.html">앱 디자인 - 레이아웃 옵션</a></li>
-          
-          
-          
-          <li><a href="/getting-started/design-best-practices.html">설계 모범 사례</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html">비디오 클라우드와 동기화<strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">비디오 클라우드 사용자 정의 필드 만들기</a></li>
-          
-          
-          
-          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">강제 동기화</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">브라이트코브 비콘 사용<strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/using-brightcove-beacon/adding-to-page.html">페이지에 회전 목마 추가</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-channel.html">채널 만들기</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">EPG (전자 프로그램 안내서) 작성</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-page.html">새 페이지 만들기</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">재생 목록 만들기</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">가입 패키지 작성</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/promo-codes.html">프로모션 코드 생성</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">시리즈/시즌/에피소드 만들기</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">서버 측 광고 설정 구성</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/implementing-authvod.html">AuthVoD 구현</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/live-ssai.html">라이브 SSAI의 구현</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/vod-ssai.html">VOD SSAI를 구현하기</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">구성할 수 없는 페이지 포함</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/introducing-pages.html">소개 페이지</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/streaming-live-event.html">라이브 이벤트 스트리밍</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">채널로 VOD 스트리밍</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/monetization-options.html">수익 창출 옵션 이해</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/using-subscription-package.html">가입 패키지 사용</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/tools.html">도구 사용</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">분석 데이터 보기</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">앱 만들기<strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/android/index.html">안드로이드<strong>+</strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/android/submitting-to-android.html">안드로이드 스토어에 새로운 앱 제출</a></li>
-              
-              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">브라이트코브 비콘으로 안드로이드 앱 업데이트</a></li>
-              
-              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">안드로이드에 구독 추가</a></li>
-              
-              <li><a href="/creating-your-apps/android/improving-relevance-android.html">안드로이드 Play 스토어에서 검색 관련성 향상</a></li>
-              
-              <li><a href="/creating-your-apps/android/installing-android-test-build.html">안드로이드 테스트 빌드 설치</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/fire-tv/index.html"><strong>파이어 TV</strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">화재 TV 테스트 빌드 설치</a></li>
-              
-              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">아마존 스토어에 제출</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/ios-tvos/index.html"><strong>iOS/TVOS</strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">iOS/TVOS 테스트 빌드 설치</a></li>
-              
-              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">애플 스토어에 제출하기</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/panasonic/index.html">파나소닉<strong>+</strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">파나소닉 스토어에 제출하기</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/roku/index.html">로쿠<strong>+</strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">Roku에서 채널 내 제품 구성</a></li>
-              
-              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">Roku 테스트 빌드 설치</a></li>
-              
-              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">로쿠 스토어에 제출하기</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/samsung/index.html">삼성<strong>+</strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/samsung/samsung-partner.html">삼성 파트너 되기</a></li>
-              
-              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">삼성 상점에 제출하기</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li><a href="/creating-your-apps/common-required-info.html">일반적인 필수 정보</a></li>
-          
-          
-          
-          <li><a href="/creating-your-apps/device-apps-validation-guide.html">디바이스 앱 검증 가이드</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/references/index.html">참고 문헌 <strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/references/common-configuration-settings.html">일반 구성 설정</a></li>
-          
-          
-          
-          <li><a href="/references/creating-stripe-account.html">스트라이프 계정 생성</a></li>
-          
-          
-          
-          <li><a href="/references/glossary.html">용어집</a></li>
-          
-          
-          
-          <li><a href="/references/image-requirements.html">이미지 및 사양</a></li>
-          
-          
-          
-          <li><a href="/references/known-issues.html">알려진 문제</a></li>
-          
-          
-          
-          <li><a href="/references/product-updates.html">제품 업데이트</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/training/training-demand-custom-fields.html">비디오 클라우드 비디오/사용자 정의 필드 사용</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-design-layout.html">응용 프로그램 레이아웃 디자인</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-playlists.html">재생 목록 만들기 및 사용</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-series-seasons-episodes.html">시리즈, 계절 및 에피소드 만들기</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-vod-ssai.html">VOD 서버 측 광고 구현</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-publish-android-app.html">Play 스토어에 안드로이드 앱 게시</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-viewing-analytics.html">분석 데이터 보기</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          
-          
-          
-          
-          <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-          
-          
-          
-          <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-          
-          
-          
-          <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-          
-          
-        </ul>
-        
-        
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-      <!-- bootstrap layout -->
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-<h1>분석 데이터 보기</h1>
+---
+title: '분석 데이터 보기'
+description: '이 주제에서는 Brightcove Beacon 앱에 사용할 수 있는 분석 데이터와 Google Analytics에서 해당 데이터를 검사하는 방법에 대해 알아봅니다. '
+parent: 'Using Brightcove Beacon'
+layout: 'staging'
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-    <summary>이 주제에서는 브라이트코브 비콘 앱에 사용할 수 있는 분석 데이터와 Google 애널리틱스에서 해당 데이터를 검사하는 방법에 대해 알아봅니다.</summary>
+    <summary>{{ page.description }}</summary>
     <section class="bcls-section">
-        <aside class="bcls-aside bcls-aside--information language-editable">브라이트코브 비콘은 전체 분석을 비디오 클라우드로 다시 전송하지 않습니다. 비디오 시작만 비디오 클라우드 분석에 다시 보고됩니다.</aside>
-        <h2 id="Introduction">서문</h2>
-        <p>의심의 여지없이 브라이트코브 비콘 앱에서 시청자가 무엇을 보고 있는지 알고 싶을 것입니다. 이를 위해 Google 애널리틱스를 사용합니다. 브라이트코브는 맞춤형 대시보드와 맞춤형 Google 데이터 스튜디오 보고서를 Google 애널리틱스 계정에 로드합니다. 이 두 도구 모두 고객이 브라이트코브 비콘 앱을 사용하는 방식에 대한 훌륭한 통찰력을 제공합니다.</p>
-        <p>맞춤 대시보드 및 보고서 외에도 Google 애널리틱스의 표준 분석 도구를 사용하여 고객 행동을 볼 수 있습니다. Google에서 수집한 표준 분석 데이터를 사용할 수 있으며, 브라이트코브는 이 문서의 뒷부분에 자세히 설명되어 있습니다. 예를 들어 동영상 이벤트는<strong>동영상이</strong>재생될 때 전달되고, 기본 Google 애널리틱스 측정값인 시청 시간이 계산되며, 브라이트코브에서 측정값이 추가됩니다. 따라서 Google 애널리틱스에서는 시청자가 영화를 재생 횟수와 시청 총 시간 모두에서 '가장 많이 본”영화를 볼 수 있습니다. 브라이트코브가 추가한 이러한 엔터티는 이전 단락에서 언급한 맞춤형 대시보드 및 보고서에서 광범위하게 사용됩니다.</p>
+        <aside class="bcls-aside bcls-aside--information">Brightcove Beacon은 전체 분석을 Video Cloud로 다시 보내지 않습니다. 비디오 시작만 Video Cloud Analytics에 다시 보고됩니다.</aside>
+        <h2 id="Introduction">소개</h2>
+        <p>의심할 여지 없이 시청자가 Brightcove Beacon 앱에서 무엇을 보고 있는지 알고 싶을 것입니다. 이를 위해 Google Analytics를 사용합니다. Brightcove는 사용자 정의 대시보드와 사용자 정의 Google 데이터 스튜디오 보고서를 Google Analytics 계정에 로드합니다. 이 두 도구는 모두 고객이 Brightcove Beacon 앱을 사용하는 방식에 대한 훌륭한 통찰력을 제공합니다.</p>
+        <p>맞춤형 대시보드 및 보고서 외에도 Google Analytics의 표준 분석 도구를 사용하여 고객 행동을 볼 수 있습니다. Google에서 수집한 표준 분석 데이터를 사용할 수 있으며 Brightcove는 이 문서 뒷부분에서 자세히 설명하는 사용할 다른 엔터티를 추가합니다. 예를 들어, <strong>영화 산업</strong>이벤트는 영화가 재생될 때 전달되며 기본 Google 분석 측정값이며 시청 시간이 계산되어 Brightcove에서 추가한 측정값입니다. 따라서 Google Analytics에서는 시청자가 영화를 재생한 횟수와 총 시청 시간으로 "가장 많이 본" 영화를 볼 수 있습니다. Brightcove에서 추가한 이러한 엔터티는 이전 단락에서 언급한 맞춤형 대시보드 및 보고서에서 광범위하게 사용됩니다.</p>
     </section>
     <section class="bcls-section">
         <h2 id="Viewing_the_Dashboard">대시보드 보기</h2>
-        <p>브라이트코브가 설치한 Google 애널리틱스 대시보드 및 대시보드에 표시되는 데이터를 보려면 다음 단계를 따르십시오.</p>
+        <p>Brightcove에서 설치한 Google Analytics 대시보드와 대시보드에 표시되는 더 중요한 데이터를 보려면 다음 단계를 따르십시오.</p>
         <ol class="bcls-tasklist-restart">
-            <li><a href="https://analytics.google.com">구글 애널리틱스에</a>로그인합니다.</li>
-            <li>드롭 다운 (스크린샷에서 노란색으로 강조 표시) 을 클릭하면 Google 애널리틱스 계정이 모두 표시됩니다.
+            <li>로그인<a href="https://analytics.google.com">구글 애널리틱스</a> .</li>
+            <li>모든 Google Analytics 계정을 보려면 드롭다운(스크린샷에서 노란색으로 강조 표시됨)을 클릭하십시오.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-accounts.png" alt="비콘 분석 계정"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-accounts.png" alt="Beacon analytics accounts" />
                 </figure>
             </li>
-            <li>세 개의 패널 드롭다운에서 다음을 선택합니다.
+            <li>3개의 패널로 구성된 드롭다운에서 다음을 선택합니다.
                 <ol type="a">
-                    <li>브라이트코브 비콘 계정</li>
+                    <li>귀하의 Brightcove Beacon 계정</li>
                     <li>분석을 원하는 앱</li>
-                    <li>보기 (앱당 하나의 보기만 있음)</li>
+                    <li>보기(앱당 보기는 하나만 있음)</li>
                 </ol>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/app-groups.png" alt="신호 분석 앱 그룹"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/app-groups.png" alt="Beacon analytics app groups" />
                 </figure>
             </li>
-            <li>왼쪽 탐색에서<strong>사용자 지정</strong>옵션을 클릭한 다음<strong>대시보드에서</strong>현재 보기에 대한 사용자 지정 대시보드를 확인합니다.
+            <li>왼쪽 탐색에서<strong>커스터마이징</strong>옵션을 선택한 다음 켜기<strong>대시보드</strong>현재 보기에 대한 사용자 지정 대시보드를 보려면
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/select-dashboards.png" alt="대시보드 선택"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/select-dashboards.png" alt="select dashboards">
                 </figure>
             </li>
             <li>대시보드가 나타나지 않으면 목록에서 선택해야 합니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-on-report.png" alt="대시보드 선택"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-on-report.png" alt="Select dashboard">
                 </figure>
             </li>
             <li>대시보드가 화면 오른쪽에 나타납니다. 샘플 대시보드는 다음과 같습니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/dashboard.png" alt="대시보드"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/dashboard.png" alt="Dashboard">
                 </figure>
             </li>
         </ol>
     </section>
     <section class="bcls-section">
         <h2 id="Viewing_the_Data_Studio_report">데이터 스튜디오 보고서 보기</h2>
-        <p>구글에 따르면: “데이터 스튜디오는 데이터를 유익하고 읽기 쉽고 공유하기 쉽고 완벽하게 사용자 정의 가능한 대시보드 및 보고서로 변환하는 무료 도구입니다.“</p>
-        <p>브라이트코브가 설치한 사용자 지정 Google 데이터 스튜디오 보고서를 보려면 다음 단계를 따르세요.</p>
+        <p>구글에 따르면: "Data Studio는 데이터를 유익하고 읽기 쉽고 공유하기 쉽고 완전히 사용자 정의 가능한 대시보드 및 보고서로 바꾸는 무료 도구입니다."</p>
+        <p>Brightcove에서 설치한 맞춤형 Google 데이터 스튜디오 보고서를 보려면 다음 단계를 따르세요.</p>
         <ol class="bcls-tasklist-restart">
-            <li><a href="https://datastudio.google.com/">구글 데이터 스튜디오 (데이터 스튜디오.google.com)</a>에 로그인합니다.</li>
-            <li>방문 페이지에 나열된 보고서 목록 (노란색으로 강조 표시) 이 표시됩니다.
+            <li>로그인<a href="https://datastudio.google.com/"> Google 데이터 스튜디오(datastudio.google.com)</a> .</li>
+            <li>방문 페이지(노란색으로 강조 표시됨)에 나열된 보고서 목록이 표시됩니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/data-studio-landing-page.png" alt="데이터 스튜디오 소개 페이지"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/data-studio-landing-page.png" alt="data studio landing page">
                 </figure>
             </li>
             <li>보고서 이름을 클릭하여 엽니다.</li>
-            <li>예제 보고서의 첫 페이지가 여기에 표시됩니다. 보고서의 왼쪽 상단 모서리에는 다른 페이지를 볼 수 있는 탐색 (노란색으로 강조 표시됨) 이 있습니다.
+            <li>예제 보고서의 첫 번째 페이지가 여기에 표시됩니다. 보고서의 왼쪽 상단 모서리에는 다른 페이지를 볼 수 있는 탐색(노란색으로 강조 표시됨)이 있습니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/data-studio-report.png" alt="데이터 스튜디오 보고서"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/data-studio-report.png" alt="data studio report">
                 </figure>
             </li>
         </ol>
     </section>
     <section class="bcls-section">
-        <h2 id="Viewing_dimensions_and_metrics">차원 및 지표 보기</h2>
-        <aside class="bcls-aside bcls-aside--tip">분석 차원 및 지표에 익숙하지 않은 경우 여기에 매우 간단한 설명이 있습니다.
+        <h2 id="Viewing_dimensions_and_metrics">측정기준 및 측정항목 보기</h2>
+        <aside class="bcls-aside bcls-aside--tip">분석 측정기준 및 측정항목에 익숙하지 않은 경우 다음과 같이 매우 간단하게 설명합니다.
             <ul>
-                <li>차원은 데이터의 속성입니다. 예를 들어, 뷰가 나오는 도시는 차원입니다. 단일 차원에는 뷰가 있는 모든 도시의 이름과 같은 많은 값이 포함될 수 있습니다.</li>
-                <li>메트릭은 정량적 측정치입니다. 따라서 특정 도시의 세션 수는 메트릭이 될 것입니다.</li>
+                <li>차원은 데이터의 속성입니다. 예를 들어 조회수가 나오는 도시는 차원입니다. 단일 차원에는 보기가 있는 모든 도시의 이름과 같은 많은 값이 포함될 수 있습니다.</li>
+                <li>메트릭은 정량적 측정입니다. 따라서 특정 도시의 세션 수가 지표가 됩니다.</li>
             </ul>
         </aside>
-        <p>브라이트코브는 애널리틱스 보고서의 기본 Google 측정값에 기능을 추가합니다. 기본 Google 애널리틱스 측정기준 및 지표, 분석 보고서의 구성 요소, 브라이트코브가 추가한 수많은 측정기준 및 지표 1개를 사용할 수 있습니다. 이러한 추가 측정기준과 측정항목은 이 문서의 처음 두 섹션에 표시된 대시보드 및 데이터 스튜디오 보고서에서 사용됩니다.</p>
-        <p> 브라이트코브가 추가한 측정기준과 지표는 각 유형의 브라이트코브 비콘 앱에 대해 동일하지 않습니다. 예를 들어 iOS 모바일 데이터에는 16개의 맞춤 측정기준이 추가되는 반면 웹 사이트 앱에는 20개의 맞춤 측정기준이 추가되었습니다. Google 애널리틱스 UI에서 측정기준 및 측정항목 목록을 보려면 다음 단계를 따르세요.</p>
+        <p>Brightcove는 분석 보고서에 대한 기본 Google 측정값에 기능을 추가합니다. 기본 Google Analytics 측정기준 및 측정항목, 분석 보고서의 구성 요소는 물론 Brightcove에서 추가한 다양한 측정기준 및 측정항목을 사용할 수 있습니다. 이러한 추가 측정기준과 하나의 측정항목은 이 문서의 처음 두 섹션에 표시된 대시보드 및 데이터 스튜디오 보고서에서 사용됩니다.</p>
+        <p> Brightcove에서 추가한 차원 및 측정항목은 각 유형의 Brightcove Beacon 앱에 대해 동일하지 않습니다. 예를 들어 iOS 모바일 데이터에는 16개의 맞춤 측정기준이 추가된 반면 웹사이트 앱에는 20개의 맞춤 측정기준이 추가되었습니다. Google 애널리틱스 UI에서 측정기준 및 측정항목 목록을 보려면 다음 단계를 따르세요.</p>
         <ol class="bcls-tasklist-restart">
-            <li><a href="https://analytics.google.com">구글 애널리틱스에</a>로그인합니다.</li>
-            <li>드롭 다운 (스크린샷에서 노란색으로 강조 표시) 을 클릭하면 Google 애널리틱스 계정이 모두 표시됩니다.
+            <li>로그인<a href="https://analytics.google.com">구글 애널리틱스</a> .</li>
+            <li>모든 Google Analytics 계정을 보려면 드롭다운(스크린샷에서 노란색으로 강조 표시됨)을 클릭하십시오.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-accounts.png" alt="비콘 분석 계정"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-accounts.png" alt="Beacon analytics accounts" />
                 </figure>
             </li>
-            <li>세 개의 패널 드롭다운에서 다음을 선택합니다.
+            <li>3개의 패널로 구성된 드롭다운에서 다음을 선택합니다.
                 <ol type="a">
-                    <li>브라이트코브 비콘 계정</li>
+                    <li>귀하의 Brightcove Beacon 계정</li>
                     <li>분석을 원하는 앱</li>
-                    <li>보기 (앱당 하나의 보기만 있음)</li>
+                    <li>보기(앱당 보기는 하나만 있음)</li>
                 </ol>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/app-groups.png" alt="신호 분석 앱 그룹"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/app-groups.png" alt="Beacon analytics app groups" />
                 </figure>
             </li>
-            <li>왼쪽 탐색에서<strong>관리</strong>옵션을 클릭합니다.
+            <li>왼쪽 탐색에서<strong>관리자</strong>옵션.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/admin-click.png" alt="관리자를 클릭합니다."/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/admin-click.png" alt="Click admin" />
                 </figure>
             </li>
-            <li><strong>사용자 정의</strong>를 클릭합니다.
+            <li>딸깍 하는 소리<strong>사용자 정의 정의</strong> .
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-custom-definitions.png" alt="사용자 정의 클릭"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-custom-definitions.png" alt="Click custom definitions" />
                 </figure>
             </li>
-            <li>클릭하면<strong>맞춤 정의</strong>당신은 링크를 볼 수 있습니다<strong>맞춤 측정 기준</strong>과<strong>맞춤 측정 항목</strong> .
+            <li>클릭하면<strong>사용자 정의 정의</strong>에 대한 링크가 표시됩니다. <strong>맞춤 측정기준</strong>그리고<strong>맞춤 측정항목</strong> .
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/list-custom-definitions.png" alt="사용자 정의 나열"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/list-custom-definitions.png" alt="list custom definitions" />
                 </figure>
             </li>
-            <li><strong>사용자 정의 차원</strong>링크를 클릭하면 이 앱의 측정기준이 표시됩니다. 측정기준은 앱마다 변경됩니다.
+            <li>클릭<strong>맞춤 측정기준</strong>이 앱의 치수를 보려면 링크를 클릭하세요. 치수는 앱마다 변경됩니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/dimensions-list.png" alt="사용자 정의 나열"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/dimensions-list.png" alt="list custom definitions" />
                 </figure>
             </li>
-            <li><strong>사용자 지정 지표</strong>링크를 클릭하면 단일 Metic, <strong>시청 시간을</strong>확인할 수 있습니다. 이 지표는 브라이트코브 비콘 앱에 대한 유일한 사용자 지정 지표입니다.
+            <li>클릭<strong>맞춤 측정항목</strong>단일 메트릭을 보려면 링크, <strong>시청 시간</strong> . 이것은 Brightcove Beacon 앱에 대한 유일한 사용자 지정 메트릭입니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/metrics-list.png" alt="사용자 정의 나열"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/metrics-list.png" alt="list custom definitions" />
                 </figure>
             </li>
         </ol>
     </section>
     <section class="bcls-section">
-        <h2 id="Report_examples">보고서 예제</h2>
-        <p>이 문서는 Google 애널리틱스에서 사용할 수 있는 정보를 알려주는 것입니다. 이 문서는 브라이트코브 비콘 앱과 함께 Google 애널리틱스를 사용하는 방법에 대한 완전한 지침 가이드가 될 의도가 아닙니다. 이 문서의 다음 섹션에서는 브라이트코브 비콘 앱에 대해 일반적으로 요청되는 몇 가지 보고서를 보는 방법을 자세히 설명합니다.</p>
+        <h2 id="Report_examples">보고 예</h2>
+        <p>이 문서는 Google Analytics에서 사용할 수 있는 정보를 알려드리기 위한 것입니다. 이 문서의 의도는 Brightcove Beacon 앱과 함께 Google Analytics를 사용하는 방법에 대한 완전한 지침 가이드가 아닙니다. 즉, 문서의 다음 섹션에서는 Brightcove Beacon 앱에 대해 일반적으로 요청되는 몇 가지 보고서를 보는 방법을 자세히 설명합니다.</p>
     </section>
     <section class="bcls-section">
-        <h2 id="Audience_information">대상 정보</h2>
+        <h2 id="Audience_information">관객 정보</h2>
         <p>다음 단계에 따라 잠재고객에 대한 분석을 볼 수 있습니다.</p>
         <ol class="bcls-tasklist-restart">
-            <li>위의 섹션 중 처음 세 단계를 수행하여 앱/뷰를 선택합니다.</li>
-            <li>왼쪽 탐색에서 먼저<strong>오디언스</strong> , <strong>개요</strong>를 차례로 클릭합니다.
+            <li>위 섹션에서 처음 세 단계를 수행하여 앱/보기를 선택합니다.</li>
+            <li>왼쪽 탐색에서 먼저<strong>청중</strong>그 다음에<strong>개요</strong> .
                 <p></p>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/audience-overview.png" alt="대상 개요"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/audience-overview.png" alt="audience overview" />
                 </figure>
             </li>
-            <li>화면 오른쪽에는<strong>언어</strong> , <strong>앱 정보</strong> , <strong>장치 등 다양한 지표를 사용하여 잠재고객의 요약을 볼 수</strong>있습니다. 자세한 내용을 보려면 특정 메트릭을 클릭 할 수 있습니다.
+            <li>화면 오른쪽에는 다음과 같은 다양한 측정항목을 사용하여 잠재고객에 대한 요약이 표시됩니다. <strong>언어</strong> , <strong>앱 정보</strong> , 그리고<strong>장치</strong> . 자세한 내용을 보려면 특정 측정항목을 클릭할 수 있습니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/audience-details.png" alt="대상 세부 정보"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/audience-details.png" alt="audience details" />
                 </figure>
             </li>
         </ol>
     </section>
     <section class="bcls-section">
-        <h2 id="Screen_views_information">화면 보기 정보</h2>
-        <p>물론 시청자가 앱에서 무엇을 하고 있는지 확인하고 싶을 것입니다. 이에 대한 옵션은<strong>동작입니다</strong> . <strong>화면 보기</strong>정보를 보려면 다음 단계를 수행하십시오.</p>
+        <h2 id="Screen_views_information">화면 조회수 정보</h2>
+        <p>물론 시청자가 앱에서 무엇을 하는지 보고 싶을 것입니다. 이에 대한 옵션은<strong>행동</strong> . 보려면 다음 단계를 따르세요. <strong>화면 조회수</strong>정보:</p>
         <ol class="bcls-tasklist-restart">
-            <li>왼쪽 탐색에서<strong>동작</strong>→<strong>사이트 콘텐츠</strong>→ 모든 페이지를 클릭합니다.
+            <li>왼쪽 탐색에서<strong>행동</strong>→<strong>사이트 콘텐츠</strong>→ 모든 페이지.
                 <p></p>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/behavior-screens.png" alt="비헤이비어"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/behavior-screens.png" alt="behavior screens" />
                 </figure>
             </li>
             <li>화면 오른쪽에는 가장 많이 본 화면 목록이 표시됩니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/screens-details.png" alt="화면 세부 정보"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/screens-details.png" alt="screens details" />
                 </figure>
             </li>
         </ol>
     </section>
     <section class="bcls-section">
         <h2 id="Played_and_time_watched_information">재생 및 시청 시간 정보</h2>
-        <p><strong>비헤이비어</strong>옵션에서는 비디오 에셋에서 재생 버튼을 클릭한 횟수와 에셋을 실제로 시청한 시간을 확인할 수 있습니다. 해당 정보에 대해 다음 단계를 따르십시오.</p>
+        <p>아직도<strong>행동</strong>옵션을 사용하면 비디오 자산에서 재생 버튼을 클릭한 횟수와 자산이 실제로 시청된 시간을 볼 수 있습니다. 해당 정보에 대해 다음 단계를 따르세요.</p>
         <ol class="bcls-tasklist-restart">
-            <li><strong>비헤이비어</strong>옵션에서<strong>이벤트 → 상위 이벤트를</strong>클릭합니다.</li>
-            <li><strong>이벤트 범주</strong>목록에서<strong>동영상 재생을</strong>클릭합니다.
+            <li>아직 에 있는 동안<strong>행동</strong>옵션, 클릭<strong>이벤트 → 주요 이벤트</strong> .</li>
+            <li>에서<strong>이벤트 카테고리</strong>목록, 클릭<strong>영화 재생</strong>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-category-play-movie.png" alt="이벤트 카테고리 플레이 동영상"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-category-play-movie.png" alt="event category play movie" />
                 </figure>
             </li>
-            <li>[ <strong>이벤트 범주</strong> ] 목록에서 [ <strong>동영상</strong> ] 을 클릭합니다.
+            <li>에서<strong>이벤트 카테고리</strong>목록, 클릭<strong>영화</strong> .
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-category.png" alt="이벤트 범주"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-category.png" alt="event category" />
                 </figure>
             </li>
-            <li><strong>짝수 동작</strong>목록에서<strong>재생을</strong>클릭합니다.
+            <li>에서<strong>이븐 액션</strong>목록, 클릭<strong>놀다</strong> .
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-action.png" alt="이벤트 동작"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-action.png" alt="event action" />
                 </figure>
             </li>
-            <li>목록에는 각 에셋에 대해 재생 버튼이 클릭된 횟수가 표시됩니다.
+            <li>목록에는 각 자산에 대해 재생 버튼이 클릭된 횟수가 표시됩니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/play-movies-details.png" alt="동영상 세부 정보 재생"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/play-movies-details.png" alt="play movies details" />
                 </figure>
             </li>
-            <li>테이블에 적절한 열을 추가하면 하나 이상의 사용자 정의 차원에 대한 정보를 볼 수 있습니다. 이렇게 하려면<strong>사용자 정의</strong>차원 그룹을 볼 수 있는<strong>보조 차원</strong>드롭다운의 아래쪽 화살표를 클릭합니다.
+            <li>표에 적절한 열을 추가하면 하나 이상의 맞춤 측정기준에 대한 정보를 볼 수 있습니다. 이렇게 하려면 아래 화살표를 클릭하십시오. <strong> 2차 측정기준</strong>볼 수 있는 드롭다운<strong>맞춤 측정기준</strong>그룹.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/secondary-dimension-dropdown.png" alt="보조 차원 드롭다운"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/secondary-dimension-dropdown.png" alt="secondary dimension dropdown" />
                 </figure>
             </li>
-            <li>이제<strong>사용자 정의 차원 그룹을 열고 차원을</strong>선택할 수 있습니다.
+            <li>이제 열 수 있습니다. <strong>맞춤 측정기준</strong>그룹화하고 차원을 선택합니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/choose-custom-definition.png" alt="사용자 정의 선택"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/choose-custom-definition.png" alt="choose custom definition" />
                 </figure>
             </li>
-            <li><strong>장르</strong>사용자 정의 차원이 추가된 예제 테이블을 봅니다.
+            <li>다음을 사용하여 예제 테이블 보기<strong>장르</strong>맞춤 측정기준이 추가되었습니다.
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/language-in-table.png" alt="테이블의 언어"/>
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/language-in-table.png" alt="language in table" />
                 </figure>
             </li>
-            <li><strong>이벤트 동작</strong>리스트에서<strong>감시된 시간도</strong>볼 수 있습니다. 물론 사용자 지정 측정항목<strong>감시된 시간을</strong>사용합니다.</li>
+            <li>에서 참고하세요. <strong>이벤트 액션</strong>당신도 볼 수있는 목록<strong>시청 시간</strong> , 물론 맞춤 측정항목을 사용하는<strong>시청 시간</strong> .</li>
         </ol>
     </section>
     <section class="bcls-section">
-        <h2 id="Google_Analytics_learning_resources">구글 웹 로그 분석 학습 리소스</h2>
-        <p>이 문서에서 Google 애널리틱스의 표면을 긁어 냈습니다. 선택한 자산 등에 대한 일별 또는 주별 요약 정보가 포함된 맞춤형 보고서를 작성할 수 있습니다. Google 애널리틱스에 대해 자세히 알아볼 수 있는 여정을 시작하기에 좋은 곳은 Google <a href="https://analytics.google.com/analytics/academy/">애널리틱스 아카데미 및/또는 Google 애널리틱스</a><a href="https://developers.google.com/analytics">문서일</a>수 있습니다.</p>
+        <h2 id="Google_Analytics_learning_resources">Google 애널리틱스 학습 리소스</h2>
+        <p>이 문서에서 Google Analytics의 표면을 긁었습니다. 선택한 자산 등에 대한 일별 또는 주별 요약 정보가 포함된 맞춤형 보고서를 작성할 수 있습니다. Google 웹로그 분석에 대해 자세히 알아보기 위한 좋은 출발점은 다음과 같습니다. <a href="https://analytics.google.com/analytics/academy/">구글 애널리틱스 아카데미</a>및/또는<a href="https://developers.google.com/analytics">구글 애널리틱스 문서</a> .</p>
     </section>
 </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<div class="last-updated">
-  202010월 26일에 마지막으로 업데이트한 페이지입니다.
-</div>
-
-
-
-<footer class="bcls-footer" role="contentinfo">
-  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">궁금한 사항이 있으십니까? </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
-  <script src="/assets/js/talla-init.js"></script>
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

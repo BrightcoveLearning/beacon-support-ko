@@ -1,0 +1,41 @@
+
+---
+title: 채널 출력 및 분석 설명 보기: 이 주제에서는 실행 중인 Cloud Playout 채널에 대한 출력 및 분석을 보는 방법을 배웁니다.
+parent: Cloud Playout
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="analytics">채널 출력 및 분석 보기</h2>
+    <p>채널이<strong>달리기</strong>상태에서 채널 출력 및 분석을 볼 수 있습니다. 에서 채널을 클릭하십시오. <strong>채널</strong>페이지를 클릭하여 채널 세부정보를 엽니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/cloud-playout/cloudplayout-program-analytics.png" /></figure>
+    <aside class="bcls-aside bcls-aside--information">메모: 미리보기 이미지는 3초마다 업데이트됩니다.</aside>
+    <p>딸깍 하는 소리<strong>브라이트코브 라이브에서 보기</strong>현재 실행 중인 프로그램으로 라이브 모듈 제어실 페이지를 엽니다. 프로그램에서 현재 재생 중인 비디오는<strong>지금 재생 중</strong>배너. 또한 주의<strong>상태</strong>오른쪽 상단의 알림 및 <img src="/assets/images/cloud-playout/cloudplayout-video-icon.png" alt="Live icon"> 사용 가능한 라이브 피드가 있으면 녹색이 됩니다. 그렇지 않으면 라이브 이벤트가 현재 재생 중이면 빨간색으로 표시되고 VOD 콘텐츠가 재생 중이면 회색으로 표시됩니다.</p>
+    <p>다음 분석 값이 표시됩니다.</p>
+    <ul>
+      <li><strong>네트워크 입력</strong> - 마지막 1분 동안의 초당 평균 바이트 수</li>
+      <li><strong>네트워크 아웃</strong> - 마지막 1분 동안의 초당 평균 바이트 수</li>
+      <li><strong>프레임이 떨어짐</strong> - 마지막 1분 동안 드롭된 프레임 비율</li>
+    </ul>
+    <p>NS <strong>네트워크 입력</strong>분석은 라이브 이벤트에 대한 스트림이 실패했을 때를 감지하는 데 특히 유용합니다(실시간 스트림이 아닌 출력에서 재생 중인 슬레이트 비디오도 확인해야 함).
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/cloud-playout/cloudplayout-network-in-analytics.png" alt="Network In Analytics">
+        <figcaption class="bcls-caption--image">분석의 네트워크</figcaption>
+      </figure>
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Related_topics">관련 주제</h2>
+    <ul>
+      <li><a href="/cloud-playout/cloud-playout-overview.html">개요: 클라우드 플레이아웃</a></li>
+      <li><a href="/cloud-playout/cloud-playout-stream-vod.html">Cloud Playout 채널 생성</a></li>
+      <li><a href="/cloud-playout/using-channel-actions.html">채널 작업 사용</a></li>
+      <li><a href="/cloud-playout/enabling-server-side-ads.html">서버 측 광고(SSAI) 활성화</a></li>
+      <li><a href="/cloud-playout/generating-channel-embed-code.html">채널 포함 코드 생성</a></li>
+      <li><a href="https://apis.support.brightcove.com/cloud-playout-apis/getting-started/overview-epg-api.html">개요: EPG API</a></li>
+      <li><a href="https://apis.support.brightcove.com/cloud-playout-apis/references/reference-epg.html">EPG API 참조</a></li>
+      <li><a href="https://apis.support.brightcove.com/cloud-playout-apis/references/reference-channels.html">채널 API 참조</a></li>
+    </ul>
+  </section>
+</article>

@@ -1,0 +1,145 @@
+
+---
+title: 'FairPlay 인증서 등록'
+description: '이 항목에서는 Apple 프로세스에서 FPS(FairPlay Streaming) DRM 인증서를 생성하는 방법을 배웁니다. '
+parent: 'iOS/tvOS' 
+grandparent: 'Creating Your Apps'
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="required-information">개요</h2>
+
+    <p> <a href="https://developer.apple.com/streaming/fps/" target="_blank">페어플레이 스트리밍</a> HLS(HTTP Live Streaming) 프로토콜을 사용하여 스트리밍 미디어를 안전하게 전달하기 위한 Apple의 DRM 솔루션입니다. </p>
+    <p>애플을 사용할 수 있도록<strong>페어플레이 스트리밍(FPS)</strong> DRM, 사용자는<strong> FPS 배포 패키지</strong> Apple로부터 다음 정보를 Brightcove 담당자에게 제공하십시오.
+        <ul>
+            <li>FPS 인증서 파일<strong> .der 또는 .cer</strong></li>
+            <li>개인 키 파일<strong> .pem</strong></li>
+            <li>개인 키 암호 문자열</li>
+            <li>애플리케이션 비밀 키(ASK) 문자열</li>
+
+        </ul>
+
+    </p>
+   
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="required-information">1 단계: Apple 개발자 계정 가입 및 배포 패키지 요청</h2>
+
+    <ol class="bcls-tasklist">
+        <li>FPS 배포 패키지를 받으려면 Apple 개발자 계정을 입력하세요. 당신이 하나가없는 경우. <a href="https://developer.apple.com/support/enrollment/" target="_blank">가입하기</a> .</li>
+        <li>FairPlay Streaming 웹사이트 하단에 있는 Request Deployment Package 링크를 클릭하고 Apple 개발자 계정으로 로그인합니다.</li>
+    </ol>
+    <p>입력 양식에 따라 배포 패키지를 신청하면 Apple의 확인 후 FPS Credential Creation Guide 문서가 포함된 패키지가 발급됩니다.  </p>
+    <aside class="bcls-aside bcls-aside--information">신청 프로세스 중에 키 서버 모듈(KSM)의 구현 및 테스트를 완료했는지 묻는 메시지가 표시됩니다. 대답해 주세요: '타사 DRM 서비스를 사용하고 있으며 회사에서 이미 키 서버 모듈을 구축하고 테스트했습니다'.</aside>
+
+  </section>
+  <section class="bcls-section">
+    <h2 id="required-information">2 단계: 개인 키 및 인증서 서명 요청(CSR) 생성 </h2>
+    <p>다음 단계는 개인 키를 만드는 것입니다. <strong> privatekey.pem</strong>파일 및 인증서 서명 요청<strong> certreq.csr</strong>패키지에 포함된 지침 문서를 참조하여 파일을 작성하십시오. </p>
+    <aside class="bcls-aside bcls-aside--information">이 프로세스가 수행되는 PC 또는 서버 환경에 OpenSSL이 설치되어 있어야 합니다.</aside>
+
+    <p>다음 단계에서는 CSR 파일을 생성하는 OpenSSL 방법을 설명합니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+        <li>OpenSSL 명령줄 도구를 엽니다.</li>
+        <li>생성<strong>개인 키 파일: privatekey.pem</strong>다음 명령을 입력하고 실행합니다.
+
+            <pre class="line-numbers">
+                <code class="command-line" translate="No">openssl genrsa -aes256 -out privatekey.pem 1024 </code></pre>   
+        </li>
+        <li>개인 키의 암호를 입력하고 나중에 사용할 수 있도록 저장합니다. <aside class="bcls-aside bcls-aside--information">비밀번호는 32자 미만이어야 하며 특수문자는 사용할 수 없습니다.</aside>
+        </li>
+        <li>생성<strong>인증서 서명 요청</strong>다음 명령을 입력하고 실행하여 파일. <aside class="bcls-aside bcls-aside--information">의 내용<strong> -subj</strong>조직의 정보에 맞게 매개변수를 수정할 수 있습니다.</aside>
+            <pre class="line-numbers">
+<code class="command-line" translate="No">openssl req -new -sha1 -key privatekey.pem -out certreq.csr -subj "/CN=SubjectName/OU=OrganizationalUnit/O=Organization/C=US"</code></pre>
+        </li>
+        <li>들어가다<strong>개인 키</strong>비밀번호. </li>
+        
+    </ol>
+
+  </section>
+  <section class="bcls-section">
+    <h2 id="required-information">3단계: Apple 개발자 포털에서 FPS 인증서 생성</h2>
+    <ol class="bcls-tasklist">
+
+    <li>로그인<strong>애플 개발자 포털</strong>클릭<strong>인증서, ID 및 프로필</strong>왼쪽 메뉴에서
+        <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt=""
+              width="600"
+              height="1000"
+              src="/assets/images/creating-your-apps/fairplay-reg/left-menu.png"/>
+          </figure>
+    </li>
+    <li>에서<strong>인증서</strong>자막 클릭  
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="20"
+          height="20"
+          src="/assets/images/creating-your-apps/fairplay-reg/blue-button.png"/> 단추.
+
+          <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt=""
+              width="600"
+              height="600"
+              src="/assets/images/creating-your-apps/fairplay-reg/plus-button.png"/>
+          </figure>
+
+
+    </li>
+    <li>에<strong>새 인증서 만들기</strong>섹션, 선택<strong> FairPlay 스트리밍 인증서</strong>옵션. 
+      <figure class="bcls-figure">
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="800"
+          height="600"
+          src="/assets/images/creating-your-apps/fairplay-reg/create-cert.png"/>
+      </figure>
+    </li>
+    <li>딸깍 하는 소리<strong>계속하다</strong> .</li>
+    <li>딸깍 하는 소리<strong>파일을 선택</strong> . 
+      <figure class="bcls-figure">
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="800"
+          height="600"
+          src="/assets/images/creating-your-apps/fairplay-reg/upload-file.png"/>
+      </figure>
+    </li>
+    <li>선택<strong> certreq.csr</strong> OpenSSL로 만든 파일. </li>
+    <li>딸깍 하는 소리<strong>계속하다</strong> .</li>
+    <li> 복사<strong>애플리케이션 비밀 키</strong> Apple에서 제공하고 안전하게 보관하십시오. ASK가 손상되면 더 이상 FPS로 콘텐츠를 보호할 수 없습니다. 
+      <figure class="bcls-figure">
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="800"
+          height="600"
+          src="/assets/images/creating-your-apps/fairplay-reg/ask-file.png"/>
+      </figure>
+    
+    
+    </li>
+    <li>제공된 공간에 ASK를 붙여넣습니다.</li>
+    <li>딸깍 하는 소리<strong>계속하다</strong></li>
+    <li>클릭<strong>생성하다</strong>버튼을 누르면 애플리케이션 보안 키를 저장했음을 확인하는 팝업이 나타납니다.</li>
+    <li>딸깍 하는 소리<strong>인증서</strong>목록에서 FairPlay 스트리밍 인증서를 보려면 왼쪽 메뉴에서 </li>
+    <li>인증서를 클릭합니다.</li>
+    <li>클릭<strong>다운로드</strong>버튼을 눌러 FPS 인증서 파일을 저장합니다. <strong>페어플레이.cer</strong> .</li>
+    <li>다운로드 후<strong> FPS 인증서</strong>파일이 있는 경우 Brightcove 계정 관리자에게 문의하여 프로세스를 완료하십시오.</li>
+  
+    </ol>
+
+  </section>
+
+</article>

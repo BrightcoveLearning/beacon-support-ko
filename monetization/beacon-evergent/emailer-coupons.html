@@ -1,0 +1,234 @@
+
+---
+title: "항상: 이메일 및 쿠폰"
+description: 이 항목은 Evergent에서 이메일 및 쿠폰 생성을 관리하는 방법에 대한 가이드를 제공합니다.
+parent: Beacon Advanced Monetization 
+grandparent: Monetization
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+
+<article class="bcls-article">
+	<summary>{{ page.description }}</summary>
+	<section class="bcls-section">
+		<h2 id="Introduction">소개</h2>
+		<p>Evergent 백오피스 시스템은 비즈니스 관리에 도움이 되는 서비스를 제공합니다. 이 주제에서는 이러한 서비스 중 두 가지를 다룹니다.</p>
+		<ul>
+			<li>자동화된 이메일</li>
+			<li>쿠폰 관리자</li>
+		</ul>
+	</section>
+	<section class="bcls-section">
+		<h2 id="emailer">이메일 발송자</h2>
+		<p>전자 메일러를 사용하면 다양한 시스템 생성 전자 메일에 대한 템플릿과 일정을 만들 수 있습니다. 다음 섹션에서는 전자 메일러 작업에 대해 자세히 설명합니다.</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="message_types">메시지 유형</h2>
+		<p>Evergent는 다음 메시지 유형을 지원합니다.</p>
+		<dl>
+			<dt>스케줄링</dt>
+			<dd>시스템 관리자에서 일괄 작업이 예약되면 관리자에게 이메일이 전송됩니다.</dd>
+			<dt>신용 카드 만료 알림</dt>
+			<dd>비즈니스 수준에서 "신용 카드 만료 알림" 확인란을 선택하면 신용 카드가 곧 만료될 때 알림 이메일이 고객에게 전송됩니다(이메일은 일반적으로 카드 만료 한 달 전에 전송됨). 이 경우 시스템은 이메일 템플릿 메시지 유형 "신용카드 만료 알림"을 사용합니다.</dd>
+			<dt>대량 이메일</dt>
+			<dd>비즈니스에서 프로모션 이메일을 예약하고 실행할 향후 시간을 지정하려는 경우 대량 이메일 메시지 유형이 사용됩니다. 이러한 유형의 대량 이메일은 사업부 가입자, 특정 시장 지역 가입자 또는 특정 서비스에 보낼 수 있습니다.</dd>
+			<dt>신용카드 거래</dt>
+			<dd>가입자가 신용 카드 결제 거래를 완료하면 거래 세부 정보가 이 이메일 템플릿을 사용하여 이메일을 통해 고객에게 전송됩니다.</dd>
+			<dt>이벤트 메시지</dt>
+			<dd>이벤트 메시지 유형 이메일 템플릿은 이메일 템플릿을 정의하고 이벤트 범주에 교차 매핑하는 데 사용되며, 계정 수준에서 이벤트가 기록되면 구독자에게 이메일 알림을 트리거할 수 있는 기능을 제공합니다.</dd>
+			<dt>애드 혹</dt>
+			<dd>Adhoc 메시지 유형은 이벤트 범주 매핑과 연결되지 않은 개별 메시지를 보내는 것입니다.</dd>
+		</dl>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Emailers">이메일 발송자</h2>
+		<p>Emailers 탭은 이메일 템플릿을 추가/편집하고 사업부에 대한 이메일을 예약하는 데 사용됩니다.</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/emailers-tab.png" alt="Emailers Tab">
+			<figcaption class="bcls-caption--image">이메일 사용자 탭</figcaption>
+		</figure>
+		<h3>새 이메일 작성자 추가</h3>
+		<p>새 이메일 작성자를 추가하려면 다음을 수행하십시오.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>에<strong>이메일 발송자</strong>사업부 화면에서 추가(<i data-feather="plus"></i>) 아이콘입니다.</li>
+			<li>
+				에서<strong>기본 세부 정보</strong>섹션에 다음과 같이 필요한 세부 정보를 입력합니다.
+				<ol style="list-style-type: lower-latin;">
+					<li>에<strong>제목</strong>필드에 이메일 제목을 입력합니다.</li>
+					<li>에<strong>메일 제목</strong>필드에 이메일 제목을 입력합니다.</li>
+					<li>이메일 메시지를 정의할 메시지 유형을 선택하십시오. <strong>메시지 유형</strong>드롭 다운 목록.</li>
+					<li>에서<strong>관리자 이메일</strong>필드에 이메일을 보낼 이메일 ID를 입력합니다.</li>
+					<li>에서<strong>관리자 이름</strong>필드에 관리자 이름을 입력합니다.</li>
+					<li>선택<strong>이벤트 카테고리</strong>제공된 드롭다운 목록에서</li>
+					<li>
+						이메일을 받을 사람의 이메일 ID를 입력하십시오. <strong>참조</strong>그리고<strong>숨은 참조</strong>필드. <aside class="bcls-aside bcls-aside--information">메모: 각 이메일 ID를 쉼표로 구분하여 참조 및 숨은 참조 필드에 여러 이메일 ID를 지정할 수 있습니다.</aside>
+					</li>
+				</ol>
+			</li>
+			<li>선택하다<strong>일반 텍스트</strong>또는<strong> HTML</strong>선택한 형식으로 이메일을 보냅니다.</li>
+			<li>에서<strong>이메일/뉴스레터 메시지</strong>섹션의 이메일 본문 텍스트 상자에 고객의 이메일에 메시지를 표시할 메시지 템플릿을 입력합니다.</li>
+			<li>딸깍 하는 소리<strong>시사</strong>텍스트 상자 영역 옆에 있는 을 눌러 일반 텍스트 또는 HTML 형식의 전자 메일 메시지를 봅니다.</li>
+			<li>
+				클릭<strong>창조하다</strong>단추.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/new-emailer.png" alt="New Emailer">
+					<figcaption class="bcls-caption--image">새 이메일 작성자</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<h3>이메일 작성자 업데이트</h3>
+		<ol class="bcls-tasklist-restart">
+			<li>다음으로 이동합니다. <strong>이메일 발송자</strong>사업부 화면입니다.</li>
+			<li>에서<strong>이메일 템플릿 목록</strong>섹션에서 편집할 이메일 템플릿을 클릭합니다.</li>
+			<li>NS <strong>이메일 발송자 업데이트</strong>화면이 나타나면 사용 가능한 필드에서 필요한 변경을 수행하고<strong>업데이트</strong> .</li>
+		</ol>
+		<aside class="bcls-aside bcls-aside--information">Update Emailer 화면에서 메시지 유형 및 이벤트 범주 필드를 수정할 수 없습니다.</aside>
+		<h3>이메일 예약</h3>
+		<p>이메일을 나중에 보내도록 예약할 수 있습니다. 이 화면은 DMA 또는 서비스에 대해 지정된 시간 또는 매일 대량 이메일을 예약하는 화면입니다.</p>
+		<h4>이메일 예약</h4>
+		<ol class="bcls-tasklist-restart">
+			<li>에<strong>이메일 발송자</strong>화면에서<strong>이메일 템플릿</strong>탭에서 메시지 유형 이메일을 대량 이메일로 클릭합니다.</li>
+			<li>클릭<strong>이메일 예약</strong>탭. 예약된 이메일 목록이 나타납니다.</li>
+			<li>
+				이메일을 예약하려면 추가(<i data-feather="plus"></i>) 아이콘을 눌러 이메일 예약 대화 상자를 엽니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/schedule-email.png" alt="Schedule Email">
+					<figcaption class="bcls-caption--image">이메일 예약</figcaption>
+				</figure>
+			</li>
+			<li>에 이메일 ID를 입력하십시오. <strong>메일 보내기</strong>들.</li>
+			<li>클릭<strong>실행 시간</strong>필드를 클릭하여 일정 날짜 및 시간을 선택합니다.</li>
+			<li>선택한 날짜와 시간에 매일 이메일을 예약하려면<strong>일일 일정</strong>체크박스.</li>
+		</ol>
+		<h4>예약된 이메일 삭제</h4>
+		<ol class="bcls-tasklist-restart">
+			<li>클릭<strong>이메일 템플릿</strong>아래의 탭<strong>이메일 발송자</strong>왼쪽 메뉴 모음에서 탭.</li>
+			<li>제거하려는 대량 이메일(메시지 유형)을 클릭합니다.</li>
+			<li>
+				NS <strong>이메일 발송자 업데이트</strong>화면이 나타납니다.
+			</li>
+			<li>
+				클릭<strong>이메일 예약</strong>탭.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/update-emailer.png" alt="Update Emailer">
+					<figcaption class="bcls-caption--image">이메일 발송자 업데이트</figcaption>
+				</figure>
+			</li>
+			<li>삭제(<i data-feather="trash-2"></i>) 아이콘<strong>행위</strong>열에서 예약된 이메일을 삭제합니다. <strong>예약된 이메일 목록</strong> .</li>
+			<li></li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Coupon_generation">쿠폰 생성</h2>
+		<p>쿠폰 생성 권한은 사용자의 BU 그룹 권한을 기반으로 합니다. 이 권한이 있는 로그인한 사용자는 쿠폰을 생성하고 편집할 수 있습니다.</p>
+		<h3>새 쿠폰/바우처 추가</h3>
+		<ol class="bcls-tasklist-restart">
+			<li>클릭<strong>쿠폰</strong>왼쪽 메뉴에서.</li>
+			<li>에<strong>쿠폰</strong>사업부 화면에서<strong>추가하다</strong> (<i data-feather="plus"></i>) 아이콘입니다. NS <strong>쿠폰</strong>기본 화면이 나타납니다.</li>
+			<li>
+				딸깍 하는 소리<strong>추가하다</strong> (<i data-feather="plus"></i>) 쿠폰을 생성하기 위한 아이콘입니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/generate-coupon.png" alt="Generate Coupon">
+					<figcaption class="bcls-caption--image">쿠폰 생성</figcaption>
+				</figure>
+			</li>
+			<li>
+				아래와 같이 신규 쿠폰/바우처 생성 화면이 나타납니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/new-coupon-voucher.png" alt="New Coupon/Voucher">
+					<figcaption class="bcls-caption--image">신규 쿠폰/바우처</figcaption>
+				</figure>
+			</li>
+			<li>
+				다음과 같이 필드에 정보를 입력합니다.
+				<ol style="list-style-type: lower-alpha;">
+					<li><strong>쿠폰 접두사</strong> : 쿠폰 접두사(예: TestC, Hal, CD, Friday 등)</li>
+					<li><strong>배치 이름</strong> : 쿠폰 배치 이름(예: 시험쿠폰, 크리스마스 등)</li>
+					<li><strong>소매점</strong> : 쿠폰은 (AT&amp;T, Vodafone, Verizon, Idea 등) 소매업체 선택에서 생성할 수 있습니다.</li>
+					<li><strong>시작 날짜</strong> : 사용자가 쿠폰을 사용할 수 있는 날짜</li>
+					<li><strong>만료일</strong> : 사용자는 쿠폰이 만료되는 날짜를 정의할 수 있습니다.</li>
+					<li><strong>쿠폰 요청자</strong> : 쿠폰을 요청한 요청자의 이름을 나타냅니다.</li>
+					<li>
+						<strong>지갑 충전으로 적립됨</strong> :
+						<ul>
+							<li>지갑 충전을 위한 쿠폰을 생성하려면 토글 스위치를 클릭하여 활성화하고 금액을 입력하십시오.</li>
+							<li>쿠폰을 바우처로 생성하려면 토글 스위치를 클릭하여 비활성화하십시오.</li>
+						</ul>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/beacon-evergent/toggle-wallet-top-up.png" alt="Toggle for Wallet Top-Up">
+							<figcaption class="bcls-caption--image">지갑 충전 토글</figcaption>
+						</figure>
+					</li>
+					<li><strong>할인 유형</strong> : 쿠폰 유형 정의 – 예: 무료, 고정, 고정, 백분율, 백분율 끄기 및 유효 기간 연장</li>
+					<li><strong>금액/퍼센트</strong> : 선택한 유형에 대해 금액/백분율 필드가 나타납니다.</li>
+					<li><strong>기간 및 기간</strong> : 쿠폰 적용 기간은 쿠폰 기간이 의미하는 각 기간 선택에 따라 일 수 또는 개월 수일 수 있습니다.</li>
+					<li><strong>접두사를 쿠폰 코드로 만들기</strong> : 이 체크박스를 체크하면 프리픽스가 쿠폰코드로 저장됩니다.</li>
+					<li><strong>쿠폰 수</strong> : 사용자는 배치에 대해 생성된 쿠폰 수를 제공할 수 있습니다. "Prefix as Coupon Code"의 경우, 쿠폰의 수는 "1"이 됩니다.</li>
+					<li><strong>쿠폰 우선</strong> : 비즈니스에서 생성되고 구독 및 제안 유형에 매핑되는 우선 순위에 따라 일반 쿠폰 표시를 설정하는 데 사용됩니다.</li>
+					<li><strong>쿠폰 길이</strong> : 생성하려는 쿠폰 코드의 길이</li>
+					<li><strong>복수 사용</strong> : 이 토글 스위치를 선택하면 사용자는 쿠폰에 대한 최대 사용 횟수를 정의할 수 있습니다.</li>
+					<li><strong>최대 상환액</strong> : 쿠폰 사용 횟수 허용</li>
+					<li><strong>단일 사용자에 의한 다중 사용</strong> : 확인란을 통해 고객은 단일 사용자의 최대 사용 횟수에 대해 계정에서 단일 쿠폰을 사용할 수 있습니다.</li>
+					<li><strong>단일 사용자에 의한 다중 사용</strong> : 확인란을 통해 고객은 단일 사용자의 최대 사용 횟수에 대해 계정에서 단일 쿠폰을 사용할 수 있습니다.</li>
+					<li><strong>대소문자 구분</strong> : 대문자로 쿠폰 코드를 생성하려면 확인란을 선택하십시오.</li>
+					<li><strong>선물이다</strong> : 체크박스를 선택하면 다른 사람에게 쿠폰을 줄 수 있습니다.</li>
+					<li><strong>상속 가능</strong> : 체크박스를 선택하면 쿠폰을 상속받을 수 있습니다.</li>
+					<li><strong>모든 항목이 필수 항목입니까?</strong> : 이 확인란을 선택하면 모든 항목이 필수 항목입니다.</li>
+					<li><strong>결제 방법 건너뛰기</strong> : 체크박스를 선택하면 쿠폰적용 후 결제수단을 건너뛰게 됩니다.</li>
+					<li><strong>쿠폰 설명</strong> : 쿠폰 설명 입력</li>
+					<li><strong>캠페인 정보</strong> : 캠페인 정보 세부정보 입력</li>
+					<li><strong>성공 메시지</strong> : 사용자에게 표시될 성공 메시지를 입력하십시오.</li>
+					<li><strong>경고 메시지</strong> : 사용자에게 표시될 경고 메시지를 입력하십시오.</li>
+					<li><strong>적용 제품</strong> : 사용자는 번호를 선택할 수 있습니다. 쿠폰에 적용 가능한 제품(예: 제품에 대한 평면 30% OFF 쿠폰<strong>네온</strong> )</li>
+					<li><strong>적용 가능한 패키지</strong> : 사용자는 번호를 선택할 수 있습니다. 쿠폰에 대한 응용 프로그램 패키지</li>
+					<li><strong>제안 유형</strong> : 사용자는 쿠폰에 대한 제안 유형을 선택할 수 있습니다.</li>
+					<li><strong>적용 가능한 결제 모드</strong> : 사용자는 쿠폰에 적용 가능한 결제 모드를 선택할 수 있습니다.</li>
+				</ol>
+			</li>
+			<li>클릭<strong>쿠폰 생성</strong>버튼을 눌러 쿠폰을 생성합니다(쿠폰 생성 시간은 사용자가 생성한 쿠폰 수에 따라 다름).</li>
+			<li>
+				쿠폰이 생성되면, <strong>쿠폰이 성공적으로 생성되었습니다.</strong>메시지가 표시됩니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/coupons-generated.png" alt="Coupons Generated">
+					<figcaption class="bcls-caption--image">생성된 쿠폰</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<h3>쿠폰 검색</h3>
+		<p>다양한 옵션을 이용하여 쿠폰을 검색하세요. 쿠폰을 검색하려면 다음을 수행하십시오.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>에<strong>쿠폰</strong>화면에서 Batch Name, Prefix, Coupon Code, Status, Expiration Date From/To로 검색할 필드 값을 입력합니다.</li>
+			<li>
+				검색 버튼을 클릭합니다. 아래 그림과 같이 쿠폰 검색 결과가 표시됩니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/coupon-search-results.png" alt="Coupon Search Results">
+					<figcaption class="bcls-caption--image">쿠폰 검색 결과</figcaption>
+				</figure>
+			</li>
+			<li>
+				고급 검색 활성화 토글 스위치를 클릭하여 고급 검색을 활성화합니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/enable-advanced-coupon-search.png" alt="Enable Advanced Coupon Search">
+					<figcaption class="bcls-caption--image">고급 쿠폰 검색 활성화</figcaption>
+				</figure>
+			</li>
+			<li>목록에 나열된 적용 가능한 제품 및 적용 가능한 지불 모드에 대한 쿠폰 배치로 검색할 수 있습니다. 쿠폰 일괄 검색은 쿠폰 일괄 검색 버튼을 클릭하세요.</li>
+			<li>
+				검색된 쿠폰은 아래와 같이 검색 결과 목록에 표시됩니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/coupon-batch-search-results.png" alt="Coupon Batch Search Results">
+					<figcaption class="bcls-caption--image">쿠폰 일괄 검색 결과</figcaption>
+				</figure>
+			</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">관련 주제</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/overview-beacon-evergent.html">개요: 비콘 고급 수익 창출</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-finding-accounts.html">Evergent CRM에서 계정 찾기</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">에버그트: 계정 세부 정보 관리</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-billing-finance.html">에버그트: 청구 및 금융</a></li>
+		</ul>
+	</section>
+</article>

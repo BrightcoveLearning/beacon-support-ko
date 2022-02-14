@@ -1,0 +1,106 @@
+
+---
+title: "Google 구독 관리 1부"
+description: "이 항목에서는 서비스 계정을 만들고 구성하는 방법을 배웁니다. 이것은 Brightcove Beacon 앱과 Google 스토어 간의 통신을 설정하는 더 큰 프로세스의 첫 번째 부분입니다."
+parent: "android"
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="section-name">소개</h2>
+    <p>이 문서에서는 Google Play Console을 사용하여 서비스 계정을 만든 다음 몇 가지 구성 작업을 수행하는 방법을 안내합니다.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Create_a_service_account">서비스 계정 만들기</h2>
+    <p>서비스 계정을 생성하려면 다음 단계를 수행하십시오.</p>
+    <ol class="bcls-tasklist">
+      <li>찾아보기<a href="https://play.google.com/console">구글 플레이 콘솔</a> .</li>
+      <li>오른쪽 상단에서<strong>플레이 콘솔로 이동</strong> .</li>
+      <li>왼쪽 탐색에서<strong>설정 → 개발자 계정 → API 접근</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/gpc-first-nav-steps.png" alt="Settings > Developer Account > API access" width="268">
+        </figure>
+      </li>
+      <li>딸깍 하는 소리<strong>새 서비스 계정 만들기</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account.png" alt="create service account">
+        </figure>
+      </li>
+      <li>표시되는 대화 상자에서<strong>구글 클라우드 플랫폼</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-new-service-account-dialog.png" alt="new service account dialog">
+        </figure>
+      </li>
+      <li>리디렉션되는 페이지에서<strong> + 서비스 계정 만들기</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/iam-admin-redirect.png" alt="service accounts">
+        </figure>
+      </li>
+      <li>열리는 대화 상자에서<strong>서비스 계정 이름</strong>시작하다 <samp>안드로이드 구독</samp> 그런 다음 클릭<strong>창조하다</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account-1.png" alt="enter service account name">
+        </figure>
+      </li>
+      <li>2단계의 드롭다운에서 다음을 선택합니다. <strong>역할</strong>되려고 <samp>소유자</samp> 그런 다음 클릭<strong>계속하다</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account-2.png" alt="choose role">
+        </figure>
+      </li>
+      <li>3단계에서<strong>완료</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account-3.png" alt="click done">
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configure_the_service_account">서비스 계정 구성</h2>
+    <p>서비스 계정을 구성하려면 다음 단계를 수행하십시오.</p>
+    <ol class="bcls-tasklist">
+      <li>방금 만든 서비스 계정의 경우 아래에서<strong>행위</strong>세 개의 수직 점을 클릭합니다. 그런 다음<strong>키 관리</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/manage-keys.png" alt="manage keys">
+        </figure>
+      </li>
+      <li>에서<strong>열쇠</strong>정보, 선택<strong>키 추가 → 새 키 생성</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-new-key.png" alt="create new key">
+        </figure>
+      </li>
+      <li>개인 키 정보에서<strong>키 유형</strong>되려고 <samp>JSON</samp>을 클릭한 다음<strong>창조하다</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-json-private-key.png" alt="json private key">
+        </figure>
+      </li>
+      <li>다음 메시지가 표시되는지 확인하십시오.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/private-key-saved.png" alt="private key saved verification">
+        </figure>
+      </li>
+      <li>온보딩 관리자에게 개인 키 파일을 이메일로 보내야 합니다.</li>
+      <li>5단계에서 연 탭을 닫고<strong>완료</strong>서비스 계정 생성 프로세스를 시작한 대화 상자에서
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/click-done.png" alt="click done">
+        </figure>
+      </li>
+      <li>에서<strong>서비스 계정</strong>섹션, 클릭<strong>액세스 권한 부여</strong>새로 생성된 서비스 계정 옆에 있습니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/click-grant-access.png" alt="grant access">
+        </figure>
+      </li>
+      <li>로부터<strong>사용자 초대</strong>페이지에서<strong>계정 권한</strong>섹션에서<strong>관리자(모든 권한)</strong>체크박스.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/admin-permissions.png" alt="grant admin permissions">
+        </figure>
+      </li>
+      <li>페이지 오른쪽 하단에서<span class="button-blue">사용자 초대</span> .</li>
+      <li>열리는 대화 상자에서<span class="button-blue">초대장 보내기</span> .</li>
+    </ol>
+  </section>
+
+</article>

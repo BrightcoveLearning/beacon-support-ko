@@ -1,0 +1,20 @@
+
+---
+title: SSAI
+description: 이 섹션에는 SSAI(서버 측 광고 삽입)를 사용하여 앱에서 수익을 창출하는 것과 관련된 주제가 포함되어 있습니다.
+parent: Monetization 
+---
+
+
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+  <section>
+    <h2 id="Topics_in_this_section">주제{{ page.title }}</h2>
+    <ul class="bcls-topic-list">
+      {% for item in site.data.navigation %} {% if item.name == page.parent %} {% for entry in item.docs %} {% if entry.name == page.title %} {% for doc in entry.docs %}
+      <li><a href="{{ doc.url }}">{{ doc.name }}</a></li>
+      {% endfor %} {% endif %} {% endfor %} {% endif %} {% endfor %}
+    </ul>
+</section>
+</article>

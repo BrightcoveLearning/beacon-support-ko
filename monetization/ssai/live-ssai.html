@@ -1,0 +1,279 @@
+
+---
+title: "라이브 SSAI 구현"
+description: 이 주제에서는 Brightcove Beacon에서 라이브 서버 측 광고 구성을 관리하고 생성하는 방법을 배웁니다.
+parent: SSAI 
+grandparent: Monetization
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="overview">개요</h2>
+
+    <p>
+      Brightcove Beacon은 라이브 이벤트에서 SSAI(서버 측 광고 삽입)를 지원하므로 라이브 스트림 중에 서버 측 광고를 요청하고 표시할 수 있습니다. 참고: SSAI와 함께 중복성을 사용하는 경우 그룹의 모든 작업에 동시에 광고를 삽입해야 합니다. 
+    </p>
+    <p>프로세스의 상위 수준 보기는 다음과 같습니다.</p>
+    <ol>
+      <li>Studio에서 광고 구성을 만듭니다.</li>
+      <li>라이브 이벤트에 대한 채우기 슬레이트를 만듭니다.</li>
+      <li>SSAI가 활성화된 라이브 이벤트를 만듭니다.</li>
+      <li>라이브 이벤트를 Brightcove Beacon에 게시하십시오.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">이 문서는 다음을 보완합니다. <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">라이브 이벤트 스트리밍</a>라이브 이벤트에 SSAI를 추가하도록 안내하는 설명서. 이벤트를 만드는 방법에 대한 자세한 내용은 섹션을 참조하십시오. <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#create" target="_blank"> Brightcove Beacon에서 라이브 이벤트 만들기</a> .</aside>
+
+    <p>SSAI는 라이브 이벤트 중에 다음과 같은 주요 기능을 제공합니다.</p>
+    <ul>
+      <li>
+        광고는 서버 측의 라이브 비디오 스트림에 연결되기 때문에 광고 차단기의 영향을 받지 않습니다.
+      </li>
+      <li>
+        인코더에서 보낸 큐 포인트에 광고가 삽입되거나 라이브 모듈 제어실을 사용하여 즉각적인 큐 포인트를 만들 수 있습니다.
+      </li>
+      <li>
+        구성할 수 있습니다. <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#fill_slate" target="_blank">슬레이트를 채우다</a>사용하지 않은 광고 시간을 채우기 위해
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="configuring-ssai">서버 측 광고 설정 구성</h2>
+    <p>
+      여기에서 Brightcove Beacon Live 이벤트에 표시될 광고 세트로 사용할 SSAI 광고 구성을 생성합니다.
+    </p>
+    <ol class="bcls-tasklist">
+      <li>스튜디오에 로그인합니다.</li>
+      <li>
+        탐색 헤더에서<strong>관리자</strong>그리고 선택<strong>서버 측 광고 설정</strong> . 모든 광고 구성 목록이 표시됩니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/1-studio-ssai-settings.png" />
+        </figure>
+      </li>
+      <li>
+        새 광고 구성을 만들려면<strong>광고 구성 만들기</strong>단추.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/2-create-ad-configuration.png" />
+        </figure>
+        <aside class="bcls-aside bcls-aside--information">서버 측 라이브 광고 구성은 Live API를 사용하여 관리할 수도 있습니다. 자세한 내용은 다음을 참조하십시오. <a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration" target="_blank">브라이트코브 라이브 API: 서버 측 광고 삽입(SSAI)</a> .</aside>
+      </li>
+      <li>
+        드롭다운에서<strong>살다</strong>유형으로.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/3-ad-config-live.png" />
+        </figure>
+      </li>
+      <li>
+        보고 있는지 확인하십시오. <strong>서버 측 광고 설정</strong>형태.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/4-ad-config-form.png" />
+        </figure>
+      </li>
+      <li>광고 구성에<strong>이름</strong> .</li>
+      <li>
+        선택<strong>광고 서버 응답</strong> :
+        <ul>
+          <li><strong>대단한</strong></li>
+          <li><strong>DFP(광고 규칙)</strong></li>
+          <li><strong>스마트 XML</strong></li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information">올바른 값을 선택하려면 광고 운영 관리자에게 문의하세요.</aside>
+      </li>
+      <li>들어가다<strong>광고 태그(서버 URL)</strong> .</li>
+      <li>클릭<strong>구하다</strong>단추.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="configuring-slate">채우기 슬레이트 구성</h2>
+    <p>
+      필 슬레이트는 라이브 스트림 광고 시간에 동적으로 게재되는 광고로 채울 수 없는 공백이 있을 때 표시되는 동영상입니다. 요청한 광고가 광고 중단 시간보다 짧으면 시청자에게 빈 플레이어가 표시되지 않도록 필 슬레이트가 표시됩니다.
+    </p>
+    <aside class="bcls-aside bcls-aside--information">서버 측 광고를 요청하기 전에 하나 이상의 채우기 슬레이트를 구성해야 합니다.</aside>
+    <p>채우기 슬레이트를 추가하려면 다음 단계를 따르세요.</p>
+    <ol class="bcls-tasklist">
+      <li>
+        클릭<strong>관리자</strong> &gt; <strong>라이브 설정</strong> Studio 헤더의 링크입니다. <aside class="bcls-aside bcls-aside--information">액세스하려면 계정 관리자여야 합니다. <strong>관리자</strong>메뉴.</aside>
+      </li>
+      <li>
+        딸깍 하는 소리<strong> + 채우기 슬레이트 추가</strong> . 다음과 같은 형식이 표시되어야 합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/5-fill-slate.png" />
+        </figure>
+      </li>
+      <li>입력<strong>이름</strong>당신의 채우기 슬레이트를 위해.</li>
+      <li>들어가다<strong>소스 URL</strong>슬레이트를 위해.</li>
+      <li>딸깍 하는 소리<strong>구하다</strong> . 슬레이트에 대한 수집 프로세스가 시작됩니다.</li>
+    </ol>
+    <p>채우기 슬레이트를 삭제하려면 삭제 버튼(<img alt="" src="/assets/images/using-bcb/live-ssai/node18588-delete-icon.png" />) 채우기 슬레이트 옆에 있습니다.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="creating-live-ssai">SSAI를 지원하는 라이브 이벤트 만들기</h2>
+    <p>
+      라이브 이벤트에서 SSAI(서버 측 광고 삽입)를 사용하려면<strong> SSAI(서버 측 광고 삽입) 활성화</strong>이벤트가 생성될 때 설정을 선택해야 하며, 재생을 위해 이전에 생성된 필 슬레이트를 선택해야 합니다.
+    </p>
+    <p>
+      다음 단계에 따라 Brightcove Beacon에서 SSAI 광고를 지원하는 이벤트를 만드십시오.
+    </p>
+    <ol class="bcls-tasklist">
+      <li>열기<strong>살다</strong> Studio의 모듈.</li>
+      <li>로부터<strong>이벤트 관리</strong>페이지, 클릭<strong>이벤트 생성</strong> .</li>
+      <li>
+        이벤트 세부 정보를 입력합니다. 라이브 모듈을 사용하여 라이브 이벤트를 만드는 방법에 대한 자세한 내용은 다음을 참조하십시오. <a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html" target="_blank">라이브 모듈을 사용하여 라이브 이벤트 생성 및 관리</a> .
+      </li>
+      <li>딸깍 하는 소리<strong>고급 옵션</strong>고급 옵션을 확장합니다.</li>
+      <li>확인하다<strong> SSAI(서버 측 광고 삽입) 활성화</strong> . 이렇게 하면 서버 측 광고 삽입이 활성화됩니다.</li>
+      <li>
+        선택<strong>슬레이트 채우기</strong> . 라이브 스트림 광고 시간에 동적으로 게재되는 광고로 채울 수 없는 공백이 있는 경우 채우기 슬레이트가 표시됩니다.
+      </li>
+      <li>
+        때<strong>광고 오디오</strong>설정을 선택하면 광고의 오디오 레벨이 설정된 조정에 따라 정규화됩니다. 이는 광고가 콘텐츠보다 크게 크지 않은지 확인하는 데 사용할 수 있습니다. Brightcove는 이 옵션을 선택할 것을 권장합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="450" height="700" src="/assets/images/using-bcb/live-ssai/6-ssai-check.png" />
+        </figure>
+      </li>
+      <li>딸깍 하는 소리<strong>이벤트 생성</strong></li>
+      <li>
+        NS <strong>제어실</strong>다음을 포함한 라이브 이벤트에 대한 세부 정보가 포함된 페이지가 열립니다. <strong>스트리밍 엔드포인트(RTMP URL)</strong>그리고<strong>스트림 이름</strong> . 이 값은 인코더에서 사용됩니다.
+      </li>
+      <li>
+        인코더를 구성하고 라이브 스트림을 시작합니다. <aside class="bcls-aside bcls-aside--information">라이브 플랫폼에서 스트리밍을 시작하려면 인코더가 필요합니다. 인코더 사용 방법에 대한 정보는 다음 문서를 참조하십시오.
+          <p>
+            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-telestream-wirecast.html" target="_blank">단계별: Telestream Wirecast와 함께 라이브 모듈 사용</a>
+          </p>
+          <p>
+            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-open-broadcaster-software-obs.html" target="_blank">단계별: OBS(Open Broadcaster Software)와 함께 라이브 모듈 사용</a>
+          </p>
+        </aside>
+      </li>
+      <li>
+        기본적으로<strong>제어실</strong>미리보기 플레이어는 광고 없는 스트림을 보여줍니다. 광고가 표시되지 않습니다. <strong>제어실</strong>라이브 광고 구성을 선택하지 않는 한. 플레이어에 대한 아래 드롭다운을 사용하여 광고 구성을 선택합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/7-select-ad-config.png" />
+        </figure>
+      </li>
+      <li>
+        (선택 사항) 더하기 버튼(<img alt="" src="/assets/images/using-bcb/live-ssai/node18753-plus-icon.png" />) 추가 광고 구성을 선택합니다. 이렇게 하면 에 다른 미리보기 플레이어가 추가됩니다. <strong>제어실</strong>페이지.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/8-two-preview-players.png" />
+        </figure>
+        <p>
+          미리보기 플레이어 아래의 볼륨 버튼을 클릭하여 활성화된 플레이어 오디오 스트림을 제어합니다.
+        </p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="creating-live-ssai">광고 요청</h2>
+    <p>
+      라이브에서 광고를 요청하려면 다음 단계를 따르세요. <strong>제어실</strong> :
+    </p>
+    <ol class="bcls-tasklist">
+      <li>
+        딸깍 하는 소리<strong>고토 광고</strong>드롭다운에서 원하는 광고 시간의 길이를 선택합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="350" height="500" src="/assets/images/using-bcb/live-ssai/9-gotoad.png" />
+        </figure>
+      </li>
+      <li>
+        딸깍 하는 소리<strong>끼워 넣다</strong>실시간 스트림에 광고 시간을 삽입합니다. 광고가 전체 광고 시간을 채우지 않으면 채우기 슬레이트(이벤트 생성 시 선택됨)가 표시됩니다.
+      </li>
+    </ol>
+    <p>
+      광고는<strong>제어실</strong>미리보기 플레이어 및 라이브 모듈을 사용하여 게시된 플레이어에서. 이 예에서는 2개의 광고가<strong>제어실</strong> .
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/10-adsplayer.png" />
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="requesting-ssai">Brightcove Beacon에서 라이브 이벤트 게시</h2>
+    <p>
+      Brightcove Beacon에서 서버 측 광고로 라이브 이벤트를 게시하려면 다음 단계를 따르십시오.
+    </p>
+    <ol class="bcls-tasklist">
+      <li>라이브에서<strong>제어실</strong>딸깍 하는 소리<strong>게시 및 포함</strong>왼쪽 탐색에서</li>
+      <li>
+        선택하다<strong>플레이어 구성</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/11-controlroom.png" />
+        </figure>
+      </li>
+      <li>에서<strong>라이브 플레이어 옵션</strong>선택하다<strong>사용 가능한 플레이어</strong> .</li>
+      <li>
+        당신의<strong>광고 구성</strong>이전에 생성된<strong>서버 측 광고 설정</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/12-select-player.png" />
+        </figure>
+      </li>
+      <li>
+        귀하의<strong>사용 가능한 플레이어</strong>그리고<strong>광고 구성</strong> , 새 플레이어 URL이 생성됩니다. 단어부터 시작하여 이미지에 표시된 대로 URL의 선택된 부분을 복사합니다. <strong>라이브</strong> . 예시: <strong>라이브.xxxxxxxx</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/13-player-url.png" />
+        </figure>
+      </li>
+      <li>Brightcove 비콘 플랫폼으로 이동합니다.</li>
+      <li>
+        Brightcove Beacon의 상단 메뉴에서<strong>광고</strong>탭.
+      </li>
+      <li>
+        클릭<strong>새 구성 추가</strong>단추.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/14-newadconfig.png" />
+        </figure>
+      </li>
+      <li>
+        보고 있는지 확인하십시오. <strong>새로운 광고</strong>형태.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/15-newadconfig-settings.png" />
+        </figure>
+      </li>
+      <li>새 광고 구성 제공<strong>이름</strong> .</li>
+      <li>
+        에서<strong>라이브 광고 구성 ID:</strong> , 붙여넣기<strong>플레이어 URL ID</strong>방금 라이브 플랫폼에서 복사했습니다. 예를 들면 다음과 같습니다. <strong>라이브.xxxxx</strong> .
+      </li>
+      <li>로부터<strong>공급자</strong>메뉴 선택<strong>브라이트코브 SSAI</strong> .</li>
+      <li>에서 클릭<strong>새 광고 만들기</strong>단추.</li>
+      <li>
+        상단 메뉴 클릭<strong>이벤트</strong>탭을 클릭하고 라이브 이벤트를 생성하거나 선택합니다. Brightcove Beacon 라이브 이벤트를 만드는 방법에 대한 자세한 내용은 다음을 참조하십시오. <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">라이브 이벤트 스트리밍</a>문서. <aside class="bcls-aside bcls-aside--information">라이브 이벤트가 Brightcove Beacon에서 성공적으로 스트리밍되려면<strong>작업 ID</strong>그리고<strong>스트림 비디오 ID</strong>현재 라이브 이벤트의 ID와 일치해야 합니다.</aside>
+      </li>
+      <li>
+        Brightcove Beacon Live Event에서<strong>권리 및 일정</strong>탭.
+      </li>
+      <li>
+        에서<strong>권한 유형</strong>드롭다운 메뉴, 선택<strong>광고 - AVOD</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/16-ad-avod.png" />
+        </figure>
+      </li>
+      <li>
+        에서<strong>광고 구성</strong>하단 메뉴에서 이전에 만든 광고 구성을 선택합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/17-ad-configuration.png" />
+        </figure>
+      </li>
+      <li>클릭<strong>업데이트 이벤트</strong>단추.</li>
+      <li>
+        클릭<strong>도구</strong> (렌치) 버튼은 화면 오른쪽 상단에 있습니다. 그런 다음 캐시를 지웁니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png" />
+        </figure>
+      </li>
+      <li>
+        Brightcove Beacon 앱을 열고 이벤트를 선택합니다(이미지의 이벤트 이름과 사진은 예시용입니다).
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/using-bcb/live-ssai/19-app-event.png" />
+        </figure>
+      </li>
+      <li>
+        Brightcove Beacon 앱에서<strong>놀다</strong>단추. 이제 Video Cloud에서 SSAI가 삽입한 광고와 함께 라이브 이벤트 스트리밍을 볼 수 있습니다.
+      </li>
+    </ol>
+    <p>
+      이벤트가 끝나면 전체 또는 일부를 Video Cloud의 비디오 자산이 되는 클립으로 저장하거나 Brightcove Beacon에 표시할 수 있는 재생 가능한 스트림으로 저장할 수 있습니다. 라이브 이벤트의 광고는 저장되지 않지만, 광고가 전송된 큐 포인트가 등록되어 녹화된 라이브 이벤트의 이후 VOD에 새 광고를 추가할 수 있습니다.
+    </p>
+    <p>
+      클립을 만드는 방법에 대한 자세한 내용은<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#Clip" target="_blank">라이브 이벤트에서 클립 만들기</a>섹션에서 <em>라이브 이벤트 스트리밍</em> 문서.
+    </p>
+  </section>
+</article>

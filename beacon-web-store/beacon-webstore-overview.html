@@ -1,0 +1,260 @@
+
+---
+title: '개요: Brightcove 비콘 웹 스토어'
+description: 이 항목에서는 Brightcove Beacon 웹 스토어 서비스에 대한 개요를 제공합니다.
+parent: Beacon Web Store
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">소개</h2>
+    <p>Beacon 웹 스토어는 Beacon 라이선스 사용자가 BYO(Bring Your Own) 웹 스토어에서 구독을 구현할 수 있도록 하는 구성, 기능 및 API 통합입니다. 콘텐츠 소유자는 웹 스토어에서 임대 및 판매 및 지불 시스템 통합을 위한 상점 전면 및 비즈니스 로직을 구현합니다. Beacon API는 상점이 Beacon CMS 내에서 결과적인 권한 변경을 추가, 제거 및 편집할 수 있는 인터페이스를 제공합니다. Beacon 앱에서 콘텐츠 제목의 액세스 및 표시를 정의하는 논리는 변경되지 않습니다.</p>
+    <p>모든 재무 보고, 대시보드 및 세금 납부의 구현은 Beacon에서 관리 또는 추적되지 않으며 콘텐츠 소유자의 책임입니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="glossary_of_terms">용어집</h2>
+    <p>아래 표에서는 이 항목에서 사용되는 용어를 설명합니다.</p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">용어집</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>용어</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>웹 스토어</td>
+          <td>구독 판매, 임대 및 판매를 위한 BYO 상거래 웹사이트</td>
+        </tr>
+        <tr>
+          <td>지불 프로세서</td>
+          <td>거래를 처리하고 계정에 수익을 입금하기 위해 웹 스토어에서 사용하는 시스템</td>
+        </tr>
+        <tr>
+          <td>SKU</td>
+          <td>비콘 자산의 식별자</td>
+        </tr>
+        <tr>
+          <td>SVOD</td>
+          <td>정기결제 VOD, 정기결제 모델</td>
+        </tr>
+        <!-- <tr>
+          <td>TVOD</td>
+          <td>One time purchase or rental payment model</td>
+        </tr> -->
+        <tr>
+          <td>계획</td>
+          <td>SVOD 제안 정의</td>
+        </tr>
+        <tr>
+          <td>UMS</td>
+          <td>사용자 관리 시스템</td>
+        </tr>
+        <tr>
+          <td>프록시 UMS</td>
+          <td>BYO UMS의 마스터 복사본에 매핑되는 사용자의 프록시 복사본입니다. Beacon 권한은 Proxy UMS 시스템에서 관리됩니다.</td>
+        </tr>
+        <tr>
+          <td>OIDC</td>
+          <td>인증 중 통신 권한 부여 프로토콜인 Open ID Connect</td>
+        </tr>
+        <tr>
+          <td>입증</td>
+          <td>접근권한 부여를 위한 특정 사용자의 식별 </td>
+        </tr>
+        <tr>
+          <td>권한 부여</td>
+          <td>로그인 시 토큰을 통해 사용자 권한 전달</td>
+        </tr>
+        <tr>
+          <td>앱 내 구매(2021년 2분기에 사용 가능)</td>
+          <td>고객이 웹 스토어 제품 제안에 Beacon 앱을 추가하고 앱 스토어를 통해 새 제품 구성을 판매하려는 경우 앱 내 구매를 위해 Beacon 스토어를 구성할 수 있습니다. </td>
+        </tr>
+        <tr>
+          <td>권한</td>
+          <td>Beacon 콘텐츠 또는 기능에 대한 액세스</td>
+        </tr>
+        <tr>
+          <td>구매 알림</td>
+          <td>구독 또는 자산 권한의 구매 상태(구매, 취소) 변경을 나타내는 메시지, Beacon 스토어에서 Beacon CMS로 전송</td>
+        </tr>
+        <tr>
+          <td>연결된 TV</td>
+          <td>TV에 앱 관리 지원을 제공하는 HDMI 연결 외부 장치: Apple TV, FireTV, Roku 및 Android TV STB</td>
+        </tr>
+        <tr>
+          <td>스마트 티비</td>
+          <td>앱 관리 지원 기능이 내장된 텔레비전</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Components">비콘 스토어 구성 요소</h2>
+    <p>모든 Beacon Store 구매는 웹 스토어를 통해 이루어집니다. 판매 모델에서는 뷰어가 고객 웹 스토어를 방문하여 콘텐츠를 구매한 다음 지원되는 장치에서 별도의 작업으로 Beacon 앱을 열어야 합니다.</p>
+    <p>필요한 구성 요소는 다음과 같습니다.</p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">비콘 스토어 구성 요소</caption>
+      <thead class="bcls-table__head">
+          <tr>
+              <th>요소</th>
+              <th>책임</th>
+              <th>설명</th>
+          </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+          <tr>
+              <td>웹 스토어</td>
+              <td>콘텐츠 소유자</td>
+              <td>개별 콘텐츠 타이틀과 갱신 가능한 구독에 대한 액세스 권한을 판매 및 임대하기 위한 논리와 프로세스를 구현하는 사용자 제공 웹 스토어입니다.</td>
+          </tr>
+          <tr>
+              <td>지불 프로세서</td>
+              <td>콘텐츠 소유자</td>
+              <td>웹 스토어를 통해 판매된 상품에 대한 결제를 처리하는 시스템입니다. 이 서비스는 신용카드 체크카드, 전자지갑, QR코드 결제를 현지 통화로 처리하고 콘텐츠 소유자의 은행과 결제합니다.</td>
+          </tr>
+          <tr>
+              <td>사용자 관리 시스템</td>
+              <td>콘텐츠 소유자</td>
+              <td>등록된 사용자의 기록을 저장하기 위한 사용자 관리 시스템이 제공되어야 합니다. 기존 웹 스토어의 소유자는 고객에 대한 모든 과거 정보가 포함되어 있기 때문에 기존 UMS를 유지하기를 원할 것입니다.</td>
+          </tr>
+          <tr>
+              <td>브라이트코브 비콘</td>
+              <td>브라이트코브</td>
+              <td>Brightcove Beacon은 웹 스토어에서 판매되는 명명된 SKU와 웹 스토어가 뷰어 레코드의 특정 콘텐츠 액세스 권한에 대한 자격을 등록하는 Beacon Entitlements API로 콘텐츠의 구성 및 패키징을 제공합니다.</td>
+          </tr>
+          <tr>
+              <td>자격 알림</td>
+              <td>Brightcove 및 콘텐츠 소유자</td>
+              <td>
+                Webstore는 구독 구매 또는 취소와 같은 상거래 이벤트에 대한 알림을 Beacon에 보내고 Beacon은 Beacon UMS의 Beacon 자산에 대한 사용자 자격을 업데이트합니다.
+                <!-- <p>(Coming in Q2 2021) In cases where Beacon Store In App Purchases are required, the web store will maintain a separate entitlements database that must be updated.  Beacon will send notifications to an end point defined by the customer and their system is responsible for maintaining the matching entitlements. </p> -->
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Workflows_and_Configurations">Beacon Store 워크플로 및 구성</h2>
+    <p>Beacon을 도입하기 전에 이미 상거래 웹 사이트를 비즈니스의 필수 구성 요소로 가지고 있었고 웹 스토어 제품에 Beacon 구독을 추가하려고 할 수 있습니다. 웹 스토어는 세 가지 구성 요소로 구성됩니다.</p>
+    <ol>
+      <li><strong>웹 스토어</strong> - 웹 스토어는 조직의 상거래 사이트입니다. 제품, 가격 및 구매 모델을 제시합니다. </li>
+      <li><strong>지불 프로세서</strong> - 지불 프로세서는 신용 카드, 체크 카드 및 전자 지갑에서 지불을 수락하고 조직의 은행 계좌에 지불을 입금하고 구매자에게 영수증을 보내는 거래를 처리하는 시스템입니다.</li>
+      <li><strong>사용자 관리 시스템</strong> - 귀하의 조직은 UMS에 등록된 후원자 목록을 유지 관리합니다.</li>
+    </ol>
+
+    <p>Beacon Store 통합에는 두 가지 개발 활동이 있습니다.</p>
+    <ol>
+      <li><strong>Beacon은 웹 스토어에서 금융 거래 알림을 받습니다.</strong> - 웹 스토어에서 Beacon 구독의 판매 및 취소는 Beacon API에 보고됩니다. Beacon은 이러한 알림을 기반으로 자격을 추가하거나 제거합니다.</li>
+      <li><strong>Beacon 및 웹 스토어 사용자 관리 시스템 연결 및 동기화</strong> - Webstore UMS 사용자 레코드는 마스터 레코드와 사용자를 포함하며 저장된 사용자 데이터의 소스입니다. 프록시 사용자는 등록된 각 고객에 대해 Beacon UMS에서 생성됩니다. Beacon은 트랜잭션 알림 수신 시 프록시 사용자 레코드에 권한을 할당합니다. 사용자 추가 및 삭제와 같은 상점 UMS의 변경 사항은 Beacon UMS의 일치하는 사용자 레코드에 적용됩니다.
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Configurations">비콘 저장소 구성</h2>
+    <p>Beacon Stores는 웹 스토어에서 판매되는 제품 목록에 Beacon 구독을 추가할 목적으로 Beacon과 통합된 기존 고객 소유 및 운영 BYO 웹 스토어입니다. 예술 단체는 이 목표를 지원하기 위한 두 가지 주요 판매 모델을 보여주는 예를 제공합니다.</p>
+    <p>예술 단체는 현재 웹 스토어를 통해 공연과 관련된 구독, 티켓 및 실물 상품을 판매합니다. 따라서 해당 상거래를 관리하기 위한 기존 웹 스토어, 사용자 관리, 지불 처리 및 자격 추적 시스템이 있습니다.</p>
+    <p>일부 조직에서는 녹화된 콘텐츠와 동일한 이벤트에 대한 가상 액세스를 포함하여 대상을 확대하기로 결정했습니다. 또한 웹 스토어 내에서 전체 상거래 관리 프로세스를 통합하기를 원합니다.</p>
+    <p>일부 조직은 웹 스토어에서 동일한 결과를 얻고 앱 스토어(Apple Store, Google Play, Amazon, Roku 및 Beacon 웹 앱과 Stripe 통합)에서 앱 구매와 동일한 제품을 판매하기를 원합니다. .</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Web_Store_Only_Purchases">웹 스토어 전용 구매</h2>
+    <p>웹 스토어 전용 워크플로는 그림 1과 같이 구현됩니다. 고객은 자신의 웹 스토어, 지불 프로세서 및 UMS를 가져옵니다. 통합 지점은 다음과 같습니다.</p>
+    <ul>
+      <li>
+        <strong>UMS 프록시 사용자</strong> - 등록된 사용자의 전체 기록은 고객의 BYO UMS에 보관되며, 이는 사용자 계정 및 사용자의 계정 관리에 대한 진실의 근원입니다. 로그인 시 사용자 인증은 BYO UMS에서 발생합니다. 프록시 사용자는 인증 또는 가입 시 Beacon UMS에서 생성됩니다. UMS에서 사용자가 삭제되면 프록시 사용자도 Beacon에서 삭제됩니다.
+        <p>인증 및 계정 관리를 위한 동기화는 OIDC( <a href="https://openid.net/developers/specs/"> ID 연결 열기</a> ) 프로토콜, OAuth 2.0의 확장입니다. 시스템에 기본 OIDC 지원을 제공하거나 OIDC를 지원하도록 UMS 인터페이스를 업데이트해야 합니다.</p>
+      </li>
+      <li><strong>구매 알림</strong> - Beacon Entitlements API에 상거래 이벤트 알림을 보내도록 웹 스토어를 수정했습니다. 알림에는 USER ID 및 PRODUCT SKU가 포함됩니다. Beacon이 알림을 수신하면 사용자 레코드의 자격에 대한 적절한 업데이트가 Beacon UMS에 기록됩니다. 따라서 사용자가 Beacon 앱의 콘텐츠를 볼 수 있도록 하는 권한을 부여하거나 취소합니다. 기술 권한 API 인터페이스는 다음에 정의되어 있습니다. <a href="/beacon-web-store/integration-details.html">비콘 통합 세부 정보</a></li>
+    </ul>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/beacon-store.png" alt="Beacon Store">
+      <figcaption class="bcls-caption--image">비콘 스토어</figcaption>
+    </figure>
+    <p>구성 세부정보:</p>
+    <ul>
+      <li>웹 스토어 및 Beacon의 구독 정의<strong>해야하다</strong>동일한 SKU 이름으로 구성해야 합니다.</li>
+      <li>웹 스토어 알림은 Beacon CMS에서 제공되는 웹 후크 URL로 전송됩니다.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_with_In_App_Purchases">앱 내 구매 기능이 있는 비콘 스토어</h2>
+    <p>앱 구매 워크플로 내의 웹 스토어는 그림 2와 같이 구현됩니다. 이 모델에서는 Amazon, Apple, Google 및 Roku 스토어와 웹 스토어에서 인앱 구매를 할 수 있습니다. 귀하는 다음에 대한 책임이 있습니다.</p>
+    <ul>
+      <li>나만의 웹 스토어</li>
+      <li>지불 프로세서</li>
+      <li>UMS</li>
+      <li>필요한 상점의 판매자 계정</li>
+    </ul>
+    <p>Brightcove Beacon은 인앱 구매 통합을 제공합니다. 통합 포인트는 이전 섹션에서 설명한 것에서 수정되어 Beacon에서 앱 구매 성공에 대한 웹 스토어로의 결제 알림을 포함합니다. Beacon이 생성하는 알림 메시지는 유사한 스키마를 따릅니다.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/beacon-store-with-in-app-purchases.png" alt="Beacon Store with In-App Purchases">
+      <figcaption class="bcls-caption--image">앱 내 구매가 가능한 비콘 스토어</figcaption>
+    </figure>
+    <p>구성 세부정보:</p>
+    <ul>
+      <li>웹 스토어 및 Beacon의 구독 정의<strong>해야하다</strong>동일한 SKU 이름으로 구성해야 합니다.</li>
+      <li>웹 스토어 알림은 Beacon CMS에서 제공되는 웹 후크 URL로 전송됩니다.</li>
+      <li>비콘 통신은 선택한 서비스에서 제공되는 웹훅 URL로 전송됩니다.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="User_Management_Systems">사용자 관리 시스템</h2>
+    <p>Beacon 스토어의 일반적인 사용 사례는 Beacon을 기존에 구축된 웹 스토어와 통합하는 것입니다. 덜 일반적으로 상거래 관리를 위한 새로운 웹 스토어와 함께 새로운 서비스를 출시합니다.</p>
+    <h3>외부 연결 UMS</h3>
+    <p>기존 웹 스토어는 항상 사용자 관리 및 지불 처리 시스템과 통합됩니다. 이 경우 목표는 기존 상거래 구성 내에서 Beacon을 통합하는 것입니다. 귀하의 UMS는 인증 및 사용자 기록 관리 지점으로 남게 됩니다. 따라서 통합은 고객 UMS를 사용하여 Beacon 사용자를 인증하고 권한을 부여합니다. 사용자의 이메일 주소는 계정 ID로 사용되며 권한은 해당 계정과 연결됩니다. 모든 사용자 개인 정보 데이터는 BYO UMS에 저장됩니다.</p>
+    <p>외부 BYO UMS 시스템은 OIDC 인터페이스 프로토콜을 사용하여 Beacon과 인터페이스합니다. Open ID Connect는 ID 토큰 스키마를 표준화하는 OAuth의 확장입니다.</p>
+    <h3>모바일 및 웹 UMS 구성</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/mobile-web-ums.png" alt="Mobile and Web UMS">
+      <figcaption class="bcls-caption--image">모바일 및 웹 UMS</figcaption>
+    </figure>
+    <ol>
+      <li>사용자가 Beacon 앱에 로그인하도록 선택</li>
+      <li>앱은 OIDC 공급자와 상호 작용하여 로그인 흐름을 통해 사용자를 안내합니다. 성공하면 액세스, 새로 고침 및 ID 토큰이 앱에 제공됩니다.</li>
+      <li>앱은 액세스 토큰을 사용하여 Beacon 백엔드에 연결합니다.</li>
+      <li>비콘 백엔드가 액세스 토큰을 검증합니다.</li>
+    </ol>
+    <h3>Connected 및 SmartTV UMS 구성</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/tv-ums.png" alt="Connected and SmartTV UMS">
+      <figcaption class="bcls-caption--image">Connected 및 SmartTV UMS</figcaption>
+    </figure>
+    <ol>
+      <li>사용자가 Beacon 앱에 로그인하도록 선택</li>
+      <li>앱에서 기기 코드를 요청함</li>
+      <li>사용자가 모바일 또는 웹 장치로 이동하여 인증 URL 및 장치 코드를 입력합니다.</li>
+      <li>장치는 OIDC 공급자와 상호 작용하여 사용자를 인증합니다.</li>
+      <li>Connected 또는 Smart TV는 OIDC 공급자를 지속적으로 폴링하여 사용자 인증 여부를 확인하고 인증 시 앱에 액세스, 새로 고침 및 ID 토큰을 제공합니다.</li>
+      <li>앱은 액세스 토큰을 사용하여 Beacon 백엔드에 연결합니다.</li>
+      <li>비콘 백엔드가 액세스 토큰을 검증합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_User_Management_Autosync">비콘 사용자 관리 자동 동기화</h2>
+    <p>기존 UMS를 Beacon과 통합할 때 Beacon Store 판매 알림으로 생성된 권한을 적절한 사용자에게 할당할 수 있도록 Beacon UMS에서 프록시 사용자를 생성해야 합니다.</p>
+    <p>사용자는 고객 UMS의 이벤트 결과로 Beacon에서 유지 관리됩니다. OIDC 인터페이스를 통해 사용자는 외부 UMS에서 인증하거나 자격이 Beacon으로 전송될 때 Beacon에서 생성됩니다. 수동 동기화가 필요하지 않습니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Monetization_Models">Beacon Store 수익화 모델</h2>
+    <p>비콘 저장소는 SVOD 트랜잭션을 지원하도록 구성할 수 있습니다. 구성 세부정보:</p>
+    <h3>SVOD 구성</h3>
+    <h4>비콘 구성</h4>
+    <ol class="bcls-tasklist-restart">
+      <li>Beacon에서 SVOD 계획 생성</li>
+      <li>비콘에서 상태를 UNPUBLISHED로 설정</li>
+      <li>Beacon에서 계획에 대한 SKU 정의</li>
+      <li>계획에 콘텐츠 할당</li>
+    </ol>
+    <h4>웹 스토어 구성</h4>
+    <ol class="bcls-tasklist-restart">
+      <li>웹스토어 및 웹스토어 결제 시스템에서 SVOD 플랜/상품 생성</li>
+      <li>연극을 줘<strong> Beacon에서 사용된 것과 동일한 이름</strong></li>
+      <li>Beacon의 SKU를 웹 스토어 결제 시스템의 SKU ID로 복사합니다.</li>
+    </ol>
+    <!-- <h3>TVOD configuration</h3>
+    <p>(TBD)</p> -->
+  </section>
+</article>

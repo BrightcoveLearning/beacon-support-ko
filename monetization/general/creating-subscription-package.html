@@ -1,0 +1,184 @@
+
+---
+title: 구독 패키지 만들기
+parent: Monetization 
+---
+
+
+<article class="bcls-article">
+  <h1>구독 패키지 만들기</h1>
+  <summary>이 주제에서는 다음을 사용하여 비디오 구독 패키지를 구성하는 방법을 배웁니다. <strong>상업</strong> Brightcove Beacon 탭. 구독 패키지는 SVOD(주문형 구독 비디오) 수익 창출을 구현합니다. 동영상에 구독 패키지를 적용하는 방법을 알아보려면<a href="/monetization/using-subscription-package.html">구독 패키지 사용</a>문서.
+  </summary>
+  <section class="bcls-section">
+    <h2 id="Overview">개요</h2>
+    <p>
+      구독 패키지는 앱에서 특정 비디오 세트를 구매할 수 있는 방법을 정의합니다.' 고객. 예를 들어 패키지를 생성할 때 다음을 구성할 수 있습니다.
+    </p>
+    <ul>
+      <li>청구 빈도</li>
+      <li>광고 지원 여부 및 사용할 광고 구성 설정</li>
+      <li>지불 방법</li>
+      <li>패키지 사용자가 동시에 재생할 수 있는 최대 스트림 수</li>
+      <li>패키지를 구매할 수 있는 시작 및 종료 날짜</li>
+      <li>패키지의 비디오를 볼 수 있도록 허용된 장치 및 지리적 위치</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Steps to create a package">패키지를 만드는 단계</h2>
+    <p>새 패키지를 생성하려면 다음 단계를 따르십시오.</p>
+    <ol class="bcls-tasklist">
+      <li>
+        Brightcove Beacon에서<strong>상업</strong>탭, 확인<strong>패키지</strong>왼쪽 탐색에서 을 선택한 다음<strong>새 패키지 추가</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/initial-menu-selections.png" alt="initial menu selections" />
+        </figure>
+      </li>
+      <li>
+        에<strong>패키지</strong>탭(아래 스크린샷)에서 다음을 완료합니다.
+        <ul>
+          <li>
+            <strong>이름</strong> : 비디오의 Video Cloud 사용자 정의 필드에서 사용되는 패키지의 이름입니다.
+          </li>
+          <li>
+            <strong>청구 빈도</strong> : 이 패키지의 청구 빈도를 선택하십시오.
+          </li>
+          <li>
+            <strong>평가판 기간</strong> : 이 패키지의 평가판 기간입니다. 입력하다<strong> 0</strong>평가판 기간이 없습니다.
+          </li>
+          <li>
+            <strong>상태</strong> : 패키지를 게시하여 사용할 수 있도록 하려면 선택합니다. 하나 이상의 결제 방법을 선택해야 패키지를 게시할 수 있습니다.
+          </li>
+          <li>
+            <strong>광고</strong> : 이 패키지와 함께 광고를 사용하려면 선택하십시오.
+          </li>
+          <li>
+            <strong>광고 제공업체</strong> : 이전 단계에서 광고를 사용하기로 선택한 경우 광고 제공업체를 선택합니다. 이 드롭다운은 목록에 나열된 광고 구성으로 채워집니다. <strong>광고</strong> Brightcove Beacon 섹션.
+            <!-- See the <a href="/using-brightcove-beacon/advertisement.html"> Advertisement </a> document for details on advertisement configurations. -->
+          </li>
+          <li>
+            <strong>사용할 결제 수단</strong> : 이 패키지에 사용할 결제 수단을 선택하세요. 선택한 각 방법에 대해 섹션이 결제 방법 목록 아래에 열리며 선택한 각 방법에 대해 완료해야 합니다. 아래 스크린샷은 보여줍니다<strong>스트라이프(노란색)</strong>그리고<strong>애플 스토어(빨간색)</strong>선택됩니다.
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/payment-method-details.png" alt="payment method details" />
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>
+        클릭<strong>패키지 생성</strong>버튼을 눌러 현재 패키지 구성을 저장합니다.
+      </li>
+      <li>
+        에<strong>텍스트 데이터</strong>탭에서 다음을 완료합니다. <ul>
+          <li><strong>팩 이름</strong> : 사용자에게 표시되는 이름입니다.</li>
+          <li>
+            <strong>표제</strong> : 예를 들어 사용자에게 표시되는 헤드라인 <em>홀리데이 스페셜!</em> .
+          </li>
+        </ul>
+      </li>
+      <li>
+        클릭<strong>패키지 생성</strong>버튼을 눌러 현재 패키지 구성을 저장합니다.
+      </li>
+      <li>
+        에<strong>비텍스트 데이터</strong>탭에서 패키지 이름 옆에 사용할 이미지를 제공합니다.
+        <!-- The size of the image should be !!!!!!!!!!!!!!!!. -->
+      </li>
+      <li>
+        클릭<strong>패키지 생성</strong>버튼을 눌러 현재 패키지 구성을 저장합니다.
+      </li>
+      <li>
+        NS <strong>콘텐츠</strong>탭은 현재 사용하지 않습니다.
+      </li>
+      <li>
+        에<strong>스트림</strong>탭에서 다음을 완료합니다. <ul>
+          <li>
+            <strong>최대 스트림</strong> : 동시에 스트리밍할 수 있는 최대 연결된 장치 수입니다.
+          </li>
+          <li>
+            <strong>최대 장치</strong> : 활성 연결을 가질 수 있는 연결된 장치의 최대 수입니다. <aside class="bcls-aside bcls-aside--information">위의 두 가지 설정도 전역적으로 설정되므로 이 패키지의 전역 설정을 무시하려는 경우에만 이 설정을 사용하십시오.</aside>
+          </li>
+          <li>
+            <strong>고급 스트림</strong> : 다음으로 설정<strong>예</strong>이 패키지가 설정하는 권한을 사용자 정의하려면 사용 가능한 변경 사항은 다음 스크린샷에 표시됩니다.
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/advanced-stream-rights.png" alt="advanced stream rights" />
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>
+        클릭<strong>새 권한 추가</strong>버튼을 눌러 새로 구성된 사용자 정의 권한을 저장합니다.
+      </li>
+      <li>
+        클릭<strong>패키지 생성</strong>버튼을 눌러 현재 패키지 구성을 저장합니다.
+      </li>
+    </ol>
+    <p>그것이 바로 패키지 생성을 위한 것입니다!</p>
+  </section>
+  <!-- <section class="bcls-section"> <h2 id="Using_the_package_in_Video_Cloud"> Using the package in Video Cloud </h2> <p> Although the package is created in Brightcove Beacon, it is not applied to content in there. To use the package, and apply it to video content you use Video Cloud custom fields. </p> </section> -->
+  <section class="bcls-section">
+    <h2 id="Creating_a_Stripe_Coupon">스트라이프 쿠폰 만들기</h2>
+    <p>
+      쿠폰을 생성하여 패키지를 구매할 때 적용할 수 있는 고정 금전적 할인 또는 백분율 할인을 제공할 수 있습니다.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        Brightcove Beacon에서<strong>상업</strong>탭을 클릭한 다음<strong>스트라이프 쿠폰</strong>그리고 마지막으로 클릭<strong>새 바우처 추가</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/coupon-menu-selection.png" alt="coupon menu selections" />
+        </figure>
+      </li>
+      <li>
+        에<strong>새 쿠폰 만들기</strong>양식(아래 스크린샷)을 작성하여 다음을 완료하십시오.
+        <ul>
+          <li>
+            <strong>ID</strong> : 시청자가 쿠폰을 사용하기 위해 Brightcove Beacon 앱에 입력하는 코드
+          </li>
+          <li><strong>이름</strong> : 인보이스에 표시할 수 있는 쿠폰의 친숙한 이름</li>
+          <li>
+            <strong>지속</strong> : 에서 선택<strong>한 번</strong> , <strong>영원히</strong>또는<strong>반복</strong> ;<br /> 만약에<strong>반복</strong>을 선택한 다음 반복적으로 사용할 수 있는 개월 수를 설정합니다.
+          </li>
+          <li>
+            을위한<strong>할인 유형</strong>다음 중 하나를 선택합니다.
+            <ul>
+              <li>
+                <strong>금액</strong> : 쿠폰의 가치와 통화를 입력하십시오.
+              </li>
+              <li>
+                <strong>백분율</strong> : 쿠폰에 적용되는 할인 비율을 입력하세요.
+              </li>
+            </ul>
+            <p>
+              예시: 할인이 3개월 무료인 경우 다음을 설정합니다. <strong>지속</strong>에게<strong>반복</strong> 3개월로 설정하고<strong>할인 유형</strong> ~와 함께<strong>백분율</strong> 100% </p>
+          </li>
+          <li>
+            <strong>제한 날짜(UTC)</strong> : 쿠폰을 사용할 수 있는 마지막 날짜를 선택하세요.
+          </li>
+          <li>
+            <strong>최대 상환</strong> : 쿠폰의 최대 상환 횟수를 입력하십시오. 예를 들어 50명의 고객만 쿠폰을 사용할 수 있습니다.
+          </li>
+          <li>
+            <strong>패키지 선택</strong> : 쿠폰을 적용할 수 있는 패키지를 선택하십시오. 패키지를 선택하지 않으면 모든 패키지에 쿠폰 적용 가능<br />
+            예시: 쿠폰은 연간 구독을 구매한 경우에만 유효합니다.
+          </li>
+        </ul>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/new-coupon-form.png" alt="coupon form" />
+        </figure>
+      </li>
+      <li>
+        <p>
+          반드시 클릭하세요<strong>구하다</strong>버튼을 눌러 새 쿠폰을 저장합니다.
+        </p>
+      </li>
+    </ol>
+    <p>
+      패키지 구매 시 Brightcove Beacon 앱에서 시청자가 쿠폰을 입력할 수 있습니다. <strong> ID</strong> : </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/use-coupon.png" alt="use coupon form" />
+    </figure>
+    <p>
+      또는 Stripe 계정에서 직접 쿠폰을 생성한 다음 Brightcove Beacon에서 사용할 수 있습니다.
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/stripe-coupon-form.png" alt="use coupon form" />
+    </figure>
+  </section>
+</article>

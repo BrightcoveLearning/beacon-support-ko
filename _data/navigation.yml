@@ -1,0 +1,249 @@
+- section:
+  name: 집
+  url: /index.html
+- section:
+  name: '시작하기'
+  url: '/getting-started/index.html'
+  docs:
+    - name: '학습 가이드'
+      url: '/getting-started/learning-guide-bc-beacon.html'
+    - name: '구현 단계'
+      url: '/getting-started/implementation-phases.html'
+    - name: '애플리케이션 설계 고려 사항'
+      url: '/getting-started/app-design-considerations.html'
+    - name: '앱 디자인 - 정보 아키텍처'
+      url: '/getting-started/creating-your-app-design-info-architecture.html'
+    - name: '앱 디자인 - 레이아웃 옵션'
+      url: '/getting-started/creating-your-app-design-layout-options.html'
+    - name: '설계 모범 사례'
+      url: '/getting-started/design-best-practices.html'
+- section:
+  name: 비디오 클라우드와 동기화
+  url: /syncing-with-video-cloud/index.html
+  docs:
+    - name: Video Cloud 사용자 정의 필드 생성
+      url: /syncing-with-video-cloud/vc-custom-fields.html
+    - name: 강제 동기화
+      url: /syncing-with-video-cloud/forcing-a-sync.html
+- section:
+  name: 브라이트코브 비콘 사용
+  url: /using-brightcove-beacon/index.html
+  docs:
+    - name: 영화에 예고편 추가
+      url: /using-brightcove-beacon/adding-trailer-movie.html
+    - name: 페이지에 캐러셀 추가
+      url: /using-brightcove-beacon/adding-to-page.html
+    - name: '개요: 클라우드 플레이아웃 채널'
+      url: /using-brightcove-beacon/cloud-playout/cloud-playout-overview.html
+    - name: Cloud Playout 채널 생성
+      url: /using-brightcove-beacon/cloud-playout/cloud-playout-stream-vod.html
+    - name: Cloud Playout 채널에 콘텐츠 추가
+      url: /using-brightcove-beacon/cloud-playout/cloud-playout-add-content.html
+    - name: 정적 이미지 오버레이
+      url: /using-brightcove-beacon/cloud-playout/static-image-overlays.html
+    - name: 채널 작업 사용
+      url: /using-brightcove-beacon/cloud-playout/using-channel-actions.html
+    - name: Cloud Playout에 범퍼 추가
+      url: /using-brightcove-beacon/cloud-playout/adding-bumpers-to-vod.html
+    - name: 클라우드 플레이아웃으로 수익 창출
+      url: /using-brightcove-beacon/cloud-playout/enabling-server-side-ads.html
+    - name: 채널에 미드롤 광고 추가
+      url: /using-brightcove-beacon/cloud-playout/mid-roll-ad-insertion.html
+    - name: Cloud Playout 채널 게시
+      url: /using-brightcove-beacon/cloud-playout/publish-channel-beacon.html
+    - name: 채널 출력 및 분석 보기
+      url: /using-brightcove-beacon/cloud-playout/viewing-channel-output-and-analytics.html
+    - name: 비콘 채널 생성
+      url: /using-brightcove-beacon/creating-a-channel.html
+    - name: 전자 프로그램 가이드(EPG) 만들기
+      url: /using-brightcove-beacon/electronic-program-guides.html
+    - name: 새 페이지 만들기
+      url: /using-brightcove-beacon/creating-a-page.html
+    - name: 재생 목록 만들기
+      url: /using-brightcove-beacon/creating-a-playlist.html
+    - name: '시리즈/시즌/에피소드 제작'
+      url: /using-brightcove-beacon/series-seasons-episodes.html
+    - name: Google 애널리틱스 자체 구성
+      url: /using-brightcove-beacon/ga-self-configuration.html
+    - name: 구성할 수 없는 페이지 포함
+      url: /using-brightcove-beacon/including-non-configurable-pages.html
+    - name: 페이지 소개
+      url: /using-brightcove-beacon/introducing-pages.html
+    - name: 라이브 이벤트 스트리밍
+      url: /using-brightcove-beacon/streaming-live-event.html
+    - name: 채널에 VOD 스트리밍
+      url: /using-brightcove-beacon/streaming-vods-to-a-channel.html
+    - name: 도구 사용
+      url: /using-brightcove-beacon/tools.html
+    - name: 분석 데이터 보기
+      url: /using-brightcove-beacon/viewing-analytics-data.html
+- section:
+  name: '수익 창출'
+  url: '/monetization/index.html'
+  docs:
+    - name: 일반적인
+      url: '/monetization/general/index.html'
+      docs:
+        - name: 스트라이프 계정 생성
+          url: /monetization/general/creating-stripe-account.html
+        - name: 구독 패키지 만들기
+          url: /monetization/general/creating-subscription-package.html
+        - name: 프로모션 코드 생성
+          url: /monetization/general/promo-codes.html
+        - name: 수익 창출을 위한 맞춤 입력란
+          url: /monetization/general/vc-custom-fields.html
+        - name: AuthVOD 구현
+          url: /monetization/general/implementing-authvod.html
+        - name: 수익 창출 옵션 이해
+          url: /monetization/general/monetization-options.html
+        - name: 구독 패키지 사용
+          url: /monetization/general/using-subscription-package.html
+    - name: 싸이
+      url: '/monetization/ssai/index.html'
+      docs:
+        - name: '광고 만들기'
+          url: '/monetization/ssai/advertisement.html'
+        - name: '서버 측 광고 설정 구성'
+          url: '/monetization/ssai/configuring-server-side-ad-settings.html'
+        - name: '라이브 SSAI 구현'
+          url: '/monetization/ssai/live-ssai.html'
+        - name: VOD SSAI 구현
+          url: '/monetization/ssai/vod-ssai.html'
+        - name: '비콘 앱 광고 타겟팅'
+          url: '/monetization/ssai/beacon-apps-ad-targeting.html'
+- section:
+  name: '비콘 웹 스토어'
+  url: '/beacon-web-store/index.html'
+  docs:
+    - name: '개요: Brightcove 비콘 웹 스토어'
+      url: '/beacon-web-store/beacon-webstore-overview.html'
+    - name: '비콘 웹 스토어와 통합'
+      url: '/beacon-web-store/integration-details.html'
+    - name: 'Beacon Store 웹훅 참조'
+      url: '/beacon-web-store/beacon-store-webhook-reference.html'
+- section:
+  name: '앱 만들기'
+  url: '/creating-your-apps/index.html'
+  docs:
+    - name: '일반적인'
+      url: '/creating-your-apps/general/index.html'
+      docs:
+        - name: '공통 필수 정보'
+          url: '/creating-your-apps/general/common-required-info.html'
+        - name: '기기 앱 검증 가이드'
+          url: '/creating-your-apps/general/device-apps-validation-guide.html'
+        - name: '인앱 구독 리소스'
+          url: '/creating-your-apps/general/in-app-subscription-resources.html'
+        - name: 'App Store 구독 링크'
+          url: '/creating-your-apps/general/links-subscriptions.html'
+    - name: '기계적 인조 인간'
+      url: '/creating-your-apps/android/index.html'
+      docs:
+        - name: 'Android 스토어에 새 앱 제출'
+          url: '/creating-your-apps/android/submitting-to-android.html'
+        - name: 'Android 앱을 Brightcove Beacon으로 업데이트'
+          url: '/creating-your-apps/android/updating-android-apps-to-bcb.html'
+        - name: 'Android에 구독 추가'
+          url: '/creating-your-apps/android/adding-subscriptions-in-android.html'
+        - name: 'Android Play 스토어에서 검색 관련성 향상'
+          url: '/creating-your-apps/android/improving-relevance-android.html'
+        - name: 'Android 테스트 빌드 설치'
+          url: '/creating-your-apps/android/installing-android-test-build.html'
+        - name: 'Google 구독 관리 1부'
+          url: '/creating-your-apps/android/managing-google-subscriptions-1.html'
+        - name: 'Google 구독 관리 2부'
+          url: '/creating-your-apps/android/managing-google-subscriptions-2.html'
+    - name: '화재 TV'
+      url: '/creating-your-apps/fire-tv/index.html'
+      docs:
+        - name: 'Fire TV 테스트 빌드 설치'
+          url: '/creating-your-apps/fire-tv/installing-fire-tv-test-build.html'
+        - name: '아마존 스토어에 제출'
+          url: '/creating-your-apps/fire-tv/submitting-to-amazon.html'
+    - iOS/tvOSname: ''
+      url: '/creating-your-apps/ios-tvos/index.html'
+      docs:
+        - name: 'iOS/tvOS 테스트 빌드 설치'
+          url: '/creating-your-apps/ios-tvos/installing-ios-test-build.html'
+        - name: 'Apple Store에 제출'
+          url: '/creating-your-apps/ios-tvos/submitting-to-apple.html'
+    #    - LGname: ''
+    #      url: '/creating-your-apps/lg/index.html'
+    #      docs:
+    #        - name: 'LG(webOS) 스토어 제출'
+    #          url: '/creating-your-apps/lg/submitting-to-lg.html'
+    #- name: '파나소닉'
+    #  url: '/creating-your-apps/panasonic/index.html'
+    #  docs:
+    #    - name: 'Panasonic 스토어에 제출'
+    #      url: '/creating-your-apps/panasonic/submitting-to-panasonic.html'
+    - name: '로쿠'
+      url: '/creating-your-apps/roku/index.html'
+      docs:
+        - name: 'Roku에서 채널 내 제품 구성'
+          url: '/creating-your-apps/roku/configuring-inchannel-products.html'
+        - name: 'Roku 테스트 빌드 설치'
+          url: '/creating-your-apps/roku/installing-roku-test-build.html'
+        - name: 'Roku Store에 제출'
+          url: '/creating-your-apps/roku/submitting-to-roku.html'
+    - name: '삼성'
+      url: '/creating-your-apps/samsung/index.html'
+      docs:
+        - name: '삼성파트너 되기'
+          url: '/creating-your-apps/samsung/samsung-partner.html'
+        - name: '삼성 스토어에 제출'
+          url: '/creating-your-apps/samsung/submitting-to-samsung.html'
+- section:
+  name: 참고문헌
+  url: /references/index.html
+  docs:
+    - name: 브라이트코브 비콘 앱 브랜딩
+      url: /references/branding-beacon-apps.html
+    - name: 공통 구성 설정
+      url: /references/common-configuration-settings.html
+    - name: '용어 사전'
+      url: '/references/glossary.html'
+    - name: 'Brightcove Beacon이 데이터를 가져오는 방법'
+      url: '/references/how-beacon-gets-data.html'
+    - name: '이미지 및 사양'
+      url: '/references/image-requirements.html'
+    - name: '알려진 문제'
+      url: '/references/known-issues.html'
+    - name: '제품 업데이트'
+      url: '/references/product-updates.html'
+    - name: '원격 자산 제한'
+      url: '/references/remote-asset-limitations.html'
+    - name: 'Video Cloud에서 수행되는 작업'
+      url: '/references/beacon-tasks-in-vc.html'
+- section:
+  name: 훈련
+  url: /training/index.html
+  docs:
+    - name: Video Cloud 비디오/사용자 정의 필드 사용
+      url: /training/training-demand-custom-fields.html
+    - name: 애플리케이션 레이아웃 설계
+      url: /training/training-demand-design-layout.html
+    - name: 재생 목록 생성 및 사용
+      url: /training/training-demand-playlists.html
+    - name: 시리즈, 시즌 및 에피소드 생성
+      url: /training/training-demand-series-seasons-episodes.html
+    - name: VOD 서버 측 광고 구현
+      url: /training/training-demand-vod-ssai.html
+    - name: Play 스토어에 Android 앱 게시
+      url: /training/training-demand-publish-android-app.html
+    - name: 분석 데이터 보기
+      url: /training/training-demand-viewing-analytics.html
+    - name: Brightcove Beacon으로 라이브 이벤트 스트리밍
+      url: /training/training-demand-streaming-live-bc-beacon.html
+- section:
+  name: '지원하다'
+  url: '/support/index.html'
+  docs:
+    - name: 'Brightcove 시스템 상태 페이지 보기'
+      url: '/support/viewing-brightcove-system-status-page.html'
+    - name: '영업팀에 문의'
+      url: '/support/contact-sales.html'
+    - name: '지원 사례 열기'
+      url: '/support/opening-case-with-brightcove-support.html'
+    - name: '지원 포털 비밀번호 재설정'
+      url: '/support/reset-support-portal-password.html'

@@ -1,0 +1,202 @@
+
+---
+title: Cloud Playout 채널
+description: 이 주제에서는 VOD 비디오 및 라이브 이벤트 모음을 라이브 선형 채널로 스트리밍할 수 있는 방법을 배웁니다.
+parent: Cloud Playout
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <p>Cloud Playout 모듈을 사용하면 방송사와 미디어 게시자가 VOD 비디오 및 라이브 스트림 모음을 사용한 다음 선형 채널로 스트리밍할 수 있습니다. 채널은 Brightcove Live, Amazon S3 또는 지정된 RTMP URL로 스트리밍할 수 있습니다.</p>
+    <p>Cloud Playout 모듈에 액세스하려면<strong>클라우드 플레이아웃</strong>탐색 메뉴에서</p> 
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/cloud-playout/cloud-playout-in-navigaton.png" alt="Go to Cloud Playout">
+			<figcaption class="bcls-caption--image">Cloud Playout 채널 생성</figcaption>
+		</figure>
+		<p>생성된 모든 Cloud Playout 채널 목록이 표시됩니다(있는 경우).</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="playout channel list" src="/assets/images/cloud-playout/playout-channel-list.png" /></figure>
+    <p>페이지에 다음 정보가 표시됩니다.</p>
+    <ul>
+      <li><strong>채널 이름</strong> - 채널 이름</li>
+      <li><strong>시작 시간</strong> - 채널 시작 시간</li>
+      <li><strong>종료 시간</strong> - 채널 종료 시간</li>
+      <li><strong>루핑</strong> - 프로그램이 반복되는지 여부를 나타냅니다.</li>
+      <li><strong>목적지</strong> - 채널의 대상 목적지</li>
+      <li><strong>생성 일자</strong> - 채널이 생성된 날짜</li>
+      <li><strong>마지막 업데이트</strong> - 채널이 마지막으로 업데이트된 날짜</li>
+      <li><strong>상태</strong> - 채널 상태
+        <ul>
+          <li><strong>초안</strong> - 채널이 생성되었지만 활성화되지 않았습니다.</li>
+          <li><strong>만들기</strong> - 채널이 활성화되는 중입니다.</li>
+          <li><strong>예정</strong> - 채널이 활성화되어 스트리밍할 준비가 되었습니다.</li>
+          <li><strong>시작 중</strong> - 스트리밍을 시작하기 위한 채널 시작 프로세스</li>
+          <li><strong>달리기</strong> - 채널이 활발하게 스트리밍 중입니다.</li>
+          <li><strong>멎는</strong> - 채널 스트리밍이 중지됩니다.</li>
+          <li><strong>게으른</strong> - 채널이 성공적으로 실행되고 중지되었습니다.</li>
+          <li><strong>삭제 중</strong> - 채널 삭제 중</li>
+          <li><strong>오류</strong> - 채널 생성 또는 스트리밍 중 오류가 발생했습니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="channel">채널 만들기</h2>
+    <p>새 Cloud Playout 채널을 만들려면 다음 단계를 따르세요. </p>
+    <ol class="bcls-tasklist-restart" style="--s:1">
+      <li>딸깍 하는 소리<strong>클라우드 플레이아웃</strong>탐색 헤더에서.</li>
+      <li>
+        딸깍 하는 소리 <img src="/assets/images/cloud-playout/cloudplayout-add-new.png" alt="add new" class="ui-image">:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/cloudplayout-new-channel-dialog.png" alt="New Channel">
+          <figcaption class="bcls-caption--image">새 채널</figcaption>
+        </figure>
+      </li>
+      <li>채널 입력<strong>신분증</strong>세부:
+        <ul>
+          <li><strong>이름</strong> - 채널의 이름입니다. 이름에는 영문자가 포함되어야 하며 다음과 같은 특수 문자가 허용됩니다. _ . : / = + - </li>
+          <li><strong>설명</strong> - 채널 설명</li>
+          <li><strong>이미지 URL</strong> - 채널의 이미지 파일 URL 채널 메타데이터의 일부로 검색할 수 있는 채널 이미지를 의미합니다.</li>
+        </ul>
+      </li>
+      <li>채널 입력<strong>일정</strong>세부.
+        <ul>
+          <li><strong>루프 재생 콘텐츠</strong> - 만약에<strong>에</strong> , 프로그램은 루프에서 재생되고<strong>종료 날짜/시간</strong>활성화됩니다. 프로그램은 언제든지 수정할 수 있으며 변경 사항은 현재 프로그램과 다음 루프에 반영됩니다. 참조<a href="#looping">루핑 프로그램 만들기</a>아래 섹션.</li>
+          <li><strong>광고 삽입</strong> - 켜져 있으면 채널 재생 중에 광고를 표시할 수 있습니다. 이 옵션을 선택하면 라이브 입력이 허용되지 않고 출력만 가능합니다. <strong>브라이트코브 라이브 이벤트</strong>또는<strong> Amazon S3 버킷</strong> . 보다<a href="/cloud-playout/enabling-server-side-ads.html">콘텐츠 수익 창출</a> .</li>
+          <li><strong>시작 날짜/시간</strong> - 채널이 재생되기 시작하는 시간입니다. 모든 자산의 시작 시간은 이 시작 시간에 지속 시간을 더하여 계산됩니다. 이 시간은 채널이 실행 상태가 아닐 때만 업데이트할 수 있습니다.</li>
+          <li><strong>종료 날짜/시간</strong> - 값이 입력되지 않은 경우<strong>루프 재생 콘텐츠</strong>선택하지 않으면 재생이 완료되면 스트림이 종료됩니다. 만약에<strong>루프 재생 콘텐츠</strong>가 선택되고 없습니다. <strong>종료 날짜/시간</strong> , 재생은 채널이 중지될 때까지 스트리밍됩니다. 이 시간은 언제든지 업데이트할 수 있습니다.</li>
+        </ul>
+      </li>
+      <li>라이브 입력을 사용할 경우 다음을 설정하십시오. <strong>라이브 입력</strong>기본 Brightcove MP4를 슬레이트에 사용하지 않는 한 Slate URL을 입력합니다. 인코더가 중지되었거나 일부 기술적인 문제로 인해 라이브 스트림이 차단되어 라이브 입력이 중지될 때마다 슬레이트 MP4가 재생됩니다. <strong>참고<strong> Slate URL은 항상 사용할 수 있는 정적 URL이어야 합니다.</strong> (단기 CDN URL은 허용되지 않습니다.)</strong></li>
+      <li>채널 입력<strong>목적지</strong>세부. Cloud Playout은 동시에 2개의 출력을 지원합니다. 예를 들어 HLS를 S3 버킷으로 출력하고 RTMP 피드를 Brightcove 라이브 채널 또는 타사 수집 지점으로 출력할 수 있습니다. 참고하세요. <strong>브라이트코브 라이브 이벤트</strong>그리고<strong> RTMP</strong>동시 대상은 지원되지 않습니다.
+        <ul>
+          <li><strong>디스플레이 최적화</strong> - 출력의 비트 전송률 및 크기를 제어합니다.
+            <ul>
+              <li><strong>모바일 및 웹</strong> - 체크 시 HD 출력(RTMP 또는 HLS 단일 비트 전송률)</li>
+              <li><strong>스마트 티비</strong> - 체크 시 Full HD 출력(RTMP 또는 HLS 단일 비트 전송률)</li>
+            </ul>
+          </li>
+          <li><strong>출력 영역</strong> - 채널이 생성될 지역입니다. Brightcove는 대부분의 청중이 예상되는 위치와 지리적으로 가장 가까운 지역을 선택할 것을 권장합니다.</li>
+          <li><strong>출력</strong> - 채널의 출력 방식 선택
+            <ul>
+              <li><strong>브라이트코브 라이브 이벤트</strong> - 이전에 만든 Brightcove 라이브 채널을 만들거나 사용합니다. 새 채널을 만들 때 채널의 영역은 다음을 기반으로 최적화됩니다. <strong>출력 영역</strong>선택한 것입니다.</li>
+              <li><strong>RTMP</strong> - 스트림을 RTMP 또는 RTP 수집 지점으로 출력하려면 선택합니다. RTP는 타사 수집 지점에 사용할 수 없습니다. 때만 사용할 수 있습니다. <strong>광고 삽입</strong>그리고<strong>브라이트코브 라이브 이벤트</strong>사용 가능. 선택하면<strong> RTMP URL</strong>필드가 나타납니다 - 라이브 스트리밍 서비스의 RTMP 입력 URL을 입력하십시오.</li>
+              <li><strong>Amazon S3 버킷</strong> - HLS 출력을 Amazon S3 버킷으로 푸시하려면 선택합니다. 버킷 이름, 지역, 액세스 키 및 비밀 키를 입력해야 합니다. 버킷은 공개되고 쓰기 가능해야 합니다.</li>
+            </ul>
+            <aside class="bcls-aside bcls-aside--information">로 출력한다는 점에 유의하십시오. <strong>브라이트코브 라이브 이벤트</strong>청구 가능한 계정에 대한 실시간 시간을 자동으로 생성합니다. Cloud Playout 사용에 대한 추가 요금은 없지만 라이브 스트리밍 시간에 대한 일반 요금이 적용됩니다. RTMP 또는 Amazon S3로 출력하면 청구 가능한 라이브 시간이 생성되지 않습니다.
+              <figure class="bcls-figure">
+                <img class="bcls-image" src="/assets/images/cloud-playout/cloud-playout-live-hours.png" alt="Billable/Non-Billable Outputs">
+                <figcaption class="bcls-caption--image">청구 가능/청구 불가능 출력</figcaption>
+              </figure>
+            </aside>
+          </li>
+        </ul>
+      </li>
+      <li>딸깍 하는 소리 <img src="/assets/images/cloud-playout/cloudplayout-create-channel.png" alt="create channel" class="ui-image">. 상태로 새 채널이 생성됩니다. <strong>초안</strong> .</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="add_videos">채널에 콘텐츠 추가</h2>
+		<p>보다<a href="/cloud-playout/cloud-playout-add-content.html"> Cloud Playout 채널에 콘텐츠 추가</a>채널에 VOD 콘텐츠, 재생 목록 및 라이브 이벤트를 추가하는 방법에 대한 정보를 확인하세요.</p>
+    <p>또한 참조<a href="/cloud-playout/adding-bumpers-to-vod.html">콘텐츠에 범퍼 추가</a> VOD 또는 라이브 이벤트 항목에 범퍼를 추가합니다.</p>
+    <p>비디오 및 라이브 이벤트가 채널에 추가된 후<strong>활성화</strong>채널을 활성화합니다. 스트리밍을 시작하려면 먼저 채널을 활성화해야 합니다. 참조<a href="/cloud-playout/using-channel-actions.html">채널 작업 사용</a>자세한 내용은.</p>
+    <aside class="bcls-aside bcls-aside--information">메모: 프로그램에서 비디오의 순서를 변경하려면 비디오를 클릭하고 새 위치로 끕니다.</aside>
+    <p>비디오가 채널에 추가되면 시스템 생성 재생 목록이 만들어지고 미디어 모듈에서 볼 수 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="report switcher" src="/assets/images/cloud-playout/playout-playlist-created.png" /></figure>
+    <p>Cloud Playout 모듈에서 채널을 변경하는 것이 좋습니다. <strong>어떤 식으로든 생성된 재생 목록을 편집하지 마십시오.</strong> .</p>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Get_information_for_the_Beacon_Channel">비콘 채널에 대한 정보 얻기</h2>
+		<p>Video Cloud를 떠나 Beacon으로 이동하기 전에 Beacon 채널을 설정하는 데 필요한 정보를 캡처해야 합니다. 보다<a href="/using-brightcove-beacon/creating-a-channel.html">비콘 채널 생성</a> Cloud Playout 채널에 대한 정보가 입력되는 방식을 확인합니다.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>채널 목록에서 채널을 클릭하여 채널 세부 정보 페이지로 이동합니다.</li>
+			<li>아직 하지 않았다면 다음을 클릭하십시오. <span class="button-red-text-border"><i data-feather="play" class="button-icon"></i> 활성화</span>채널을 활성화합니다. 보다<a href="/using-brightcove-beacon/cloud-playout/using-channel-actions.html">채널 작업 사용</a>자세한 사항은.</li>
+			<li>채널이 활성화되면 기본 탐색을 사용하여<strong>미디어</strong>기준 치수.</li>
+			<li>
+				비디오 목록 상단에 Cloud Playout 채널용으로 생성된 새 라이브 비디오가 표시되어야 합니다.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/cloud-playout/video-id-and-channel-id.png" alt="Video for Cloud Playout">
+					<figcaption class="bcls-caption--image">클라우드 재생용 비디오</figcaption>
+				</figure>
+			</li>
+			<li>둘 다 저장<strong>비디오 ID</strong>그리고<strong>채널 ID</strong> (뒤에 오는 긴 영숫자 문자열<strong>클라우드 플레이아웃:</strong>태그에서).</li>
+		</ol>
+		<p>채널 ID는 Cloud Playout 모듈의 채널 세부정보에서도 사용할 수 있습니다.
+			<figure class="bcls-figure">
+				<img class="bcls-image" src="/assets/images/cloud-playout/channel-id.png" alt="Channel ID">
+				<figcaption class="bcls-caption--image">채널 ID</figcaption>
+			</figure>
+		</p>
+	</section>
+  <section class="bcls-section">
+    <h2 id="getting_the_rtmp_ingest_point">RTMP 수집 지점 가져오기</h2>
+    <p>라이브 인코더의 경우 채널에 대한 RTMP 수집 지점이 필요합니다. 당신은 그것을 찾을 수 있습니다<strong> :채널 설정</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/cloud-playout/cloudplayout-rtmp-ingest-point.png" alt="Ingest Point">
+      <figcaption class="bcls-caption--image">수집 지점</figcaption>
+    </figure>
+    <p>사용 중인 인코더에 따라 RTMP 수집 지점과 스트림 이름을 모두 입력해야 할 수도 있습니다. 채널의 스트림 이름은<strong>채널 ID</strong> , 이는 Ingest Point 주소의 마지막 부분이기도 합니다.</p>
+    <aside class="bcls-aside bcls-aside--information">OBS 소프트웨어 인코더를 사용하는 경우 다음을 지정해야 합니다. <strong>관습...</strong>서비스를 입력해야 합니다. <strong>섬기는 사람</strong>그리고<strong>스트림 키</strong> . NS <strong>섬기는 사람</strong>의 첫 번째 부분이 될 것입니다. <strong>수집 지점</strong> , 그리고<strong>스팀 키</strong>아래 예와 같이 나머지 부분이 됩니다.
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/cloud-playout/cloud-playout-key-for-obs.png" alt="Cloud Playout Ingest Point">
+        <figcaption class="bcls-caption--image">Cloud Playout 수집 지점</figcaption>
+      </figure>
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/cloud-playout/cloudplayout-obs-setup.png" alt="OBS Setup">
+        <figcaption class="bcls-caption--image">OBS 설정</figcaption>
+      </figure>
+    </aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="edit_delete">채널 편집</h2>
+    <h3>DRAFT 또는 SCHEDULED 상태의 채널용</h3>
+    <p>초안 또는 예약된 Cloud Playout 채널을 편집하려면:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>채널 이름을 클릭하여 채널 세부 정보를 엽니다.</li>
+      <li>딸깍 하는 소리 <img src="/assets/images/cloud-playout/cloudplayout-edit-button.png" class="ui-image" alt="edit button"></li>
+      <li>대화 상자에서 적절하게 편집한 다음 <img src="/assets/images/cloud-playout/cloudplayout-update-channel.png" alt="update channel" class="ui-image"></li>
+  </ol>
+        <p>채널이 생성되면 대상 속성을 편집할 수 없습니다.</p>
+    <h3>실행 중인 채널의 경우</h3>
+    <p>실행 중인 채널을 편집하려면: </p>
+    <ol class="bcls-tasklist-restart">
+      <li>채널 이름을 클릭하여 채널 세부 정보를 엽니다.</li>
+      <li>딸깍 하는 소리 <img src="/assets/images/cloud-playout/cloudplayout-settings.png" alt="settings" class="ui-image"></li>
+      <li>딸깍 하는 소리 <img src="/assets/images/cloud-playout/cloudplayout-edit-button.png" class="ui-image" alt="edit button"></li>
+      <li>채널 설정 대화 상자가 열립니다. 변경할 수 없는 일부 옵션은 사용할 수 없습니다.</li>
+      <li>변경하고 클릭  <img src="/assets/images/cloud-playout/cloudplayout-update-channel.png" alt="update channel" class="ui-image"></li>
+  </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="looping">루핑 프로그램 만들기</h2>
+    <p>루프하는 프로그램을 만들려면 채널을 만들 때 다음을 설정하십시오. <strong>루프 재생 콘텐츠</strong>설정<strong>에</strong> . 비디오가 프로그램에 추가되면 프로그램 목록이 업데이트되어 전체 채널 예약 시간을 채우기 위해 관련된 시작/종료 시간과 함께 일련의 비디오를 표시합니다. 라이브 이벤트의 지속 시간을 변경하면 이미 지나간 이벤트의 지속 시간은 변경되지 않지만 이벤트의 향후 재생에는 새 지속 시간이 사용됩니다.</p>
+    <p>아래 예에서 채널에는 루프의 VOD 및 라이브 이벤트가 포함됩니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="report switcher" src="/assets/images/cloud-playout/cloudplayout-looping-channel.png" /></figure>
+  </section>
+  
+  <section class="bcls-section">
+    <h2 id="epg">전자 프로그램 가이드 작업</h2>
+		<p>Brightcove는 Cloud Playout 채널용 EPG를 생성하고 Beacon이 이를 처리합니다.</p>
+    <p>EPG에 대한 프로그램 데이터를 보려면 EPG를 검색하는 API를 사용할 수 있습니다. 자세한 내용은<a href="https://apis.support.brightcove.com/cloud-playout-apis/getting-started/overview-epg-api.html">개요: EPG API</a>주제.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="deleting_a_channel">채널 삭제</h2>
+    <p>Cloud Playout 채널을 삭제하려면 채널 이름 옆에 있는 확인란을 클릭한 다음<strong>삭제</strong> .</p>
+  </section>
+  
+  <section class="bcls-section">
+    <h2 id="Related_topics">관련 주제</h2>
+    <ul>
+      <li><a href="/cloud-playout/cloud-playout-overview.html">개요: 클라우드 플레이아웃</a></li>
+      <li><a href="/channels/creating-a-channel.html">비콘 채널 생성</a></li>
+      <li><a href="/cloud-playout/using-channel-actions.html">채널 작업 사용</a></li>
+      <li><a href="/cloud-playout/enabling-server-side-ads.html">클라우드 플레이아웃으로 수익 창출</a></li>
+      <li><a href="/cloud-playout/generating-channel-embed-code.html">채널 포함 코드 생성</a></li>
+      <li><a href="/cloud-playout/viewing-channel-output-and-analytics.html">채널 출력 및 분석 보기</a></li>
+      <li><a href="https://apis.support.brightcove.com/cloud-playout-apis/getting-started/overview-epg-api.html">개요: EPG API</a></li>
+      <li><a href="https://apis.support.brightcove.com/cloud-playout-apis/references/reference-epg.html">EPG API 참조</a></li>
+      <li><a href="https://apis.support.brightcove.com/cloud-playout-apis/references/reference-channels.html">채널 API 참조</a></li>
+    </ul>
+  </section>
+</article>

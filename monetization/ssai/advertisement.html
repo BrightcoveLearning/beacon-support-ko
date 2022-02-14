@@ -1,0 +1,74 @@
+
+---
+title: "광고 만들기"
+description: "이 항목에서는 비디오 콘텐츠를 추가할 수 있는 광고 구성을 만드는 방법을 배웁니다."
+parent: "Monetization"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">개요</h2>
+    <p>광고 구성을 만들려면 다음을 수행해야 합니다.</p>
+    <ul>
+      <li>광고 서비스 제공업체로부터 광고 태그 서버 URL을 얻습니다. 이것은 Video Cloud Studio에서 SSAI 광고 구성을 만드는 데 사용됩니다.</li>
+      <li>Video Cloud Studio에서 SSAI 광고 구성을 만듭니다. 작업이 완료되면 광고 서버 ID를 복사하여 Brightcove Beacon Classic에서 광고 구성을 생성합니다.</li>
+      <li>Brightcove Beacon Classic에서 광고 구성을 생성하면 비디오 콘텐츠에 적용할 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">SSAI 광고 구성 ID 만들기</h2>
+    <p>SSAI 광고 구성을 만들려면 다음 단계를 따르세요.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Video Cloud Studio에서<strong>관리 → 서버 측 광고 설정</strong> .</li>
+      <li>
+        로부터<span class="blue-button">광고 구성 만들기</span>드롭다운, 선택<strong> VOD</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/create-vod-ad-config.png" alt="Create VOD Ad Config">
+          <figcaption class="bcls-caption--image">VOD 광고 구성 생성</figcaption>
+        </figure>
+      </li>
+      <li>광고 구성의 이름을 추가합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/advertisement/ssai-config-vod.png" alt="SSAI Configuration VOD">
+          <figcaption class="bcls-caption--image">SSAI 구성 VOD</figcaption>
+        </figure>
+      </li>
+      <li>광고 응답을 선택하세요. VMAP 또는 VAST가 권장됩니다. VAST를 사용하는 경우 동영상에 큐 포인트를 추가하여 광고 시간이 표시되어야 하는 위치를 지정해야 합니다.</li>
+      <li>광고 태그에 붙여넣습니다.</li>
+      <li>딸깍 하는 소리<strong>구하다</strong> .</li>
+      <li>표에서 새 광고 구성을 찾아 광고 구성 ID를 복사합니다. Beacon 광고 구성에 이 값이 필요합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/copy-ad-config-id.png" alt="copy ad config ID">
+          <figcaption class="bcls-caption--image">광고 구성 ID 복사</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+
+  <section class="bcls-section">
+    <h2 id="Advertisement">광고 구성 만들기</h2>
+    <p>광고 구성을 만들려면 다음 단계를 따르세요.</p>
+    <ol class="bcls-tasklist">
+      <li>Brightcove Beacon Classic의 상단 탐색 메뉴에서<strong>광고</strong> .
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/using-bcb/advertisement/new-advertisement.png" alt="New advertisement" />
+          <figcaption class="bcls-caption--image">새로운 광고</figcaption>
+        </figure>
+      </li>
+      <li>
+        딸깍 하는 소리<span class="button-teal">새 구성 추가</span> .
+      </li>
+      <li>광고 구성의 이름을 지정합니다.</li>
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/using-bcb/advertisement/advertising-configuration.png" alt="Beacon Ad Configuration Live">
+        <figcaption class="bcls-caption--image">비콘 광고 구성 라이브</figcaption>
+      </figure>
+      <li>를 위해<strong>공급자</strong>선택하다<strong>브라이트코브 SSAI</strong></li>
+      <li>붙여넣기<strong> SSAI 광고 구성 ID</strong>바로 위의 단계에서 복사<strong> VOD 광고 구성 ID</strong> .</li>
+      <li>딸깍 하는 소리<span class="button-teal">새 광고 만들기</span> .</li>
+    </ol>
+  </section>
+</article>

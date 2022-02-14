@@ -1,0 +1,42 @@
+
+---
+title: "Brightcove Beacon이 데이터를 가져오는 방법"
+description: "이 주제에서는 Brightcove Beacon이 앱 구축에 사용되는 다양한 유형의 데이터를 얻는 방법을 배웁니다. 인증 내용에 대한 정보도 포함되어 있습니다."
+parent: "references"
+layout: "staging"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <section class="bcls-section">
+        <h2 id="Introduction">소개</h2>
+        <p>이 문서의 첫 번째 부분은 Brightcove Beacon이 비디오, 재생 목록 및 라이브 이벤트와 같은 공통 데이터를 얻는 방법을 설명합니다. 마지막 섹션에서는 데이터를 얻기 위해 Brightcove Beacon에 권한을 부여하기 위해 OIDC(Open ID Connect) 및 권한이 어떻게 사용되는지 자세히 설명합니다.</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Ingestion_and_custom_fields">비디오 수집 및 사용자 정의 필드</h2>
+        <p>Brightcove Beacon에서 비디오 자산을 사용하려면 먼저 비디오 자산을 Video Cloud로 수집해야 합니다. 비디오가 사용되는 방식(예: 시리즈 또는 광고 필요)에 따라 Video Cloud <strong>사용자 정의 필드</strong>비디오를 이러한 특수 요구 사항과 연결하는 데 사용할 수 있습니다. NS <a href="/syncing-with-video-cloud/vc-custom-fields.html"> Video Cloud 사용자 정의 필드 생성</a>문서는 필수 사용자 정의 필드를 생성하는 방법과 해당 필드 값을 할당하는 방법에 대해 자세히 설명합니다.</p>
+        <p>비디오가 Video Cloud에 있으면 Brightcove Beacon은 비디오 클라우드 카탈로그에서 메타데이터, 이미지 및 위치와 같은 비디오와 관련된 정보를 가져올 수 있습니다. 비디오는 실제로 Video Cloud에 남아 있으며 Video Cloud 재생 제공 인프라에서 제공됩니다. Brightcove Beacon UI에서 Video Cloud 비디오를 수동으로 수집할 수 있습니다.' 정보를 확인하거나 백그라운드 프로세스가 이를 수행할 때까지 기다립니다.</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Playlists">재생 목록</h2>
+        <p>Video Cloud에서 생성되는 비디오 자산 외에도 Video Cloud에서 비디오 재생 목록을 생성하는 것이 좋습니다. Video Cloud에서 두 가지 유형의 재생 목록을 만들 수 있습니다. <strong>설명서</strong>그리고<strong>똑똑한</strong> . Video Cloud에서 재생 목록을 구현하는 방법에 대한 자세한 내용은<a href="https://studio.support.brightcove.com/media/creating-and-managing-playlists.html">재생 목록 생성 및 관리</a>문서.</p>
+        <p>시리즈 또는 라이브 이벤트를 포함하여 비디오 이외의 자산을 포함하는 재생 목록을 만들려면 해당 재생 목록을 Brightcove Beacon에서 만들어야 합니다.</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Channels_and_live_events">채널 및 라이브 이벤트</h2>
+        <p>채널 및 라이브 이벤트의 경우 비디오 클라우드에서 라이브 작업을 생성한 다음 Brightcove Beacon에서 수동으로 구성해야 합니다. 자세한 내용은<a href="/using-brightcove-beacon/streaming-live-event.html">라이브 이벤트 스트리밍</a>그리고<a href="/using-brightcove-beacon/creating-a-channel.html">채널 만들기</a>서류.</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Series, seasons and episodes">시리즈, 시즌 및 에피소드</h2>
+        <p>에피소드 데이터의 경우 Brightcove Beacon과 Video Cloud를 모두 사용해야 합니다. 먼저 Brightcove Beacon에서 시리즈와 해당 시즌을 생성해야 합니다. 실제 비디오 에피소드는 Video Cloud로 수집된 다음 사용자 정의 필드를 사용하여 올바른 시리즈/시즌에 비디오를 할당합니다.</p>
+        <p>자세한 내용은<a href="/using-brightcove-beacon/series-seasons-episodes.html">시리즈/시즌/에피소드 제작</a>문서.</p>
+    </section>
+
+
+
+</article>

@@ -1,0 +1,318 @@
+
+---
+title: "VOD SSAI 구현"
+description: 이 주제에서는 Brightcove Beacon용 VOD(주문형 비디오)를 사용하여 SSAI(서버 측 광고 삽입)를 만들고 관리하는 방법을 배웁니다.
+parent: Using Brightcove Beacon
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="overview">개요</h2>
+    <p>서버 측 광고는 비디오 스트림에 포함되므로 브라우저의 광고 차단기에 의해 차단될 수 없습니다. DRM으로 보호된 콘텐츠와 보호되지 않은 콘텐츠 모두에서 작동합니다. Brightcove Beacon은 SSAI로 VOD를 지원합니다.</p>
+    <p>서버 측 광고를 추가하는 단계는 다음과 같습니다.</p>
+    <ol class="bcls-tasklist">
+      <li>비디오 클라우드 스튜디오에서는<a href="#Creating_an_ad_configuration">광고 구성 만들기</a></li>
+      <li><a href="#Set the custom field values">사용자 정의 필드 값 설정</a>당신의 비디오를 위해</li>
+      <li><a href="#Adding_videos_to_a_Playlist">재생 목록에 비디오 추가</a></li>
+      <li>브라이트코브 비콘에서<a href="#Importing_videos_and_playlists">비디오 및 재생 목록 가져오기</a></li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Best_practices">모범 사례</h2>
+    <p>Brightcove는 VOD 콘텐츠에 서버 측 광고를 추가할 때 다음 모범 사례를 따를 것을 권장합니다.</p>
+    <ul>
+      <li>Video Cloud에서 광고 구성 만들기</li>
+      <li>Video Cloud의 사용자 정의 필드를 사용하여 비디오에 광고 구성 할당</li>
+      <li>Brightcove Beacon에서 비디오에 광고 구성을 할당할 수 있지만 Video Cloud에서 할당하는 것이 좋습니다.</li>
+      <li>만 사용<strong>광고</strong>라이브 이벤트 및 채널용 Brightcove Beacon 섹션</li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Creating_an_ad_configuration">광고 구성 만들기</h2>
+    <p>
+      여기에서 SSAI 광고 구성을 만들어 Brightcove Beacon VOD 자산에 표시되는 광고를 정의합니다.
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>비디오 클라우드 스튜디오에 로그인합니다.</li>
+      <li>
+        탐색 헤더에서<strong>관리자</strong>그리고 선택<strong>서버 측 광고 설정</strong> . 모든 광고 구성 목록이 표시됩니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/1-studio-ssai-settings.png" />
+        </figure>
+      </li>
+      <li>
+        새 광고 구성을 만들려면<strong>광고 구성 만들기</strong>단추.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/2-create-ad-configuration.png" />
+        </figure>
+      </li>
+      <li>
+        드롭다운에서<strong> VOD</strong>유형으로.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-vod.png" />
+        </figure>
+      </li>
+      <li>
+        보고 있는지 확인하십시오. <strong>서버 측 광고 설정</strong>형태.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/vod-ad-form.png" />
+        </figure>
+      </li>
+      <li>광고 구성에<strong>이름</strong> .</li>
+      <li>
+        선택<strong>광고 서버 응답</strong> :
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>광고 서버 응답</th>
+                    <th>세부</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>VAST 3.0<strong></strong></td>
+                    <td><a href="https://www.iab.com/guidelines/vast/">디지털 비디오 광고 제공 템플릿</a></td>
+                </tr>
+                <tr>
+                    <td>DFP VMAP<strong></strong></td>
+                    <td><a href="https://www.iab.com/guidelines/vmap/">동영상 다중 광고 재생 목록</a></td>
+                </tr>
+                <tr>
+                    <td><strong>DFP(광고 규칙)</strong></td>
+                    <td><a href="https://www.google.com/ads/publisher/#?modal_active=none">DFP/Google for Publishers의 독점 형식</a></td>
+                </tr>
+                <tr>
+                    <td><strong>스마트 XML</strong></td>
+                    <td><a href="https://www.freewheel.com/">FreeWheel의 독점 형식</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <aside class="bcls-aside bcls-aside--information">올바른 값을 선택하려면 광고 운영 관리자에게 문의하세요.</aside>
+      </li>
+      <li>들어가다<strong>광고 태그(서버 URL)</strong> .</li>
+      <li>딸깍 하는 소리<strong>구하다</strong> .</li>
+      <li>
+        나중에 VOD 자산을 구성하는 데 필요하므로 광고 구성의 ID를 복사하십시오.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/copy-ad-id.png" />
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Setting_custom_field_values">사용자 정의 필드 값 설정</h2>
+
+    <p>이 섹션에서는 Brightcove Beacon에 SSAI를 표시하는 데 필요한 설정으로 VOD 자산을 구성하는 방법을 배웁니다.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        Studio에서<strong>미디어</strong>기준 치수.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/studio-home-media.png" />
+        </figure>
+      </li>
+      <li>
+        SSAI를 추가할 비디오를 클릭합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-your-video.png" />
+        </figure>
+      </li>
+      <li>아래로 스크롤<strong>사용자 정의 필드</strong>부분.</li>
+      <li>
+        클릭<strong>편집하다</strong>단추.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/custom-fields-edit.png" />
+        </figure>
+      </li>
+      <li>
+        아래로 스크롤하여 찾기<strong> beacon.rights.0.ad구성</strong>입력란에 입력한 다음 이전에 만든 광고 구성의 ID를 붙여넣습니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-ad-id.png" />
+        </figure>
+      </li>
+      <li>
+        계속 아래로 스크롤하여<strong> beacon.rights.0.type</strong>필드 쓰기<strong> AVOD</strong>이 VOD를 광고 VOD로 분류합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-ad-rights.png" />
+        </figure>
+      </li>
+      <li>
+        맨 아래로 이동<strong>사용자 정의 필드</strong>섹션을 클릭하고<strong>구하다</strong>단추.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="200" height="200" src="/assets/images/using-bcb/vod-ssai/save-button.png" />
+        </figure>
+        <aside class="bcls-aside bcls-aside--information">기본적으로 최대 3개의 SSAI ID 및 유형 구성을 추가할 수 있습니다. <strong>사용자 정의 필드</strong>부분.</aside>
+      </li>
+      <li>
+        상단 메뉴에서<strong>비디오로 돌아가기</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/back-to-videos.png" />
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Adding_videos_to_a_Playlist">재생 목록에 비디오 추가</h2>
+
+    <p>이 섹션에서는 VOD 자산을 재생 목록에 추가합니다.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        Studio에서<strong>미디어</strong>기준 치수.
+      </li>
+      <li>
+        동영상의 확인란을 클릭합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/add-to-playlist.png" />
+        </figure>
+      </li>
+      <li>클릭<strong>더</strong>메인 메뉴에서 버튼.</li>
+      <li>드롭다운 메뉴에서<strong>재생 목록에 추가</strong> .</li>
+      <li>
+        비디오를 추가할 재생 목록을 선택하십시오.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/add-button.png" />
+        </figure>
+      </li>
+      <li>클릭<strong>추가하다</strong>단추.</li>
+      <li>VOD 자산이 재생 목록에 추가되면 Brightcove Beacon 플랫폼으로 이동합니다.</li>
+    </ol>
+  </section>
+
+
+  <section class="bcls-section">
+    <h2 id="Importing_videos_and_playlists">비디오 및 재생 목록 가져오기</h2>
+    <p>Brightcove Beacon에서는 Video Cloud에서 비디오 및 재생 목록을 수집/가져올 수 있습니다.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>Brightcove Beacon 계정에 로그인합니다.</li>
+      <li>상단 메뉴에서 선택<strong>도구</strong> , 렌치 아이콘입니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/ingest-videos.jpg" />
+        </figure>
+      </li>
+      <li>왼쪽 탐색에서<strong>음식물 섭취</strong> .</li>
+      <li>
+        클릭<strong> Brightcove 비디오 업데이트</strong>버튼 및/또는<strong> Brightcove 재생 목록 업데이트</strong>단추.
+      </li>
+      <li>이제 Video Cloud의 비디오 및 재생 목록이 Brightcove Beacon에 있어야 합니다. 상단 메뉴에서<strong>재생 목록</strong>탭.</li>
+      <li>
+        포함된 비디오를 보려면 재생 목록을 선택하십시오.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-playlist.png" />
+        </figure>
+      </li>
+      <li>
+        왼쪽 목차에서 해당 재생 목록과 관련된 모든 VOD 자산을 볼 수 있는지 확인하십시오.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-content-section.png" />
+        </figure>
+      </li>
+      <li>Brightcove Beacon 상단 메뉴에서<strong>영화 산업</strong>탭.</li>
+      <li>
+        VOD 자산을 클릭합니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-movies.png" />
+        </figure>
+      </li>
+      <li>
+        클릭<strong>권리 및 일정</strong>탭.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-vod-settings.png" />
+        </figure>
+      </li>
+      <li>에서<strong>권한 유형</strong>메뉴, 당신이 볼<strong>광고 - AVOD</strong>선택된.</li>
+      <li>에서<strong>광고 구성</strong>메뉴에서 이전에 만든 광고 구성 ID를 볼 수 있습니다.</li>
+      <li>
+        앱에서 동영상을 바로 보려면 캐시를 지워야 합니다. 상단 메뉴에서<strong>도구</strong> (렌치) 버튼을 누른 다음 캐시를 지웁니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png" />
+        </figure>
+      </li>
+      <li>왼쪽 탐색에서<strong>은닉처</strong> .</li>
+      <li>선택<strong>캐시 제거</strong>단추.</li>
+      <li>
+        Brightcove Beacon 앱을 열고<strong>페이지</strong>재생 목록이 추가된 탭입니다. (이미지의 모든 이벤트 이름과 사진은 예시용입니다.)
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-app.png" />
+        </figure>
+
+        <aside class="bcls-aside bcls-aside--information">Brightcove Beacon 앱에서 재생 목록을 시각화하려면 먼저 Brightcove Beacon 페이지에 재생 목록을 추가해야 합니다. 페이지에 재생 목록을 추가하는 방법에 대해 자세히 알아보려면 다음을 방문하십시오. <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/adding-to-page.html" target="_blank">선적 서류 비치</a> .</aside>
+      </li>
+      <li>서버 측 광고로 구성한 영화를 클릭합니다.</li>
+      <li>
+        클릭<strong>놀다</strong>버튼을 누르면 동영상이 광고와 함께 재생되는 것을 볼 수 있습니다.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/play-beacon-app.png" />
+        </figure>
+      </li> 
+    </ol>
+  </section>
+
+  <!-- <section class="bcls-section">
+    <h2 id="configuring-vod-beacon">Configuring your VOD asset in Brightcove Beacon</h2>
+    <p>In this section you will learn how to configure your VOD with SSAI asset in Brightcove Beacon.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>In the Brightcove Beacon top menu, click the <strong>Playlists</strong> tab.</li>
+      <li>
+        Select your playlist to see the videos it contains.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-playlist.png" />
+        </figure>
+      </li>
+      <li>
+        Check to be sure you can see all the VOD assets associated with that playlist in the left table of contents.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-content-section.png" />
+        </figure>
+      </li>
+      <li>In the Brightcove Beacon top menu, click in the <strong>Movies</strong> tab.</li>
+      <li>
+        Click on your VOD asset.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-movies.png" />
+        </figure>
+      </li>
+      <li>
+        Click the <strong>Rights & Scheduling</strong> tab.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-vod-settings.png" />
+        </figure>
+      </li>
+      <li>In the <strong>Rights Type</strong> menu, select <strong>Advertising - AVOD</strong>.</li>
+      <li>In the <strong>Advertisement Configuration</strong> bottom menu, select your previously created Advertisement configuration.</li>
+      <li>Click the <strong>Update Event</strong> button to save your changes.</li>
+      <li>
+        Click on the <strong>Tools</strong> (wrench) button in the upper right of the screen, then clear the cache.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png" />
+        </figure>
+      </li>
+      <li>
+        Open your Brightcove Beacon App and click in the <strong>Page</strong> tab on which your playlist was added. (All the event names and pictures on the image are for example
+        purposes only).
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-app.png" />
+        </figure>
+
+        <aside class="bcls-aside bcls-aside--information">
+          To visualize your Playlist in the Brightcove Beacon App, you must have added your playlist to a Brightcove Beacon Page first. To know more about how to add a playlist to
+          a Page please visit the following <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/adding-to-page.html" target="_blank">documentation</a>.
+        </aside>
+      </li>
+      <li>Click your VOD with SSAI asset you configured.</li>
+      <li>
+        Click the <strong>Play</strong> button and you should now be able to see your video play with ads.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="400" src="/assets/images/using-bcb/vod-ssai/play-beacon-app.png" />
+        </figure>
+      </li>
+    </ol>
+  </section> -->
+</article>

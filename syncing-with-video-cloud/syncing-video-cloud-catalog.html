@@ -1,0 +1,69 @@
+
+---
+title: "Video Cloud 카탈로그와 동기화"
+description: "이 주제에서는 Brightcove Beacon이 Video Cloud 카탈로그와 동기화되는 방법을 배웁니다."
+parent: "syncing-with-video-cloud"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <aside class="bcls-aside bcls-aside--information language-editable">과거에는 Brightcove Beacon과 Video Cloud 간의 동기화가 예약 또는 수동 프로세스였습니다. 이 문서는 현재 자동화된 프로세스에 대해 설명합니다. 전체 카탈로그의 예정된(매시간, 2시간 간격 등) 수집을 기다리는 대신 이제 변경 사항이 발생할 때 업데이트가 점진적으로 발생합니다. 이 개선 사항을 통해 개별 자산에 대한 업데이트 지연 시간이 크게 줄어듭니다.</aside>
+  <section class="bcls-section">
+    <h2 id="Syncing_options">동기화 옵션</h2>
+    <p>에서<strong>도구</strong> Brightcove Beacon 섹션에는 Brightcove Beacon을 Video Cloud 카탈로그와 동기화하기 위한 두 가지 옵션이 있습니다. 도구로 이동하려면<strong>렌치</strong>상단 메뉴의 아이콘을 클릭한 다음<strong>음식물 섭취</strong>왼쪽 메뉴의 옵션:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/force-sync.png" alt="force-sync">
+    </figure>
+    <p>여기에는 Video Cloud와의 동기화와 관련된 두 가지 도구가 있습니다. 그들은:</p>
+    <ul>
+      <li><strong>Brightcove 비디오 업데이트</strong> : 이것은 Brightcove Beacon과 Video Cloud 카탈로그 간에 발생한 자동화된 동기화의 결과를 볼 수 있는 방법을 제공합니다.</li>
+      <li><strong>Brightcove 재생 목록 업데이트</strong> : Video Cloud 카탈로그에 재생 목록을 추가했거나 기존 재생 목록을 변경한 경우 이 버튼은 새로 추가되거나 업데이트된 재생 목록을 Brightcove Beacon에 동기화합니다.</li>
+    </ul>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/buttons.png" alt="sync-buttons">
+    </figure>
+    <aside class="bcls-aside bcls-aside--warning">메모: 재생 목록에 있는 동영상이 동기화되었는지 확인하십시오. <strong>전에</strong>재생 목록을 동기화합니다.</aside>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Viewing_sync_data">동기화 데이터 보기</h2>
+    <p>비디오 동기화 프로세스는 비디오에 카탈로그가 변경될 때 Video Cloud의 알림을 기반으로 수행됩니다. 새 자산, 삭제된 자산, 메타데이터 및 이미지 업데이트 등이 모두 Brightcove Beacon과 Video Cloud 카탈로그 간의 동기화를 트리거합니다. 화살표를 클릭하여 변경 사항을 추적할 수 있습니다. <strong> Brightcove 비디오 업데이트</strong>단추.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/arrow-on-button.png" alt="arrow on button">
+    </figure>
+    <p>그렇게하면 동기화 된 비디오를 보여주는 다음이 표시됩니다. 다음 기능(빨간색 화살표) 및 필터링(노란색으로 강조 표시되고 스크린샷 아래에 자세히 설명되어 있음)에 유의하십시오.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/sync-details.png" alt="sync details">
+    </figure>
+    <h3>필터링</h3>
+    <p>다음을 기준으로 필터링할 수 있습니다.</p>
+    <ul>
+      <li>오류
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/filter-errors.png" alt="filter errors">
+        </figure>
+      </li>
+      <li>경고
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/filter-warnings.png" alt="filter warnings">
+        </figure>
+      </li>
+      <li>단일 업데이트 날짜
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/filter-date.png" alt="filter date">
+        </figure>
+      </li>
+    </ul>
+    <h3>오류 및 경고 세부정보</h3>
+    <p>오류 또는 경고 수(빨간색 상자) 옆에 있는 화살표를 클릭하면 해당 오류 또는 경고(노란색으로 강조 표시됨)에 대한 세부 정보가 나타납니다.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/warning-details.png" alt="warning details">
+    </figure>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Clearing_the_cache_after_syncing">동기화 후 캐시 지우기</h2>
+    <p>비디오를 동기화한 후 가능한 한 빨리 동기화를 수행한 결과를 보기 위해 캐시를 지우고 싶을 것입니다. 이것은 다음에서 수행할 수 있습니다. <strong>도구</strong>메뉴. 클릭하기만 하면<strong>은닉처</strong>왼쪽 탐색에서 옵션을 선택하고<strong>캐시 제거</strong>단추. 프로덕션 환경에서 이 작업을 너무 자주 수행하면 확장성과 성능에 부정적인 영향을 미칩니다. 자세한 내용은<a href="/using-brightcove-beacon/tools.html">도구 사용</a>문서.</p>
+  </section>
+</article>
